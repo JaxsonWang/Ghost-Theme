@@ -1,0 +1,54 @@
+.ha__main-to-top {
+  position: fixed;
+  z-index: 1;
+  background-color: #{var(--background-color)};
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  bottom: 1.5rem;
+  right: 2rem;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  .to-top-icon {
+    color: #{var(--color-text-primary)};
+  }
+  .reading-progress-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    circle {
+      stroke: #0470ee;
+      transform-origin: 50% 50%;
+      transform: rotate(-90deg);
+      transition: stroke-dashoffset .2s;
+      stroke-dasharray: 157.08, 157.08;
+      stroke-dashoffset: 157.08;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .ha__main-to-top {
+    bottom: 2.8rem;
+    right: 5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+
+}

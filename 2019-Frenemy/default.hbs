@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title page=(t " (第%页)")}}{{#is "post, page"}} – {{@site.title}}{{/is}}</title>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="淮城一只猫,淮城,IT博客,个人博客,王瑾,盒子丶先生,WEB平台,BOX-ROM,BoxMod">
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset "app/app.min.css?ver=20200112"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "main/main.min.css?ver=20200112"}}" />
+
+    {{!-- dns预加载 --}}
+    <link rel="dns-prefetch" href="{{@site.url}}">
+    <link rel="dns-prefetch" href="//casper.ghost.org">
+    <link rel="dns-prefetch" href="//static.ghost.org">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdn.iiong.com">
+    <link rel="dns-prefetch" href="//hm.baidu.com">
+    <link rel="dns-prefetch" href="//zz.bdstatic.com">
+    <link rel="dns-prefetch" href="//sp0.baidu.com">
+    <link rel="dns-prefetch" href="//api.share.baidu.com">
+    <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com">
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+<div class="site-warp">
+
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+
+    {{!-- The footer at the very bottom of the screen --}}
+    <footer class="site-footer">
+        <div class="container d-flex justify-content-sm-between justify-content-center text-center">
+            <div class="copyright">
+                <p>Powered by <a href="https://ghost.org/" rel="noopener nofollow" target="_blank">Ghost</a>. Copyright &copy; 2019. Crafted with <a href="https://github.com/JaxsonWang/Ghost-Theme-Frenemy" target="_blank" rel="noopener nofollow">Frenemy</a>.</p>
+            </div>
+            <nav class="social-links d-none d-sm-block">
+                <ul>
+                    <li class="social-link"><a target="_blank" rel="noopener nofollow" href="https://weibo.com/jaxsonwang"><i class="fab fa-weibo"></i></a></li>
+                    <li class="social-link"><a target="_blank" rel="noopener nofollow" href="https://twitter.com/jaxsonwangchina"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container copyright text-center">
+            <p>
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">苏ICP备15050739号-4</a>
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196" target="_blank" rel="nofollow noopener">苏公网安备32010402000196号</a>
+                <a href="https://tongji.baidu.com/web/10921506/overview/index?siteId=11569818" target="_blank" rel="nofollow noopener">百度统计</a>
+            </p>
+        </div>
+    </footer>
+    <div id="return-to-top" class="fixed-tools animated"><i class="fas fa-angle-double-up"></i></div>
+    {{> "toasts"}}
+</div>
+
+{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+{{ghost_foot}}
+
+{{!-- JavaScript --}}
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery-pjax/jquery.pjax.min.js"></script>
+<script type="text/javascript" src="{{asset "app/app.min.js?ver=191212"}}"></script>
+<script type="text/javascript" src="{{asset "main/main.js?ver=191212"}}"></script>
+
+{{> "search"}}
+</body>
+</html>

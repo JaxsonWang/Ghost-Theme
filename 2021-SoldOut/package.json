@@ -1,0 +1,68 @@
+{
+  "name": "sold-out",
+  "version": "1.1.5",
+  "engines": {
+    "ghost": ">=4.0.0",
+    "ghost-api": "v4"
+  },
+  "keywords": [
+    "ghost-theme"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "watch:dev": "webpack --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js && node config/build.js",
+    "eslint": "eslint src/**/*.js",
+    "eslint-fix": "eslint src/**/*.js --fix"
+  },
+  "author": {
+    "email": "i@iiong.com",
+    "name": "Jaxson Wang"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "autoprefixer": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.15.0",
+    "eslint-webpack-plugin": "^2.4.1",
+    "mini-css-extract-plugin": "^1.3.3",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "webpack": "^5.10.2",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.5",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "config": {
+    "posts_per_page": 18,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
+  }
+}

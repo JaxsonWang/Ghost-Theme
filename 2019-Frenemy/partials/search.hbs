@@ -1,0 +1,15 @@
+<div id="search-result" class="app-search-result">
+    <div class="search-close">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.4285714,12 L24,20.5714286 L20.5714286,24 L12,15.4285714 L3.42857143,24 L3.55271368e-15,20.5714286 L8.57142857,12 L5.32907052e-15,3.42857143 L3.42857143,3.55271368e-15 L12,8.57142857 L20.5714286,3.55271368e-15 L24,3.42857143 L15.4285714,12 Z"></path></svg>
+    </div>
+    <div class="search-content">
+        <form class="search-form" onsubmit="return false">
+            <i class="search-icon fas fa-search"></i>
+            <label>
+                <input type="text" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
+            </label>
+        </form>
+        <div class="search-meta" data-no-results-text="有 [results] 篇文章" style="display: none;">没有搜索到相关文章</div>
+        <div id="ghost-search-results" class="search-results"></div>
+    </div>
+</div>

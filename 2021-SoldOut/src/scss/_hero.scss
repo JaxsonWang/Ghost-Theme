@@ -1,0 +1,81 @@
+.ha__main-hero {
+  position: relative;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 8rem 0 4.5rem;
+  min-height: 22rem;
+  background-color: #000;
+  &.ha__main-hero-no-feature-image {
+    min-height: 0;
+    padding: 0;
+  }
+  &-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    opacity: .7;
+  }
+  &-content {
+    color: #{var(--constant-color-text-primary)};
+    z-index: 1;
+    .title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .description {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+    .description-tags {
+      font-size: 1rem;
+    }
+  }
+
+  // 文章详细页
+  &.ha__main-hero-article {
+    background-color: transparent;
+    .ha__main-hero-picture {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+  .ha__main-hero {
+    min-height: 28rem;
+  }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+  .ha__main-hero {
+    min-height: 35rem;
+    &-content {
+      .title {
+        font-size: 2.5rem;
+      }
+      .description {
+        font-size: 1.5rem;
+      }
+      .description-tags {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<head>
+
+  {{!-- 声明网页类型 --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {{!-- 双核浏览器渲染 --}}
+  <meta name="renderer" content="webkit" />
+
+  {{!-- 基础信息 --}}
+  <title>{{meta_title page=(t " - 第%页")}}{{#is "post"}} – {{@site.title}}{{/is}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="keywords" content="<%keywords%>">
+
+  {{!-- 样式脚本 --}}
+  <link id="fontawesome-css" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css" />
+  <link id="bootstrap-css" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" />
+  <link id="sold-out-css" rel="stylesheet" type="text/css" href="{{asset "/sold-out.css"}}" />
+
+  {{!-- dns预加载 --}}
+  <link rel="dns-prefetch" href="{{@site.url}}" />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="//hm.baidu.com" />
+  <link rel="dns-prefetch" href="//zz.bdstatic.com" />
+  <link rel="dns-prefetch" href="//sp0.baidu.com" />
+  <link rel="dns-prefetch" href="//api.share.baidu.com" />
+  <link rel="dns-prefetch" href="//push.zhanzhang.baidu.com" />
+  <link rel="dns-prefetch" href="//gravatar.loli.net" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+  {{!-- Ghost 相关标签信息 --}}
+  {{ghost_head}}
+
+</head>
+<body class="ha__body">
+
+{{> "site-header"}}
+
+{{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+{{{body}}}
+
+{{> "site-footer"}}
+
+{{!-- 脚本 --}}
+<script>
+  window.soldOut = {
+    title: '{{ @site.title }}',
+    logo: '{{ @site.logo }}',
+    url: '{{ @site.url }}'
+  }
+</script>
+<script id="bootstrap-js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+<script id="pjax-js" src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+<script id="sold-out-js" src="{{asset "/sold-out.js"}}"></script>
+
+{{!-- Ghost 页脚信息 --}}
+{{ghost_foot}}
+
+</body>
+</html>

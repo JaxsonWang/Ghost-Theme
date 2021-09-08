@@ -1,0 +1,18 @@
+{{#if no-hero}}
+  <section class="main-hero {{#if template-class}}{{template-class}}{{/if}}">
+    {{> header-background background=feature_image}}
+    <div class="main-hero-bg {{#if feature_image}}responsive-header-img{{else}}no-image{{/if}}"></div>
+    <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
+      <div class="text-center main-hero-content-title">{{title}}</div>
+    </div>
+  </section>
+{{else}}
+  <section class="main-hero {{#if template-class}}{{template-class}}{{/if}}">
+    {{> header-background background=feature_image}}
+    <div class="main-hero-bg {{#if feature_image}}responsive-header-img{{else}}no-image{{/if}}"></div>
+    <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
+      <div class="text-center main-hero-content-title">{{title}}</div>
+    </div>
+    {{> site-hero-waves-area}}
+  </section>
+{{/if}}

@@ -1,0 +1,21 @@
+{{#if isSecondary}}
+  {{#if @site.secondary_navigation}}
+    <ul class="nav justify-content-center ha__footer-nav">
+      {{#foreach navigation}}
+        <li class="nav-item {{link_class for=(url) class=(concat "nav-" slug)}}{{#if current}} active{{/if}}" role="menuitem">
+          <a class="nav-link {{#if current}} disabled{{/if}}" href="{{url absolute="true"}}" {{#if current}}aria-current="page"{{/if}}>{{label}}</a>
+        </li>
+      {{/foreach}}
+    </ul>
+  {{/if}}
+{{else}}
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    {{#foreach navigation}}
+      <li class="nav-item {{link_class for=(url) class=(concat "nav-" slug)}}{{#if current}} active{{/if}}" role="menuitem">
+        <a class="nav-link {{#if current}} disabled{{/if}}" href="{{url absolute="true"}}" {{#if current}}aria-current="page"{{/if}}>{{label}}</a>
+      </li>
+    {{/foreach}}
+  </ul>
+{{/if}}
+
+

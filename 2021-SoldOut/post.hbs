@@ -1,0 +1,86 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+<main class="ha__main {{body_class}}">
+  {{#post}}
+    {{#if feature_image}}
+      <section class="ha__main-hero ha__main-hero-article d-flex justify-content-center align-items-center">
+        {{> "header-background" background=feature_image}} {{!--Special header-background.hbs partial to generate the background image--}}
+      </section>
+    {{else}}
+      <section class="ha__main-hero ha__main-hero-no-feature-image"></section>
+    {{/if}}
+    <div class="ha__main-article">
+      <div class="container">
+        <h3 class="ha__main-article-title mt-5 text-center">
+          {{title}}
+        </h3>
+        <div class="ha__main-article-description mt-3 text-center">
+          {{#if primary_author}}
+            <span class="meta meta-title">{{#primary_author}}{{name}}{{/primary_author}}</span>{{/if}}
+          <span class="meta-cut">•</span>
+          <time class="meta-title title-date-time" datetime="{{date format="YYYY-MM-DD"}}">{{date
+                  format="YYYY年MM月DD日"}}</time>
+          <span class="meta-cut">•</span>
+          {{#if primary_tag}}<span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>{{/if}}
+          <span class="meta-cut">•</span>
+          <span id="{{url}}" class="meta meta-read leancloud_visitors" data-flag-title="{{title}}">阅读量 <span id="{{url}}" class="waline-visitor-count"></span></span>
+        </div>
+        <div class="ha__main-article-main my-5 row">
+          <div class="col-12 col-xl-10">
+            <article class="ha__main-article-content ha__main-article-content-default">{{content}}</article>
+          </div>
+          <div class="col-12 col-xl-2">
+            <div class="ha__article-sidebar">
+              <aside class="toc-container toc d-none d-xl-block"></aside>
+              <div class="ha__article-share d-xl-flex flex-row flex-xl-column mt-3 text-center text-xl-left">
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="top"
+                   title="分享到微博"
+                   href="https://service.weibo.com/share/share.php?title={{title}}&url={{url absolute="true"}}&pic={{feature_image}}"
+                  target="_blank"
+                  class="ha__article-share-item btn d-inline-flex justify-content-center align-items-center mt-0 mt-xl-3 mx-2 mx-xl-0 shadow"
+                >
+                  <i class="fab fa-weibo share-icon"></i>
+                </a>
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="top"
+                   title="分享到QQ"
+                   href="https://connect.qq.com/widget/shareqq/index.html?url={{url absolute="true"}}&title={{title}}&summary={{excerpt}}&pics={{feature_image}}&site={{@site.title}}"
+                target="_blank"
+                class="ha__article-share-item btn d-inline-flex justify-content-center align-items-center mt-0 mt-xl-3 mx-2 mx-xl-0 shadow"
+                >
+                <i class="fab fa-qq share-icon"></i>
+                </a>
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="top"
+                   title="<div class='post-share-wechat-qr'></div>"
+                   data-post-url="{{url absolute="true"}}"
+                   class="ha__article-share-item ha__article-share-item-wechat btn d-inline-flex justify-content-center align-items-center mt-0 mt-xl-3 mx-2 mx-xl-0 shadow"
+                >
+                  <i class="fab fa-weixin share-icon"></i>
+                </a>
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="top"
+                   title="分享到 Twitter"
+                   href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
+                target="_blank"
+                class="ha__article-share-item btn d-inline-flex justify-content-center align-items-center mt-0 mt-xl-3 mx-2 mx-xl-0 shadow"
+                >
+                <i class="fab fa-twitter share-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> "post-copyright"}}
+    {{> "post-divider"}}
+    {{> "post-footer-author"}}
+    {{> "post-comment"}}
+    {{> "post-read-more"}}
+    {{> "post-to-top"}}
+  {{/post}}
+</main>

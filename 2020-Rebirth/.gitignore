@@ -1,0 +1,8 @@
+*.log
+*.lock
+node_modules/
+.idea/
+.vscode/
+site.config.json
+.DS_Store
+dist/

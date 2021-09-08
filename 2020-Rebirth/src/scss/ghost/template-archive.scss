@@ -1,0 +1,141 @@
+.page.custom-archive-template {
+  .archive-page {
+    padding: 0 1rem;
+
+    &-title {
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    &-list {
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+
+      .timeline-item {
+        display: flex;
+        display: -webkit-flex;
+        position: relative;
+        margin-left: 2em;
+        padding-bottom: 2em;
+
+        &::before {
+          content: "";
+          background-color: $no-focus-color;
+          display: block;
+          width: 1px;
+          height: 200%;
+          position: absolute;
+          top: 0;
+        }
+
+        @media only screen and (max-width: 640px) {
+          &::before {
+            height: 150%;
+          }
+        }
+
+        &:last-child::before {
+          height: 1.5rem
+        }
+
+        .timeline-marker {
+          position: absolute;
+          background: $no-focus-color;
+          border: 1px solid $no-focus-color;
+          border-radius: 100%;
+          content: "";
+          display: block;
+          height: 12px;
+          transform: translateX(-50%);
+          top: 1.2rem;
+          width: 12px
+        }
+      }
+
+      .timeline-content {
+        margin-left: 1rem;
+        margin-top: 1em;
+        width: 100%;
+
+        .card-body {
+          display: flex;
+          flex-direction: row;
+          text-decoration: none;
+          padding: 0;
+          width: 100%;
+
+          .media-left {
+            width: 100%;
+            padding: 1.25rem;
+
+            time {
+              font-size: 0.8rem;
+              color: $main-color;
+              font-weight: bold;
+            }
+
+            .card-title {
+              margin: 0.5rem 0 0.8rem;
+            }
+
+            .card-text {
+              color: $main-color;
+            }
+          }
+
+          .media-right {
+            flex: 0 0 20rem;
+
+            .card-img-right {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          @media only screen and (max-width: 640px) {
+            .media-right {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+@mixin dark-mode {
+  .page.custom-archive-template {
+    .archive-page {
+      .timeline {
+        .timeline-content {
+          background-color: $dark-background-color;
+          .card-body {
+            .media-left {
+              time {
+                color: $dark-main-color;
+              }
+
+              .card-text {
+                color: $dark-main-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

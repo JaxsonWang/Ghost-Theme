@@ -1,0 +1,28 @@
+.template-error-404 {
+  .error-message {
+    height: 75vh;
+    .error-code {
+      font-size: 50px;
+      display: inline-block;
+      padding-right: 12px;
+      animation: type .5s alternate infinite;
+    }
+
+    .error-description {
+
+    }
+
+    .error-link {
+      color: $primary-active-color;
+    }
+  }
+}
+
+@keyframes type {
+  from {
+    box-shadow: inset -3px 0 0;
+  }
+  to {
+    box-shadow: inset -3px 0 0 transparent;
+  }
+}

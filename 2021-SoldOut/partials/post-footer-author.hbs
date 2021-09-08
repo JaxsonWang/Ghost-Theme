@@ -1,0 +1,24 @@
+{{!-- Everything inside the #author tags pulls data from the author --}}
+{{#primary_author}}
+  <div class="container">
+    <section class="ha__main-author d-flex flex-row align-items-center">
+      <div class="ha__main-author-picture">
+        <a href="{{url}}">
+          {{#if profile_image}}
+            <img src="{{img_url profile_image size="xs"}}" class="author-image rounded-circle" alt="{{name}}">
+          {{else}}
+            <img src="//cn.gravatar.com/avatar/ca4628a0863a739cb67a355ea4c567a3?s=250&amp;d=mm&amp;r=x" class="author-image rounded-circle" alt="{{name}}">
+          {{/if}}
+        </a>
+      </div>
+      <div class="ha__main-author-content">
+        <div class="author-name">{{name}}</div>
+        {{#if bio}}
+          <div class="author-description">{{bio}}</div>
+        {{else}}
+          <div class="author-description">阅读此作者的<a href="{{url}}">更多文章</a></div>
+        {{/if}}
+      </div>
+    </section>
+  </div>
+{{/primary_author}}

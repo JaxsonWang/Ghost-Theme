@@ -1,0 +1,42 @@
+<section class="post-tools text-center w-100">
+  <button
+     type="button"
+     class="btn site-popover btn-tools-item btn-share btn-share-popover"
+     data-container=".site-wrapper"
+     data-toggle="popover"
+     data-placement="bottom"
+     data-trigger="click"
+     data-content="<ul class='d-flex justify-content-center align-items-center site-popover-wrapper-share'><li><a class='share-weibo' href='https://service.weibo.com/share/share.php?title={{title}}&url={{@site.url}}{{url}}&pic={{feature_image}}' title='分享到微博' target='_blank' rel='nofollow noopener'><i class='fab fa-weibo'></i></a></li><li><a class='share-qq' href='https://connect.qq.com/widget/shareqq/index.html?url={{@site.url}}{{url}}&title={{title}}&summary={{excerpt}}&pics={{feature_image}}&site={{@site.title}}' title='分享到QQ' target='_blank' rel='nofollow noopener'><i class='fab fa-qq'></i></a></li><li><a class='share-wechat' title='分享到微信'><i class='fab fa-weixin'></i></a><div class='post-share-wechat-qr' id='wechat-qr-code-img'></div></li><li><a class='share-twitter' href='https://twitter.com/share?text={{title}}&url={{@site.url}}{{url}}' title='分享到推特' target='_blank' rel='nofollow noopener'><i class='fab fa-twitter'></i></a></li></ul>"
+  >
+    <i class="fas fa-share-alt"></i>
+  </button>
+  <button
+     type="button"
+     class="btn btn-tools-item btn-donation"
+     data-toggle="collapse"
+     data-target="#collapseDonation"
+     aria-expanded="false"
+     aria-controls="collapseDonation"
+     title="捐赠"
+  >
+    <i class="fas fa-coffee"></i>
+  </button>
+  <div class="collapse collapse-donation" id="collapseDonation">
+    <div class="card card-body card-collapse">
+      <div class="row">
+        <div class="col-sm">
+          <figure class="figure">
+            <img src="https://img.alicdn.com/imgextra/i4/2038135983/O1CN011u4G8M87EOv3N6Q_!!2038135983.jpg" alt="支付宝捐赠" title="请使用支付宝扫一扫进行捐赠">
+            <figcaption class="figure-caption">请使用支付宝扫一扫进行捐赠</figcaption>
+          </figure>
+        </div>
+        <div class="col-sm">
+          <figure class="figure">
+            <img src="https://img.alicdn.com/imgextra/i1/2038135983/O1CN012t8d2E1u4G8KbRFYp_!!2038135983.png" alt="微信捐赠" title="请使用微信扫一扫进行赞赏">
+            <figcaption class="figure-caption">请使用微信扫一扫进行赞赏</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

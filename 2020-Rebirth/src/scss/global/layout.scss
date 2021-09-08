@@ -1,0 +1,18 @@
+.site-wrapper {
+  min-width: 0;
+  width: 100%;
+
+  .sidebar-wrapper {
+    z-index: 1050;
+  }
+
+  .main-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .main-content {
+      z-index: 1;
+    }
+  }
+}

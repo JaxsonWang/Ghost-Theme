@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> site-header}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  {{> post-header}}
+  <main class="main-content">
+    <div class="container-sm">
+      <div class="row post-content-main">
+        <article class="{{post_class}} borderbox post-content post-content-use-blank article-main">
+          {{content}}
+        </article>
+      </div>
+      {{> post-tools}}
+      {{> post-copyright}}
+      {{> post-footer-author}}
+      {{> post-read-next}}
+      {{> post-comment}}
+    </div>
+  </main>
+{{/post}}

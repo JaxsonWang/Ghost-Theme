@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /ghost/
+Disallow: /feed
+Disallow: /rss

@@ -1,0 +1,25 @@
+{{#if desktop}}
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      {{#foreach navigation}}
+        <li class="nav-item {{link_class for=(url) class=(concat "nav-" slug)}}{{#if current}} active{{/if}}" role="menuitem"><a class="nav-link top-menu-nav-item" href="{{url absolute="true"}}">{{label}}</a></li>
+      {{/foreach}}
+    </ul>
+    <div class="ml-auto nav-left">
+      <button type="button" class="btn site-tooltip btn-nav-left btn-dark-mode click-dark" data-toggle="tooltip" data-placement="bottom" title="切换风格">
+        🌓
+      </button>
+      <button type="button" class="btn site-tooltip btn-nav-left btn-search click-search" data-toggle="tooltip" data-placement="bottom" title="搜索文章">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+{{/if}}
+
+{{#if mobile}}
+  <div class="side-navbar-nav list-group list-group-flush">
+    {{#foreach navigation}}
+      <a href="{{url absolute="true"}}" class="list-group-item list-group-item-action menu-item side-menu-nav-item {{link_class for=(url) class=(concat "nav-" slug)}}{{#if current}} active{{/if}}">{{label}}</a>
+    {{/foreach}}
+  </div>
+{{/if}}
