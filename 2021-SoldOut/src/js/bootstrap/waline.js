@@ -4,13 +4,13 @@ export default () => {
   loadScripts([
     {
       name: 'waline-js',
-      path: 'https://cdn.jsdelivr.net/npm/@waline/client@1.3.3/dist/Waline.min.js'
+      path: 'https://cdn.jsdelivr.net/npm/@waline/client@1.3.10/dist/Waline.min.js'
     }
   ]).then(() => {
     new Waline({
       el: '#vcomments',
-      serverURL: 'https://comments.iiong.com',
-      avatar: '',
+      serverURL: 'https://waline.iiong.com',
+      avatar: 'mp',
       visitor: true,
       highlight: true,
       recordIP: true,

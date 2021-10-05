@@ -4,7 +4,7 @@ import {pjax} from './pjax'
 const initGhostSearch = () => {
   loadScripts([{
     name: 'ghost-content-api-js',
-    path: 'https://cdn.jsdelivr.net/npm/@tryghost/content-api@1.4.14/umd/content-api.min.js'
+    path: 'https://cdn.jsdelivr.net/npm/@tryghost/content-api@1.5.13/umd/content-api.min.js'
   },{
     name: 'ghost-search',
     path: 'https://cdn.jsdelivr.net/npm/ghost-search@1.1.0/dist/ghost-search.min.js'

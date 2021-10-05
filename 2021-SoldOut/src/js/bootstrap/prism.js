@@ -5,7 +5,7 @@ let isRegister = false
 
 export default async function () {
   // Prismjs 库地址
-  const prismSrc = `https://cdn.jsdelivr.net/npm/prismjs@1.22.0`
+  const prismSrc = `https://cdn.jsdelivr.net/npm/prismjs@1.25.0`
   // 高亮语法块
   const codeBlocks = document.querySelectorAll('.ha__main-article-content pre>code')
   // 如果语法块处理判断

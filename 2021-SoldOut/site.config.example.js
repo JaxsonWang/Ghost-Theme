@@ -2,7 +2,7 @@ module.exports = {
   网站关键词: '网站关键词',
   博客欢迎语: '博客欢迎语',
   博客搜索密钥: '11efaa9656c92e5ce04501faf9', // 参考文档：https://ghost.org/docs/content-api/#key
-  评论系统服务端地址: 'https://comments.iiong.com', // 参考文档：https://waline.js.org/client/basic.html#serverurl
+  评论系统服务端地址: 'https://waline.iiong.com', // 参考文档：https://waline.js.org/client/basic.html#serverurl
   评论框占位提示符: '请您理智发言，共建美好社会！',
   页脚扣扣链接: 'https://qm.qq.com/cgi-bin/qm/qr?k=OSLqAxpvinqlSfrmkr_WpCF1q_OWov1x&jump_from=webapi',
   页脚微信二维码: 'https://cdn.jsdelivr.net/gh/JaxsonWang/jaxsonwang.github.io/images/wechat.jpg',

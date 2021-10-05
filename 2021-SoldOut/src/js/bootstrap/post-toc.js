@@ -5,7 +5,7 @@ export default () => {
     loadScripts([
       {
         name: 'tocbot-js',
-        path: 'https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js'
+        path: 'https://cdn.jsdelivr.net/npm/tocbot@4.13.4/dist/tocbot.min.js'
       }
     ]).then(() => {
       window.tocbot.init({
