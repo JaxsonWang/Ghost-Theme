@@ -10,7 +10,7 @@ module.exports = {
   output: {
     file: production ? 'dist/app.js' : 'src/app.js',
     format: 'esm',
-    sourcemap: true
+    sourcemap: !production
   },
   plugins: [
     resolve(),

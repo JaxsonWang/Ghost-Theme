@@ -1,4 +1,5 @@
 console.log('💀')
-const data = '<div>测试</div>'
+const ele = document.createElement('div')
+ele.innerText = 'test'
 
-document.body.innerHTML = data
+document.querySelector('body').appendChild(ele)
