@@ -3,33 +3,13 @@ import { loadScripts } from '../utils'
 export default () => {
   loadScripts([
     {
-      name: 'waline-js',
-      path: 'https://cdn.jsdelivr.net/npm/@waline/client@1.3.10/dist/Waline.min.js'
+      name: 'twikoo-js',
+      path: 'https://cdn.jsdelivr.net/npm/twikoo@1.4.18/dist/twikoo.all.min.js'
     }
   ]).then(() => {
-    new Waline({
+    window.twikoo.init({
       el: '#vcomments',
-      serverURL: 'https://waline.iiong.com',
-      avatar: 'mp',
-      visitor: true,
-      highlight: true,
-      recordIP: true,
-      path: window.location.pathname,
-      meta: ['nick', 'mail', 'link'],
-      requiredMeta: [],
-      login: 'enable',
-      dark: 'body.dark',
-      pageSize: 10,
-      lang: 'zh-CN',
-      emoji: [
-        'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
-        'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
-        'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
-        'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba'
-      ],
-      locale: {
-        placeholder: '请您理智发言，共建美好社会！'
-      }
+      envId: 'twikoo-8gis88nx761b6095'
     })
   })
 }

@@ -13,8 +13,7 @@ fs.readFile(`${rootDir}/assets/sold-out.js`, 'utf8', (err, data) => {
   }
 
   const result = data
-    .replace(/https:\/\/waline.iiong.com/, config.评论系统服务端地址)
-    .replace(/请您理智发言，共建美好社会！/, config.评论框占位提示符)
+    .replace(/twikoo-8gis88nx761b6095/, config.云开发环境id)
     .replace(/99efee9603c92e5cd04501f069/, config.博客搜索密钥)
     .replace(/本博客最近大升级，如遇到莫名其妙可以在任何文章之下留言反馈！/, config.弹窗提醒内容)
     .replace(/2020-12-23T23:00:00/, config.弹窗提醒时间)
