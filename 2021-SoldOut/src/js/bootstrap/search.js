@@ -1,5 +1,5 @@
 import { loadScripts, parseTime } from '../utils'
-import {pjax} from './pjax'
+// import {pjax} from './pjax'
 
 const initGhostSearch = () => {
   loadScripts([{
@@ -40,7 +40,7 @@ const initGhostSearch = () => {
           mate.innerHTML = text
           document.querySelector('.ha__search .search-meta').classList.replace('invisible', 'visible')
           // pjax 实例化
-          pjax.refresh(document.querySelector('.ha__search .search-results'))
+          // pjax.refresh(document.querySelector('.ha__search .search-results'))
         }
       }
     })
