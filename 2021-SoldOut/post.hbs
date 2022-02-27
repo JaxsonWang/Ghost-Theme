@@ -25,7 +25,9 @@ into the {body} of the default.hbs template --}}
           <span class="meta-cut">•</span>
           {{#if primary_tag}}<span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>{{/if}}
           <span class="meta-cut">•</span>
-          <span id="{{url}}" class="meta meta-read leancloud_visitors" data-flag-title="{{title}}">阅读量 <span id="{{url}}" class="twikoo_visitors">0</span> 次</span>
+          <span id="{{url}}">阅读量 <span id="twikoo_visitors">0</span> 次</span>
+          <span class="meta-cut">•</span>
+          <span id="{{url}}">评论量 <span id="twikoo_comments">0</span> 个</span>
         </div>
         <div class="ha__main-article-main my-5 row">
           <div class="col-12 col-xl-10">
