@@ -6,12 +6,12 @@ import toTop from './bootstrap/to-top'
 import progress from './bootstrap/post-progress'
 import toc from './bootstrap/post-toc'
 import search from './bootstrap/search'
-import pjax from './bootstrap/pjax'
+// import pjax from './bootstrap/pjax'
 import prefersColorScheme from './bootstrap/prefersColorScheme'
 import pagination from './bootstrap/pagination'
 import postShare from './bootstrap/post-share'
 import templateLinks from './bootstrap/template-links'
-import waLine from './bootstrap/waline'
+import comments from './bootstrap/comments'
 import musicPlayer from './bootstrap/musicplayer'
 import global from './bootstrap/global'
 import zoomImage from './bootstrap/post-image'
@@ -25,7 +25,7 @@ musicPlayer()
 
 global()
 zoomImage()
-waLine()
+comments()
 pagination()
 postShare()
 prism()
@@ -35,4 +35,4 @@ toc()
 search()
 tooltips()
 templateLinks()
-pjax()
+// pjax()

@@ -6,7 +6,7 @@ import toc from './post-toc'
 import pagination from './pagination'
 import templateLinks from './template-links'
 import postShare from './post-share'
-import waLine from './waline'
+import comments from './comments'
 import global from './global'
 import zoomImage from './post-image'
 
@@ -39,7 +39,7 @@ export default () => {
   document.addEventListener('pjax:complete', event => {
     global()
     zoomImage()
-    waLine()
+    comments()
     pagination()
     postShare()
     prism()
