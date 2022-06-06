@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
+<html lang="{{@site.locale}}">
 <head>
 
   {{!-- 声明网页类型 --}}
@@ -16,13 +16,16 @@
   <meta name="keywords" content="<%keywords%>">
 
   {{!-- 样式脚本 --}}
-  <link id="fontawesome-css" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" />
-  <link id="bootstrap-css" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" />
+  <link id="fontawesome-css" rel="stylesheet" type="text/css" href="https://cdn.staticaly.com/gh/FortAwesome/Font-Awesome/5.15.4/css/all.min.css" />
+  <link id="bootstrap-css" rel="stylesheet" type="text/css" href="https://lib.baomitu.com/twitter-bootstrap/5.1.1/css/bootstrap.min.css" />
   <link id="sold-out-css" rel="stylesheet" type="text/css" href="{{asset "/sold-out.css"}}" />
 
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
+  <link rel="dns-prefetch" href="//cdn.staticaly.com" />
+  <link rel="dns-prefetch" href="//cdn.statically.io" />
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="//lib.baomitu.com" />
   <link rel="dns-prefetch" href="//hm.baidu.com" />
   <link rel="dns-prefetch" href="//zz.bdstatic.com" />
   <link rel="dns-prefetch" href="//sp0.baidu.com" />
@@ -53,7 +56,7 @@
     url: '{{ @site.url }}'
   }
 </script>
-<script id="bootstrap-js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script id="bootstrap-js" src="https://lib.baomitu.com/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 <script id="sold-out-js" src="{{asset "/sold-out.js"}}"></script>
 
 {{!-- Ghost 页脚信息 --}}

@@ -46,12 +46,12 @@ export default () => {
 
   loadStyles([{
     name: 'player-css',
-    path: 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'
+    path: 'https://lib.baomitu.com/aplayer/1.10.1/APlayer.min.css'
   }]).then()
 
   loadScripts([{
     name: 'player-js',
-    path: 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'
+    path: 'https://lib.baomitu.com/aplayer/1.10.1/APlayer.min.js'
   }]).then(async function() {
     try {
       // const musicPlayerList = window.SoldOutConfigMusicPlayerList || '5392087441'

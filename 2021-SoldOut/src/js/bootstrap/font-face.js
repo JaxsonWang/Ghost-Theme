@@ -5,7 +5,7 @@ export default () => {
   }
   // https://cdn.jsdelivr.net/gh/JaxsonWang/jaxsonwang.github.io@master/assets/PuHuiTi.ttf
   const family = 'PuHuiTi'
-  const source = 'url("https://cdn.jsdelivr.net/gh/JaxsonWang/jaxsonwang.github.io@master/assets/PuHuiTi.ttf")'
+  const source = 'url("https://github.rc1844.workers.dev/JaxsonWang/jaxsonwang.github.io/raw/master/assets/PuHuiTi.ttf")'
   const desc = {}
   const fonts = document.fonts
   if (fonts) {

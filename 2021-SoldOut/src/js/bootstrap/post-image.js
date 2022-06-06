@@ -7,7 +7,7 @@ const zooming = () => {
     loadScripts([
       {
         name: 'zooming-js',
-        path: 'https://cdn.jsdelivr.net/npm/zooming@2.1.1/build/zooming.min.js'
+        path: 'https://lib.baomitu.com/zooming/2.1.1/zooming.min.js'
       }
     ]).then(() => {
       const zooming = new Zooming()
