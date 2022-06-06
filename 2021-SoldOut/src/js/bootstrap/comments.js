@@ -4,7 +4,7 @@ export default () => {
   loadScripts([
     {
       name: 'twikoo-js',
-      path: 'https://lib.baomitu.com/twikoo/1.5.10/twikoo.all.min.js'
+      path: 'https://lib.baomitu.com/twikoo/1.5.11/twikoo.all.min.js'
     }
   ]).then(() => {
     const envId = 'twikoo-8gis88nx761b6095'
