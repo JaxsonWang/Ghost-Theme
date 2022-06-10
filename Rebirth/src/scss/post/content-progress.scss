@@ -1,0 +1,13 @@
+.site-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1040;
+  background-color: transparent;
+  border-radius: 0;
+  height: 2px;
+  .reading-progress-bar {
+    background-color: $primary-active-color;
+  }
+}

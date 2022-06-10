@@ -1,0 +1,45 @@
+<div class="container">
+  <section class="ha__main-read-more ha__main-post-list">
+    <div class="ha__main-post-list-row row justify-content-center gy-4 my-5">
+      {{#if primary_tag}}
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+          {{#if related_posts}}
+            <article class="col-12 col-md-6 col-xl-4">
+              <div class="read-next-card">
+                <header class="read-next-card-header">
+                  {{#../primary_tag}}
+                    <h3><span>更多关于</span> <a href="{{url}}">{{name}}</a></h3>
+                  {{/../primary_tag}}
+                </header>
+                <div class="read-next-card-content">
+                  <ul>
+                    {{#foreach related_posts}}
+                      <li>
+                        <h4><a href="{{url}}">{{title}}</a></h4>
+                        <div class="read-next-card-meta">
+                          <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY年MM月DD日"}}</time></p>
+                        </div>
+                      </li>
+                    {{/foreach}}
+                  </ul>
+                </div>
+                <footer class="read-next-card-footer">
+                  <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='没有相关文章' singular='% 篇' plural='查看 % 篇文章'}}
+                    →</a>
+                </footer>
+              </div>
+            </article>
+          {{/if}}
+        {{/get}}
+      {{/if}}
+      {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
+      {{#next_post}}
+        {{> "post-card-default"}}
+      {{/next_post}}
+      {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
+      {{#prev_post}}
+        {{> "post-card-default"}}
+      {{/prev_post}}
+    </div>
+  </section>
+</div>

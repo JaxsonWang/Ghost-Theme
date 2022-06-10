@@ -1,0 +1,46 @@
+<header class="site-header fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{@site.url}}">{{@site.title}}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <!--TODO 这边 Ghost Nav好像有改动，暂时这样后期再查看源码修改-->
+                    {{#if @site.navigation}}
+                    {{! Loop through the navigation items }}
+                        {{#foreach navigation}}
+                            <li class="nav-item {{link_class for=(url) class=(concat "nav-" slug)}}{{#if current}} active{{/if}}" role="menuitem">
+                                <a class="nav-link" href="{{url absolute="true"}}">{{label}}</a>
+                            </li>
+                        {{/foreach}}
+                    {{! End the loop }}
+                    {{/if}}
+                    <li class="nav-item m-0 d-none d-md-none d-lg-block d-xl-block">
+                        <div class="site-searchbar">
+                            <label for="nav-top-search"></label>
+                            <input id="nav-top-search" class="search-input" type="text" placeholder="Search...">
+                            <a class="search-icon"><i class="fas fa-search"></i></a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-block d-md-block d-lg-none d-xl-none">
+                        <div class="mobile-search">
+                            <div class="input-group">
+                                <input type="text" id="mobile-search" class="mobile-search-input form-control" placeholder="Search..." aria-label="Search Input">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <label class="dark-switch-label" for="darkSwitch">
+                            <a class="dark-switch-label-span" data-toggle="tooltip" data-placement="bottom" title="日夜模式">
+                                <i class="fas fa-sun"></i>
+                            </a>
+                        </label>
+                        <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

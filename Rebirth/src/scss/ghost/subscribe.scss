@@ -1,0 +1,80 @@
+.main-footer-info {
+  &-subscribe {
+    .subscribe-form {
+      .message-success,
+      .message-error,
+      .message-loading {
+        display: none;
+      }
+
+      .success .message-success,
+      .invalid .message-error,
+      .error .message-error {
+        margin: 1em auto 0;
+        color: var(--red);
+        font-size: 1rem;
+      }
+
+      .success .message-success {
+        display: block;
+        color: var(--green);
+      }
+
+      .invalid .message-error,
+      .error .message-error {
+        display: block;
+      }
+
+      .loading .message-loading {
+        display: flex;
+        top: 0;
+        left: 0;
+        background-color: $footer-background-color;
+
+        .loading-title {
+          width: 100%;
+          font-size: 1rem;
+          text-align: center;
+        }
+
+        .button-loader {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .subscribe-email {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin dark-mode {
+  .main-footer-info {
+    &-subscribe {
+      .subscribe-form {
+        .loading .message-loading {
+          background-color: $dark-footer-background-color;
+
+
+          .button-loader {
+            width: 100%;
+            text-align: center;
+            svg path,
+            svg rect {
+              fill: $dark-main-hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

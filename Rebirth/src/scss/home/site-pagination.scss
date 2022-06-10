@@ -1,0 +1,63 @@
+.site-pagination {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  .pagination {
+    .page-item {
+      &.active {
+        span {
+          background-color: #e9ecef;
+          border: none;
+          color: $main-color;
+          font-size: 1.2rem;
+        }
+      }
+
+      .page-link {
+        border: none;
+        color: $main-color;
+        font-size: 1.2rem;
+        &:hover {
+          transition: all 500ms ease 0ms;
+        }
+      }
+    }
+  }
+}
+
+@mixin dark-mode {
+  .site-pagination {
+    .pagination {
+      .page-item {
+        &.active {
+          span {
+            background-color: $dark-skeleton-color;
+            border: none;
+            color: $dark-main-color;
+            font-size: 1.2rem;
+          }
+        }
+
+        a {
+          background-color: $dark-background-color;
+          border: none;
+          color: $dark-main-color;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: $dark-main-hover-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

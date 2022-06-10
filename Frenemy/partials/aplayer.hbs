@@ -1,0 +1,41 @@
+<div id="aplayer" class="theme-aplayer"></div>
+<style type="text/css">
+.theme-aplayer {
+  position: relative;
+}
+.theme-aplayer.aplayer-fixed .aplayer-lrc {
+  z-index: 99;
+  max-width: 400px;
+  bottom: 0;
+  left: -20px;
+}
+
+.theme-aplayer .aplayer-lrc p {
+  font-size: 12px!important;
+  opacity: 0;
+}
+
+.theme-aplayer.aplayer-narrow.aplayer-fixed .aplayer-lrc {
+  opacity: 0;
+}
+</style>
+<script type="text/javascript">
+var aPlayer = new APlayer({
+  container: document.getElementById('aplayer'),
+  fixed: true,
+  mini: true,
+  autoplay: false,
+  loop: 'all',
+  order: 'list',
+  preload: 'auto',
+  volume: '0.7',
+  lrcType: 1,
+  audio: [{
+    name: '桥边姑娘',
+    lrc: '[00:00.00]桥边姑娘 - 张茜[00:08.58]词：海伦[00:12.88]曲：海伦[00:17.17]暖阳下 我迎芬芳[00:20.03]是谁家的姑娘[00:23.06]我走在了那座小桥上[00:26.29]你抚琴奏忧伤[00:29.48]桥边歌唱的小姑娘[00:32.46]你眼角在流淌[00:35.66]你说一个人在逞强[00:38.79]一个人念家乡[00:41.91]风华模样 你落落大方[00:48.05]坐在桥上 我听你歌唱[00:56.69]我说桥边姑娘 你的芬芳[01:03.61]我把你放心上[01:06.76]刻在了我心膛[01:09.83]桥边姑娘 你的忧伤[01:16.01]我把你放心房[01:19.16]不想让你流浪[01:37.74]暖阳下 的桥头旁[01:40.64]有这样一姑娘[01:43.73]她有着长长的乌黑发[01:46.99]一双眼明亮[01:50.14]姑娘你让我心荡漾[01:53.28]小鹿在乱撞[01:56.23]你说无人在身旁[01:59.50]一个人在流浪[02:02.56]风华模样 你落落大方[02:08.80]坐在桥上 我听你歌唱[02:15.81]我说 我说桥边姑娘 你的芬芳[02:24.36]我把你放心上[02:27.43]刻在了我心膛[02:30.54]桥边姑娘 我的忧伤[02:36.74]我把你放心房[02:39.85]不想让你流浪',
+    artist: '张茜',
+    url: 'http://58.216.6.142/amobile.music.tc.qq.com/C400001fkaP431i0UO.m4a?guid=7007376046&vkey=308005EE893B046D3E0EB979BF4E0201CD50C0C637D0A6D1084A0B3588499880B813FF39C38272A013A30C120BC6E9B76B5861CC363E90DA&uin=6073&fromtag=66',
+    cover: 'https://y.gtimg.cn/music/photo_new/T002R300x300M0000037Yq3H3RznaX.jpg'
+  }]
+});
+</script>

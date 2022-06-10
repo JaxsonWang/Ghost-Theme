@@ -1,0 +1,51 @@
+.main-footer {
+  padding: 3rem 0 2rem;
+  background-color: $footer-background-color;
+
+  .main-footer-copyright {
+    p {
+      margin-bottom: 0;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.375rem;
+
+      a {
+        color: $no-focus-color;
+      }
+    }
+  }
+
+  .main-footer-meta {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    line-height: 1.375rem;
+    color: $no-focus-color;
+  }
+
+  .main-footer-audit {
+    p {
+      margin-bottom: 0;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.375rem;
+
+      a {
+        color: $no-focus-color;
+      }
+    }
+  }
+}
+
+@mixin dark-mode {
+  .main-footer {
+    background-color: $dark-footer-background-color;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

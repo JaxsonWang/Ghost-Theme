@@ -1,0 +1,46 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> site-header}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+  {{> page-header template-class='template-about-me'}}
+  <main class="main-content custom-about-template">
+    <div class="d-flex justify-content-center align-items-center flex-column about-me-home">
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 about-me">
+        <div class="about-me__side about-me__side--front">
+          <div class="about-me__cont">
+            <span class="blue">alert</span><span>(<span class="green">'Hello World!'</span>)</span>
+          </div>
+        </div>
+        <div class="about-me__side about-me__side--back">
+          <!-- Back Content -->
+          <div class="about-me__cta">
+            <p>
+              <span class="purple">const</span> aboutMe <span class="cyan">=</span> {
+              <br />
+              <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Jaxson Wang'</span>,
+              <br/>
+              <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iiong.com'</span>,
+              <br/>
+              <span class="space red">position</span><span class="cyan">:</span> <span class="green">'Web Front-End Developer'</span>,
+              <br/>
+              <span class="space red">website</span><span class="cyan">:</span> <span class="green">'https://iiong.com'</span>
+              <br/> };
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-sm">
+      <div class="row">
+        <article class="{{post_class}} borderbox post-content post-content-use-blank">
+          {{content}}
+        </article>
+      </div>
+    </div>
+  </main>
+{{/post}}

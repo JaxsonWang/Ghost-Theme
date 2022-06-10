@@ -1,0 +1,20 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+--}}
+
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+<main class="main-content template-error-404">
+  <div class="container-sm">
+    <div class="row">
+      <section class="d-flex flex-column justify-content-center align-items-center w-100 error-message">
+        <h1 class="error-code">Error {{statusCode}}</h1>
+        <p class="error-description">{{message}}</p>
+        <a class="error-link" href="{{@site.url}}">返回首页</a>
+      </section>
+    </div>
+  </div>
+</main>

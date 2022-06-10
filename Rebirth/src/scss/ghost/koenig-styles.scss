@@ -1,0 +1,327 @@
+.post-content {
+  .kg-image {
+    max-width: 100%;
+  }
+
+  /* Preventing full-width image overlap with post image.  */
+  .kg-content *:first-child .kg-image {
+    width: 100%;
+  }
+
+  .kg-width-wide .kg-image {
+    max-width: 100%;
+  }
+
+  .kg-width-full .kg-image {
+    max-width: 100%
+  }
+
+  figure {
+    margin: 0.8em 0 2.3em;
+    text-align: center;
+  }
+
+  h1 + figure,
+  h2 + figure,
+  h3 + figure,
+  h4 + figure {
+    margin-top: 2em;
+  }
+
+  figure img {
+    margin: 0;
+  }
+
+  figcaption {
+    margin: 1.0em 0 0;
+    color: #5d7179;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 75%;
+    line-height: 1.5em;
+    text-align: center;;
+  }
+
+  .kg-width-full figcaption {
+    padding: 0 1.5em;
+  }
+
+  .kg-embed-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .kg-embed-card .fluid-width-video-wrapper {
+    margin: 0;
+  }
+
+
+  .kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1040px;
+    width: 100vw;
+  }
+
+  .kg-gallery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .kg-gallery-image img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .kg-gallery-row:not(:first-of-type) {
+    margin: 0.75em 0 0 0;
+  }
+
+  .kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 0.75em;
+  }
+
+  .kg-gallery-card + .kg-image-card.kg-width-wide,
+  .kg-gallery-card + .kg-gallery-card,
+  .kg-image-card.kg-width-wide + .kg-gallery-card,
+  .kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
+    margin: -2.25em 0 3em;
+  }
+
+  /* keep existing <pre> styles for code cards with captions */
+  .kg-code-card {
+    width: 100%;
+  }
+
+  .kg-code-card pre {
+    margin: 0;
+  }
+
+  .kg-bookmark-card {
+    width: 100%;
+  }
+
+  .kg-card + .kg-bookmark-card {
+    margin-top: 0;
+  }
+
+  .kg-bookmark-container {
+    display: flex;
+    min-height: 9.25rem;
+    color: #15171A;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
+  }
+
+  .kg-bookmark-container:hover {
+    color: #15171A;
+    text-decoration: none;
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
+  }
+
+  .kg-bookmark-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .kg-bookmark-title {
+    color: #313b3f;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .kg-bookmark-container:hover .kg-bookmark-title {
+    color: #1abc9c;
+  }
+
+  .kg-bookmark-description {
+    display: -webkit-box;
+    overflow-y: hidden;
+    margin-top: .75rem;
+    max-height: 3rem;
+    color: #5d7179;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .kg-bookmark-thumbnail {
+    position: relative;
+    min-width: 33%;
+    max-height: 100%;
+  }
+
+  .kg-bookmark-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+
+    object-fit: cover;
+  }
+
+  .kg-bookmark-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 14px;
+    color: #5d7179;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .kg-bookmark-icon {
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .kg-bookmark-author {
+    line-height: 1.5em;
+    font-size: 0.725rem;
+  }
+
+  .kg-bookmark-author:after {
+    content: "•";
+    margin: 0 6px;
+  }
+
+  .kg-bookmark-publisher {
+    overflow: hidden;
+    max-width: 240px;
+    line-height: 1.5em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.725rem;
+  }
+}
+
+@media (max-width: 1040px) {
+  .post-content {
+    .kg-width-full {
+      .kg-image {
+        width: 100vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .post-content {
+    figure {
+      margin: 0.2em 0 1.3em;
+    }
+
+    h1 + figure,
+    h2 + figure,
+    h3 + figure,
+    h4 + figure {
+      margin-top: 0.9em;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .post-content {
+    .kg-width-wide,
+    .kg-width-full {
+      // margin-right: 5vw;
+      // margin-left: 5vw;
+    }
+
+    figcaption {
+      margin-bottom: 0.4em;
+    }
+
+    .kg-bookmark-container {
+      flex-direction: column;
+      .kg-bookmark-content {
+        order: 2;
+        padding: 1rem 0.725rem;
+        .kg-bookmark-title {
+          font-size: 1rem;
+        }
+
+        .kg-bookmark-description {
+          margin-top: .275rem;
+          font-size: 0.725rem;
+          line-height: 1.5em;
+        }
+
+        .kg-bookmark-metadata {
+          font-size: 0.725rem;
+          line-height: 1.5em;
+        }
+      }
+    }
+
+    .kg-bookmark-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .kg-bookmark-thumbnail {
+      order: 1;
+      min-height: 160px;
+      width: 100%;
+    }
+
+    .kg-bookmark-thumbnail img {
+      border-radius: 3px 3px 0 0;
+    }
+  }
+}
+
+@mixin dark-mode {
+  .post-content {
+    .kg-bookmark-card {
+      a.kg-bookmark-container {
+        background-color: $dark-skeleton-color;
+        &:hover {
+          text-decoration: none;
+          .kg-bookmark-content {
+            .kg-bookmark-title {
+              color: $dark-main-hover-color;
+            }
+            .kg-bookmark-description {
+              color: $dark-main-color;
+            }
+          }
+        }
+        .kg-bookmark-content {
+          .kg-bookmark-title {
+            color: $dark-main-color;
+          }
+          .kg-bookmark-description {
+            color: $dark-main-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

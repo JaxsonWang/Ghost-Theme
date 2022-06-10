@@ -1,0 +1,46 @@
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="{{@site.url}}">
+            {{#if @site.icon}}
+                <img src="{{img_url @site.icon size="xxs"}}" alt="{{@site.title}} icon" />
+            {{/if}}
+            <span>{{@site.title}}</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">{{title}}</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">分享 {{> "icons/point"}}</div>
+
+        <a class="floating-header-share-qq" href="https://connect.qq.com/widget/shareqq/index.html?title={{encode title}}&amp;url={{url absolute="true"}}"
+        onclick="window.open(this.href, 'share-qq', 'width=1000,height=550');return false;">
+        {{> "icons/qq"}}
+        </a>
+
+        <a class="floating-header-share-wechat" href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data={{url absolute="true"}}"
+        onclick="window.open(this.href, 'share-wechat', 'width=550,height=550');return false;">
+        {{> "icons/wechat"}}
+        </a>
+
+        <a class="floating-header-share-weibo" href="http://service.weibo.com/share/share.php?title={{encode title}}&appkey=4221439169&url={{url absolute="true"}}"
+        onclick="window.open(this.href, 'share-weibo', 'width=550,height=550');return false;">
+        {{> "icons/weibo"}}
+        </a>
+
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+        onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+        {{> "icons/twitter"}}
+        </a>
+
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+        onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+        {{> "icons/facebook"}}
+        </a>
+
+    </div>
+    <progress id="reading-progress" class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>

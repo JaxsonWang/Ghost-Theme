@@ -1,0 +1,45 @@
+.toast-wrapper {
+  position: relative;
+  z-index: 1100;
+  &-list {
+    position: fixed;
+    top: 5rem;
+    right: 0;
+    &-item {
+      .toast-header {
+        img {
+          width: 1.125rem;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@mixin dark-mode {
+  .toast-wrapper {
+    &-list {
+      &-item {
+        background-color: $dark-background-color;
+        color: $dark-main-color;
+        .toast-header {
+          background-color: $dark-background-color;
+          color: $dark-main-color;
+          .close {
+            span {
+              color: $dark-main-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

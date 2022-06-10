@@ -1,0 +1,104 @@
+.site-wrapper {
+  .sidebar-wrapper {
+    position: fixed;;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin .25s ease-out;
+
+    .sidebar-container {
+      height: 100vh;
+      background-color: #f8f9fa;
+
+      &.boxshadow-right {
+        box-shadow: 5px 0 5px 0 rgba(0, 0, 0, .15);
+      }
+
+      .sidebar-header {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.2rem;
+
+        .sidebar-right {
+          .sidebar-search {
+            margin-right: 0.725rem;
+
+            i {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .list-group {
+        width: 15rem;
+
+        .menu-item {
+          background-color: #f8f9fa;
+
+          &.active {
+            color: $primary-active-color;
+            background-color: $primary-active-background-color;
+            border-color: $primary-active-background-color;
+            border-right: 3px solid $primary-active-color;
+          }
+        }
+      }
+
+      .sidebar-footer {
+        .btn-footer {
+          background-color: transparent;
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.toggled {
+    overflow: hidden;
+
+    .sidebar-wrapper {
+      margin-left: 0;
+    }
+  }
+}
+
+@mixin dark-mode {
+  .site-wrapper {
+    .sidebar-wrapper {
+      .sidebar-container {
+        background-color: $dark-background-color;
+
+        .list-group {
+          .menu-item {
+            background-color: $dark-background-color;
+            color: $dark-main-color;
+
+            &:hover {
+              color: $dark-main-hover-color;
+            }
+
+            &.active {
+              color: $primary-active-color;
+              background-color: $primary-active-background-color;
+              border-color: $primary-active-background-color;
+              border-right: 3px solid $primary-active-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}
+

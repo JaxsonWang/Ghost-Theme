@@ -1,0 +1,137 @@
+.main-content {
+  .post-author-footer {
+    margin: 0 auto;
+    padding: 3rem 0;
+    width: 100%;
+
+    .author-card {
+      .author-profile-image {
+        position: relative;
+        margin-right: 0.938rem;
+        width: 3.75rem;
+        height: 3.75rem;
+        display: block;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+
+      .avatar-wrapper {
+        position: relative;
+        margin-right: 0.9375rem;
+        width: 3.75rem;
+        height: 3.75rem;
+        display: block;
+        border-radius: 100%;
+        object-fit: cover;
+        background: #e3e9ed;
+      }
+
+      .author-card-content {
+        .author-card-name {
+          padding: 0;
+          font-size: 1.425rem;
+
+          a {
+            color: $main-color;
+            font-weight: 700;
+          }
+        }
+
+        .author-card-social {
+          height: 100%;
+          &-links {
+            color: rgba(0, 0, 0, .5);
+            font-size: 1rem;
+            font-weight: normal;
+            margin: 0 .1rem;
+            line-height: 2;
+          }
+        }
+
+        p {
+          margin: 0;
+          line-height: 1.3em;
+          a {
+            color: $main-color;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .post-footer-right {
+      flex-shrink: 0;
+      margin-left: 1.25rem;
+
+      .author-card-button {
+        display: block;
+        padding: 0.563rem 1rem;
+        border: 0.063rem solid $main-color;
+        color: $main-color;
+        font-size: 0.8rem;
+        line-height: 1;
+        font-weight: 500;
+        border-radius: 1.25rem;
+        transition: all .2s ease;
+      }
+    }
+  }
+}
+
+@mixin dark-mode {
+  .main-content {
+    .post-author-footer {
+      .author-card {
+        &:before {
+          content: "";
+          position: absolute;
+          background: rgba(0, 0, 0, .5);
+          width: 3.75rem;
+          height: 3.75rem;
+          z-index: 1;
+          border-radius: 100%;
+        }
+
+        .avatar-wrapper {
+          background: #e3e9ed;
+        }
+
+        .author-card-content {
+          .author-card-name {
+            a {
+              color: $dark-main-color;
+            }
+          }
+
+          .author-card-social {
+            &-links {
+              color: $dark-main-color;
+            }
+          }
+
+          p {
+            color: $dark-main-color;
+          }
+        }
+      }
+
+      .post-footer-right {
+        flex-shrink: 0;
+        margin-left: 1.25rem;
+
+        .author-card-button {
+          border: 1px solid $dark-main-color;
+          color: $dark-main-color;
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

@@ -1,0 +1,69 @@
+.main-content {
+  .post-tools {
+    .btn-tools-item {
+      padding: 1rem;
+      outline: none;
+      &:focus {
+        box-shadow: none;
+      }
+      color: $main-color;
+      transition: all 500ms ease 0ms;
+      &:hover {
+        color: $primary-active-color;
+      }
+      i {
+        font-size: 1.225rem;
+      }
+    }
+    .btn-donation {
+
+    }
+
+    .collapse-donation {
+      margin-top: 2rem;
+
+      .card-collapse {
+        background-color: transparent;
+
+        figure {
+          width: 50%;
+
+          img {
+            width: 100%;
+          }
+
+          .figure-caption {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin dark-mode {
+  .main-content {
+    .post-tools {
+      .btn-tools-item {
+        color: $dark-main-color;
+        &:hover {
+          color: $dark-main-hover-color;
+        }
+      }
+
+      .collapse-donation {
+        .card-collapse {
+          background-color: $dark-skeleton-color;
+        }
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

@@ -1,0 +1,391 @@
+.post-content {
+  font-family: "Whitney SSm A", "Whitney SSm B", PingFang SC, WenQuanYi Micro Hei, PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, sans-serif;
+  width: 100%;
+
+  &.borderbox {
+    box-sizing: border-box;
+  }
+
+  dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+  }
+
+  article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    display: block;
+  }
+
+  audio, canvas, video {
+    display: inline-block;
+  }
+
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  fieldset, img {
+    border: 0;
+  }
+
+  blockquote {
+    position: relative;
+    color: #999;
+    font-weight: 400;
+    font-size: 90%;
+    border-left: 4px solid #1abc9c;
+    background-color: $primary-active-background-color;
+    padding: 0.725rem 1rem;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    blockquote {
+      margin: 1em 0;
+    }
+  }
+
+  acronym, abbr {
+    border-bottom: 1px dotted;
+    font-variant: normal;
+    text-decoration: none;
+  }
+
+  abbr {
+    cursor: help;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  caption, th {
+    text-align: left;
+  }
+
+  q:before, q:after {
+    content: '';
+  }
+
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+  }
+
+  :root sub, :root sup {
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  a {
+    color: #1abc9c;
+    transition: all 500ms ease 0ms;
+
+    &:hover {
+      color: #555;
+      text-decoration: underline;
+    }
+  }
+
+  ins, a {
+    text-decoration: none;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  mark {
+    background: #fffdd1;
+    border-bottom: 1px solid #ffedce;
+    padding: 2px;
+    margin: 0 5px;
+  }
+
+  pre, code, pre tt {
+    font-family: Courier, 'Courier New', monospace;
+  }
+
+  pre {
+    display: block;
+    padding: 1rem 0;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+    .pre-block-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: $skeleton-color;
+      .loading-icon {
+        text-shadow: none;
+        svg path,
+        svg rect{
+          fill: $main-color;
+        }
+      }
+      .loading-text {
+        margin-top: 0.5rem;
+        font-size: 0.725rem;
+        color: $main-color;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 0.8em;
+    height: 10px;
+  }
+
+  small,
+  figcaption {
+    font-size: 0.9em;
+    color: #888;
+  }
+
+  strong, b {
+    font-weight: bold;
+  }
+
+  [draggable] {
+    cursor: move;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: "";
+    display: table;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+  .textwrap, .textwrap td, .textwrap th {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .textwrap-table {
+    table-layout: fixed;
+  }
+
+  .serif {
+    font-family: Palatino, Optima, Georgia, serif;
+  }
+
+  p, pre, ul, ol, dl, form, hr, table, blockquote {
+    margin-bottom: 1.2em
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    line-height: 1.35;
+    &:before {
+      content: "#";
+      margin-right: 0.175rem;
+      font-size: 90%;
+      font-weight: bold;
+      color: $primary-active-color;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  h4 {
+    font-size: 1.4em;
+  }
+
+  h5, h6 {
+    font-size: 1.2em;
+  }
+
+  ul {
+    margin-left: 1.3em;
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+    margin-left: 1.9em;
+  }
+
+  li ul, li ol {
+    margin-bottom: 0.8em;
+    margin-left: 2em;
+  }
+
+  li ul {
+    list-style: circle;
+  }
+
+  table {
+    margin: 0 auto 1.2rem;
+    width: 95%;
+  }
+
+  table th, table td, table caption {
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    color: #666;
+    text-align: center;
+  }
+
+  table th {
+    background: #fbfbfb;
+  }
+
+  table thead th {
+    background: #f1f1f1;
+  }
+
+  table caption {
+    border-bottom: none;
+  }
+
+  em, legend, caption {
+    font-weight: inherit;
+  }
+
+  p {
+    a {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      position: relative;
+      max-width: 100%;
+      display: block;
+      margin: 1.5em auto;
+      height: auto;
+    }
+  }
+
+  &.mobile-content > h1,
+  &.mobile-content > h2,
+  &.mobile-content > h3,
+  &.mobile-content > h4,
+  &.mobile-content > h5,
+  &.mobile-content > h6,
+  &.mobile-content > p,
+  &.mobile-content > ul {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &.mobile-content > blockquote {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@mixin dark-mode {
+  .post-content {
+    a {
+      color: #1abc9c;
+      transition: all 500ms ease 0ms;
+
+      &:hover {
+        color: $dark-main-hover-color;
+        text-decoration: underline;
+      }
+    }
+
+    table th, table td, table caption {
+      border: 1px solid $dark-main-color;
+      color: $dark-main-color;
+    }
+
+    pre {
+      .pre-block-loading {
+        background-color: $dark-skeleton-color;
+        .loading-icon {
+          svg path,
+          svg rect{
+            fill: $dark-main-color;
+          }
+        }
+        .loading-text {
+          color: $dark-main-color;
+        }
+      }
+    }
+
+    table th {
+      background: #000;
+    }
+
+    table thead th {
+      background: #000;
+    }
+
+    hr {
+      border-bottom: 1px solid $dark-main-color;
+    }
+
+    p {
+      img {
+        filter: brightness(50%);
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

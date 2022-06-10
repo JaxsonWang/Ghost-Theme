@@ -1,0 +1,20 @@
+.main-footer-waves-area {
+  background-color: $footer-background-color;
+  .waves-svg {
+    transform: rotateX(180deg);
+  }
+}
+
+@mixin dark-mode {
+  .main-footer-waves-area {
+    background-color: $dark-footer-background-color;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark-mode;
+}
+
+[data-theme="dark"] {
+  @include dark-mode;
+}

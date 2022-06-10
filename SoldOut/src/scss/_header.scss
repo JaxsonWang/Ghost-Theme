@@ -1,0 +1,46 @@
+.ha__header {
+  .ha__header-navbar {
+    background-color: #{var(--background-color)};
+    .blog-name {
+      color: #{var(--color-text-primary)};
+      font-size: 1.5rem;
+      padding-bottom: 0;
+      &.site-nav-logo img {
+        width: 8.75rem;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        &.active {
+          .nav-link {
+          }
+        }
+        .nav-link {
+          color: #{var(--color-text-primary)};
+          padding-bottom: 0;
+        }
+      }
+    }
+    .navbar-toggler {
+      color: #{var(--color-text-primary)};
+    }
+    .ha__header-right {
+      .btn {
+        color: #{var(--color-text-primary)};
+      }
+      &-search {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.ha__body.dark {
+  .ha__header {
+    .ha__header-navbar {
+      .blog-name.site-nav-logo img {
+        filter: invert(1);
+      }
+    }
+  }
+}

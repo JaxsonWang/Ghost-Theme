@@ -1,0 +1,35 @@
+// 选中主调色
+$primary-active-color: #1abc9c !default;
+
+// 选中主调背景色
+$primary-active-background-color: rgba(26, 186, 154, 0.05) !default;
+
+// 非重点色
+$no-focus-color: #b9b8b3 !default;
+
+// 背景主色
+$background-color: #fff !default;
+
+// 页脚背景色
+$footer-background-color: #f7f7f7 !default;
+
+// 骨架色
+$skeleton-color: #f2f2f2 !default;;
+
+// 字体主色
+$main-color: rgba(33, 37, 41, 1) !default;
+
+// 黑暗模式 - 主背景色
+$dark-background-color: #263238 !default;
+
+// 黑暗模式 - 页脚背景色
+$dark-footer-background-color: #000 !default;
+
+// 黑暗模式 - 字体主调色
+$dark-main-color: rgba(255, 255, 255, .5) !default;
+
+// 黑暗模式 - 鼠标悬浮字体主调色
+$dark-main-hover-color: rgba(255, 255, 255, .8) !default;
+
+// 黑暗模式 - 骨架色
+$dark-skeleton-color: #212a2e !default;

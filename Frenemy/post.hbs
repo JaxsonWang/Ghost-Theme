@@ -1,0 +1,58 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#post}}
+    {{> header background=feature_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="post-full-title">{{title}}</h1>
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY年MM月DD日"}}</time>
+                {{#primary_tag}}
+                    <span class="date-divider">/</span>
+                    <a href="{{url}}">{{name}}</a>
+                {{/primary_tag}}
+                <span class="date-divider">/</span>
+                <span id="{{url}}" class="leancloud-visitors post-full-meta-visitors" data-flag-title="{{title}}">
+                    <i class="post-meta-item-text">阅读量 </i>
+                    <i class="leancloud-visitors-count"></i>
+                </span>
+            </section>
+        </div>
+    </div>
+</section>
+{{!-- Everything inside the #post tags pulls data from the post --}}
+    <main class="site-main container">
+        <div class="inner row">
+            <article>
+                <section class="post-content">
+                    {{content}}
+                </section>
+            </article>
+            {{> "donation"}}
+            <ul class="post-copyright">
+                <li class="post-copyright-author">
+                    <strong>文章作者： </strong>
+                    {{#primary_author}}
+                        {{name}}
+                    {{/primary_author}}
+                </li>
+                <li class="post-copyright-link">
+                    <strong>文章链接：</strong>
+                    <a href="{{url}}" title="{{title}}">{{@site.url}}{{url}}</a>
+                </li>
+                <li class="post-copyright-license">
+                    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+            {{> "byline-single"}}
+            {{> "related-posts"}}
+            <div id="comments" class="post-comments">
+                <div id="vcomments"></div>
+            </div>
+        </div>
+    </main>
+
+{{/post}}

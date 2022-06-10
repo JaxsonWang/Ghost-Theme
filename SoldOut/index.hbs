@@ -1,0 +1,25 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+<main class="ha__main {{body_class}}">
+  <section class="ha__main-hero d-flex justify-content-center align-items-center">
+    {{> "header-background" background=@site.cover_image}} {{!--Special header-background.hbs partial to generate the background image--}}
+    <div class="ha__main-hero-content text-center">
+      <h1 class="title">{{ @site.title }}</h1>
+      <div class="description">永远年轻，永远热泪盈眶！</div>
+    </div>
+  </section>
+  <section class="ha__main-post-list">
+    <div class="container">
+      <div class="ha__main-post-list-row row gy-4 mb-5">
+        {{#foreach posts}}
+          {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+          {{> "post-card-default"}}
+        {{/foreach}}
+      </div>
+      {{pagination}}
+    </div>
+  </section>
+  {{> "site-to-top"}}
+</main>

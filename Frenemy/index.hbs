@@ -1,0 +1,32 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+<div class="container">
+    <div class="hero-content">
+        <h1 class="site-name">
+            {{#if @site.logo}}
+                <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}"/>
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </h1>
+        <h2 class="site-description">永远年轻，永远热泪盈眶！</h2>
+    </div>
+</div>
+</section>
+
+<main class="site-main container">
+    <div class="inner row">
+        <div class="site-post-list">
+            <div class="post-list">
+                {{#foreach posts}}
+                    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{"pagination"}}
+    </div>
+</main>

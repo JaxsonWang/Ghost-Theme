@@ -1,0 +1,148 @@
+<aside class="post-read-more">
+  <div class="row read-next-feed">
+    {{#if primary_tag}}
+      {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+        <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
+          <article class="read-next-card"
+            {{#if ../primary_tag.feature_image}}
+                   style="background-image: url({{../primary_tag.feature_image}})"
+            {{else}}
+              {{#if @site.cover_image}}
+                   style="background-image: url({{@site.cover_image}})"
+              {{/if}}
+            {{/if}}
+          >
+            <header class="read-next-card-header">
+              <small class="read-next-card-header-sitetitle">&mdash; {{@site.title}} &mdash;</small>
+              {{#../primary_tag}}
+                <h3 class="read-next-card-header-title">
+                  <a href="{{url}}">{{name}}</a>
+                </h3>
+              {{/../primary_tag}}
+            </header>
+            <div class="read-next-divider">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+              </svg>
+            </div>
+            <div class="read-next-card-content">
+              <ul>
+                {{#foreach related_posts}}
+                  <li><a href="{{url}}">{{title}}</a></li>
+                {{/foreach}}
+              </ul>
+            </div>
+            <footer class="read-next-card-footer">
+              <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='没有文章' singular='% 篇文章' plural='查看更多文章'}} →</a>
+            </footer>
+
+          </article>
+        </div>
+      {{/get}}
+    {{/if}}
+    {{#next_post}}
+      <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
+        <article class="post-read-next">
+          {{#if feature_image}}
+            <a class="post-read-image-link post-read-next-image-link" href="{{url}}">
+              {{!-- This is a responsive image, it loads different sizes depending on device
+              https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+              <img class="post-read-next-image"
+                   srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+                   sizes="(max-width: 1000px) 400px, 700px"
+                   src="{{img_url feature_image size="m"}}"
+                   alt="{{title}}"
+              />
+            </a>
+          {{/if}}
+          <div class="post-read-next-content">
+            <a class="post-read-next-content-link" href="{{url}}">
+              <header class="post-read-next-header">
+                {{#if primary_tag}}
+                  <span class="post-read-next-tags">{{primary_tag.name}}</span>
+                {{/if}}
+                <h2 class="post-read-next-title">{{title}}</h2>
+              </header>
+              <section class="post-read-next-excerpt">
+                <p>{{excerpt words="33"}}</p>
+              </section>
+            </a>
+            <footer class="post-read-next-meta">
+              <ul class="author-list">
+                {{#foreach authors}}
+                  <li class="author-list-item">
+                    {{#if profile_image}}
+                      <a href="{{url}}" class="static-avatar">
+                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}"/>
+                        <span class="author-profile-name">{{name}}</span>
+                      </a>
+                    {{else}}
+                      <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                      <span class="author-profile-name">{{name}}</span>
+                    {{/if}}
+                  </li>
+                {{/foreach}}
+              </ul>
+              <span class="reading-time">{{reading_time minute=(t "1分钟阅读") minutes=(t "%分钟阅读")}}</span>
+            </footer>
+          </div>
+        </article>
+      </div>
+    {{/next_post}}
+    {{#prev_post}}
+      <div class="col-xl px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
+        <article class="post-read-next">
+          {{#if feature_image}}
+            <a class="post-read-image-link post-read-next-image-link" href="{{url}}">
+              {{!-- This is a responsive image, it loads different sizes depending on device
+              https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+              <img class="post-read-next-image"
+                   srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+                   sizes="(max-width: 1000px) 400px, 700px"
+                   src="{{img_url feature_image size="m"}}"
+                   alt="{{title}}"
+              />
+            </a>
+          {{/if}}
+          <div class="post-read-next-content">
+            <a class="post-read-next-content-link" href="{{url}}">
+              <header class="post-read-next-header">
+                {{#if primary_tag}}
+                  <span class="post-read-next-tags">{{primary_tag.name}}</span>
+                {{/if}}
+                <h2 class="post-read-next-title">{{title}}</h2>
+              </header>
+              <section class="post-read-next-excerpt">
+                <p>{{excerpt words="33"}}</p>
+              </section>
+            </a>
+            <footer class="post-read-next-meta">
+              <ul class="author-list">
+                {{#foreach authors}}
+                  <li class="author-list-item">
+                    {{#if profile_image}}
+                      <a href="{{url}}" class="static-avatar">
+                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}"/>
+                        <span class="author-profile-name">{{name}}</span>
+                      </a>
+                    {{else}}
+                      <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                      <span class="author-profile-name">{{name}}</span>
+                    {{/if}}
+                  </li>
+                {{/foreach}}
+              </ul>
+              <span class="reading-time">{{reading_time minute=(t "1分钟阅读") minutes=(t "%分钟阅读")}}</span>
+            </footer>
+          </div>
+        </article>
+      </div>
+    {{/prev_post}}
+  </div>
+</aside>

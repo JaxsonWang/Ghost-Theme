@@ -1,0 +1,20 @@
+<div class="ha__search position-fixed animated">
+  <button type="button" class="search-close" aria-label="close">
+    <i class="fas fa-times"></i>
+  </button>
+  <div class="input-group mb-3 search-area">
+    <span class="input-group-text" id="search"><i class="fas fa-search"></i></span>
+    <input id="ghost-search-field" class="form-control" type="text" placeholder="请输入搜索关键词..." aria-label="search" aria-describedby="search">
+  </div>
+  <div class="search-tags">
+    {{#get "tags" limit="all" filter="name:-['编程技术', '奇淫技巧', '生活杂记']"}}
+      {{#foreach tags}}
+        <a href="{{url}}" class="tag-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看关于 {{name}} 标签的文章">
+          {{name}}
+        </a>
+      {{/foreach}}
+    {{/get}}
+  </div>
+  <div class="search-meta" data-no-results-text="有 [results] 篇文章" style="">有 0 篇文章</div>
+  <div id="ghost-search-results" class="search-results"></div>
+</div>

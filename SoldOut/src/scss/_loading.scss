@@ -1,0 +1,17 @@
+.ha__loading {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  background-color: #{var(--background-color)};
+
+  .loading-image {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .loading-text {
+    color: #4183c4;
+  }
+}
