@@ -1,16 +1,16 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
     node: true
   },
-  extends: [
-    'standard'
-  ],
+  extends: 'eslint:recommended',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 6,
     sourceType: 'module'
   },
   rules: {
+    semi: ['error', 'never']
   }
 }
