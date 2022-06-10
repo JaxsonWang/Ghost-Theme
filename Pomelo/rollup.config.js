@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ * File Name：rollup.config.js
+ * Date：2022年06月11日
+ * Author：Jaxson Wang
+ * Email: i@iiong.com
+ * Blog: https://iiong.com
+ */
+
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import eslint from '@rbnlffl/rollup-plugin-eslint'
