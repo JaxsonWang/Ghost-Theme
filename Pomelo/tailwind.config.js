@@ -9,9 +9,7 @@
  */
 
 module.exports = {
-  content: [
-    './src/**/*.html'
-  ],
+  content: ['./src/**/*.html'],
   // 'media' or 'class'
   darkMode: 'media',
   theme: {

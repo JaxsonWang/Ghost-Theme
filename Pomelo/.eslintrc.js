@@ -15,7 +15,7 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: 'eslint:recommended',
+  extends: ['plugin:prettier/recommended', 'eslint:recommended'],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module'
