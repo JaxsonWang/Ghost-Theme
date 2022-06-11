@@ -17,9 +17,9 @@ import { terser } from 'rollup-plugin-terser'
 const production = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  input: './src/js/index.js',
+  input: 'src/js/index.js',
   output: {
-    file: production ? './pomelo/assets/pomelo.js' : './assets/pomelo.js',
+    file: production ? 'pomelo/assets/pomelo.js' : 'assets/pomelo.js',
     format: 'esm',
     sourcemap: !production
   },
@@ -32,27 +32,19 @@ module.exports = {
     }),
     babel({ babelHelpers: 'bundled' }),
     eslint({
-      filterExclude: ['./src/css/*'],
-      filterInclude: ['./src/**']
+      filterExclude: ['src/css/*'],
+      filterInclude: ['src/**']
     }),
-    !production &&
-      copy({
-        targets: [
-          { src: './src/*.hbs', dest: './' },
-          { src: './src/partials', dest: './partials' }
-        ]
-      }),
     production &&
       copy({
         targets: [
-          { src: './src/*.hbs', dest: './pomelo/' },
-          { src: './src/partials', dest: './pomelo/partials' }
+          { src: 'src/*.hbs', dest: 'pomelo/' },
+          { src: 'src/partials', dest: 'pomelo/partials/' }
         ]
       }),
     production && terser()
   ],
   watch: {
-    clearScreen: false,
-    include: ['./src/**']
+    exclude: ['node_modules/**']
   }
 }

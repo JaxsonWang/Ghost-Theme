@@ -13,7 +13,11 @@ module.exports = {
   // 'media' or 'class'
   darkMode: 'media',
   theme: {
-    extend: {}
+    extend: {
+      maxWidth: {
+        '8xl': '90rem'
+      }
+    }
   },
   variants: {
     extend: {}
