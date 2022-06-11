@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.主题风格 "黑暗"}} class="dark-mode"{{else match @custom.主题风格 "自动"}} class="auto-color"{{/match}}>
+<head>
+
+  {{!-- 基本信息 --}}
+  <title>{{meta_title page=(t " - 第%页")}}{{#is "post"}} - {{@site.title}}{{/is}}</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#ff69b4" />
+  <meta name="description" content="<%description%>" />
+  <meta name="keywords" content="<%keywords%>">
+  <meta name="renderer" content="webkit" />
+
+  {{!-- 主题样式 --}}
+  <link id="pomelo-css" rel="stylesheet" type="text/css" href="{{asset "assets/pomelo.css"}}" />
+
+  {{!-- dns预加载 --}}
+  <link rel="dns-prefetch" href="{{@site.url}}" />
+
+  {{!-- Ghost 相关标签信息 --}}
+  {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+<div class="pomelo-app-wrapper">
+  <header class="pomelo-header sticky top-0 z-40 w-full">
+    <nav class="pomelo-header-inner max-w-7xl mx-auto">
+      <div class="pomelo-header-brand">
+        <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
+          {{#if @site.logo}}
+            <img src="{{@site.logo}}" alt="{{@site.title}}" />
+          {{else}}
+            {{@site.title}}
+          {{/if}}
+        </a>
+      </div>
+      <div class="pomelo-header-menu">
+        {{navigation}}
+      </div>
+    </nav>
+  </header>
+  <div class="site-content">
+    {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+  </div>
+  {{!-- The global footer at the very bottom of the screen --}}
+  <footer class="site-footer outer">
+    <div class="inner">
+      <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
+      <nav class="site-footer-nav">
+        {{navigation type="secondary"}}
+      </nav>
+      <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+    </div>
+  </footer>
+</div>
+
+<script src="{{asset "assets/pomelo.js"}}"></script>
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+</body>
+</html>

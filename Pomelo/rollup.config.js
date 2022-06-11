@@ -7,7 +7,6 @@
  * Email: i@iiong.com
  * Blog: https://iiong.com
  */
-
 import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import eslint from '@rbnlffl/rollup-plugin-eslint'
@@ -18,9 +17,9 @@ import { terser } from 'rollup-plugin-terser'
 const production = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  input: 'src/js/index.js',
+  input: './src/js/index.js',
   output: {
-    file: production ? 'pomelo/assets/app.js' : 'assets/app.js',
+    file: production ? './pomelo/assets/pomelo.js' : './assets/pomelo.js',
     format: 'esm',
     sourcemap: !production
   },
@@ -33,18 +32,27 @@ module.exports = {
     }),
     babel({ babelHelpers: 'bundled' }),
     eslint({
-      filterExclude: ['src/css/*'],
-      filterInclude: ['src/**']
+      filterExclude: ['./src/css/*'],
+      filterInclude: ['./src/**']
     }),
-    (production && copy({
-      targets: [
-        { src: '*.hbs', dest: 'pomelo/' },
-        { src: 'partials', dest: 'pomelo/partials' }
-      ]
-    })),
-    (production && terser())
+    !production &&
+      copy({
+        targets: [
+          { src: './src/*.hbs', dest: './' },
+          { src: './src/partials', dest: './partials' }
+        ]
+      }),
+    production &&
+      copy({
+        targets: [
+          { src: './src/*.hbs', dest: './pomelo/' },
+          { src: './src/partials', dest: './pomelo/partials' }
+        ]
+      }),
+    production && terser()
   ],
   watch: {
-    exclude: ['node_modules/**']
+    clearScreen: false,
+    include: ['./src/**']
   }
 }

@@ -9,7 +9,7 @@
  */
 
 module.exports = {
-  content: ['./src/**/*.html'],
+  content: ['./**/*.hbs'],
   // 'media' or 'class'
   darkMode: 'media',
   theme: {
