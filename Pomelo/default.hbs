@@ -26,27 +26,7 @@
 </head>
 <body class="{{body_class}}">
 <div class="pomelo-app-wrapper">
-  <header class="pomelo-header sticky top-0 z-40 w-full">
-    <div class="max-w-8xl mx-auto">
-      <div class="py-4">
-        <nav class="pomelo-header-inner relative flex justify-between items-center">
-          <div class="pomelo-header-brand">
-            <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
-              {{#if @site.logo}}
-                <img src="{{@site.logo}}" alt="{{@site.title}}" />
-              {{else}}
-                {{@site.title}}
-              {{/if}}
-            </a>
-          </div>
-          <div class="pomelo-header-menu">
-            {{navigation}}
-          </div>
-        </nav>
-      </div>
-    </div>
-
-  </header>
+  {{> "site-header"}}
   <div class="site-content">
     {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
