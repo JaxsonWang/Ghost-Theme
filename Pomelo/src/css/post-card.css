@@ -2,7 +2,7 @@
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
  * File Name：post-card.css
- * Date：2022年07月02日
+ * Date：2022年07月03日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
@@ -48,7 +48,12 @@
 }
 
 .post-card-primary-tag {
-  @apply text-gray-400;
+  @apply text-xs text-gray-400;
+}
+
+.post-card-primary-tag:before {
+  @apply mr-1;
+  content: '#';
 }
 
 .post-card-featured {

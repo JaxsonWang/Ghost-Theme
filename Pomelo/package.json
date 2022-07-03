@@ -25,34 +25,35 @@
     "mobile": "assets/screenshot-mobile.jpg"
   },
   "scripts": {
-    "dev": "rollup -c --watch",
+    "dev": "rollup -c --watch --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
     "ncu": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
-    "@babel/preset-env": "^7.18.2",
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
     "@rbnlffl/rollup-plugin-eslint": "^3.0.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-eslint": "^8.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "autoprefixer": "^10.4.7",
-    "cssnano": "^5.1.11",
-    "eslint": "^8.17.0",
+    "chokidar": "^3.5.3",
+    "cssnano": "^5.1.12",
+    "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.2",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
-    "lint-staged": "^13.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
-    "prettier": "^2.6.2",
-    "rollup": "2.75.6",
+    "prettier": "^2.7.1",
+    "rollup": "2.75.7",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "tailwindcss": "^3.1.2"
+    "tailwindcss": "^3.1.4"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
