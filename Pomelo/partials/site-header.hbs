@@ -1,4 +1,4 @@
-<header class="pomelo-header sticky top-0 z-40 w-full bg-white dark:bg-slate-800 ring-1 ring-slate-900/5 shadow-xl">
+<header class="pomelo-header">
   <div class="max-w-7xl mx-auto">
     <div class="py-4 px-4 md:px-0">
       <nav class="pomelo-header-inner relative flex justify-between items-center">
@@ -9,20 +9,29 @@
                 <img src="{{@site.logo}}" alt="{{@site.title}}" />
               </a>
             {{else}}
-              <a class="pomelo-navbar-title text-2xl hover:text-gray-500" href="{{@site.url}}">{{@site.title}}</a>
+              <a class="pomelo-header-navbar-title text-2xl hover:text-gray-500" href="{{@site.url}}">{{@site.title}}</a>
             {{/if}}
           </div>
           <div class="pomelo-header-menu ml-4 hidden md:block">
             {{navigation}}
           </div>
         </div>
-        <div class="flex">
-          <a class="cursor-pointer w-5 mt-0.5">{{> "icons/search"}}</a>
-          <a class="cursor-pointer w-5 ml-2 hidden md:block">{{> "icons/sun"}}</a>
-          <a class="cursor-pointer w-5 ml-2">{{> "icons/menu-fold"}}</a>
+        <div class="flex relative">
+          <a class="pomelo-header-font-icon cursor-pointer text-lg hover:text-gray-500">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <a aria-describedby="tooltip" class="event-tooltip pomelo-header-font-icon cursor-pointer text-lg ml-4 hidden md:block hover:text-gray-500">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </a>
+          <a class="event-mobile-menu pomelo-header-font-icon cursor-pointer text-lg ml-4 block md:hidden hover:text-gray-500">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+          <div class="pomelo-tooltip" role="tooltip">
+            My tooltip with more content
+            <div class="pomelo-tooltip-arrow"></div>
+          </div>
         </div>
       </nav>
     </div>
   </div>
-
 </header>

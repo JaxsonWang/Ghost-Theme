@@ -1,17 +1,14 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：tailwind.css
+ * File Name：pomelo-header.js
  * Date：2022年07月13日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
  */
+import { isScrollTop } from './utils'
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --header-height: 64px;
+if (isScrollTop()) {
+  console.log('xxx')
 }

@@ -2,11 +2,21 @@
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
  * File Name：site-header.css
- * Date：2022年07月03日
+ * Date：2022年07月13日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
  */
 
 .pomelo-header {
+  @apply fixed top-0 z-40 w-full h-[var(--header-height)];
+  @apply bg-white dark:bg-slate-900 dark:text-gray-200;
+  @apply ring-1 ring-slate-900/5 shadow-xl;
+}
+
+.pomelo-header-navbar-title,
+.pomelo-header-menu-link,
+.pomelo-header-font-icon {
+  @apply transition;
+  @apply duration-300;
 }

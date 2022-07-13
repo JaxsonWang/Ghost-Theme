@@ -2,7 +2,7 @@
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
  * File Name：rollup.config.js
- * Date：2022年06月11日
+ * Date：2022年07月13日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
@@ -38,8 +38,8 @@ module.exports = {
     production &&
       copy({
         targets: [
-          { src: 'src/*.hbs', dest: 'pomelo/' },
-          { src: 'src/partials', dest: 'pomelo/partials/' }
+          { src: '*.hbs', dest: 'pomelo/' },
+          { src: 'partials', dest: 'pomelo/partials/' }
         ]
       }),
     production && terser()

@@ -16,9 +16,12 @@
 
   {{!-- 主题样式 --}}
   <link id="pomelo-css" rel="stylesheet" type="text/css" href="{{asset "assets/pomelo.css"}}" />
+  <link id="font-awesome-css" rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.1/css/all.min.css">
 
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://lib.baomitu.com" />
 
   {{!-- Ghost 相关标签信息 --}}
   {{ghost_head}}
@@ -27,22 +30,14 @@
 <body class="{{body_class}}">
 <div class="pomelo-app-wrapper">
   {{> "site-header"}}
-  <div class="site-content py-8">
+  <div class="pomelo-content site-content">
     {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
   </div>
-  {{!-- The global footer at the very bottom of the screen --}}
-  <footer class="site-footer outer">
-    <div class="inner">
-      <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-      <nav class="site-footer-nav">
-        {{navigation type="secondary"}}
-      </nav>
-      <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
-    </div>
-  </footer>
+  {{> "site-footer"}}
 </div>
 
+<!--<script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>-->
 <script src="{{asset "assets/pomelo.js"}}"></script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}

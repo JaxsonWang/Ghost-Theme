@@ -2,12 +2,22 @@
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
  * File Name：index.css
- * Date：2022年07月03日
+ * Date：2022年07月13日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
  */
 
 @import "tailwind.css";
+@import "global.css";
+@import "animate.css";
 @import "site-header.css";
+@import "site-hero.css";
+@import "site-posts-list.css";
+@import "site-content.css";
 @import "post-card.css";
+@import "site-footer.css";
+@import "site-mobile-sidebar.css";
+@import "site-pagination.css";
+@import "site-to-top.css";
+@import "site-tooltip.css";

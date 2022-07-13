@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ * File Name：site-tooltip.css
+ * Date：2022年07月13日
+ * Author：Jaxson Wang
+ * Email: i@iiong.com
+ * Blog: https://iiong.com
+ */
+
+.pomelo-tooltip {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #222;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 90%;
+  pointer-events: none;
+}
+
+.pomelo-tooltip-arrow {
+  position: absolute;
+  background: #333;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+}

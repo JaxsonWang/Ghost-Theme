@@ -1,7 +1,21 @@
-<ul class="nav flex">
-  {{#foreach navigation}}
-    <li class="{{link_class for=(url) class=(concat "nav-" slug)}} mr-2">
-      <a href="{{url absolute="true"}}" class="hover:text-gray-500">{{label}}</a>
-    </li>
-  {{/foreach}}
-</ul>
+{{#if isSecondary}}
+  {{#if @site.secondary_navigation}}
+    <ul class="pomelo-footer-navbar flex justify-center">
+      {{#foreach navigation}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}} pomelo-footer-menu-li mr-2">
+          <a href="{{url absolute="true"}}" class="pomelo-footer-menu-link hover:text-gray-500{{#if current}} text-gray-500 pointer-events-none{{/if}}">{{label}}</a>
+        </li>
+      {{/foreach}}
+    </ul>
+  {{/if}}
+{{else}}
+  <ul class="pomelo-header-navbar flex">
+    {{#foreach navigation}}
+      <li class="{{link_class for=(url) class=(concat "nav-" slug)}} pomelo-header-menu-li mr-4">
+        <a href="{{url absolute="true"}}" class="pomelo-header-menu-link hover:text-gray-500{{#if current}} text-gray-500 pointer-events-none{{/if}}">{{label}}</a>
+      </li>
+    {{/foreach}}
+  </ul>
+{{/if}}
+
+

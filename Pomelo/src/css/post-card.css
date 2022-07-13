@@ -2,7 +2,7 @@
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
  * File Name：post-card.css
- * Date：2022年07月03日
+ * Date：2022年07月13日
  * Author：Jaxson Wang
  * Email: i@iiong.com
  * Blog: https://iiong.com
@@ -25,7 +25,7 @@
 }
 
 .post-card-container {
-  @layer transition-[shadow, transform];
+  @apply transition-[transform,box-shadow];
   @apply relative flex flex-col shadow-xl h-full rounded overflow-hidden;
   @apply duration-300;
   @apply hover:shadow-2xl hover:-translate-y-1;
