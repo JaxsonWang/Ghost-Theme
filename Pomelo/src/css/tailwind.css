@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：tailwind.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：tailwind.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 @tailwind base;
@@ -15,3 +15,9 @@
 :root {
   --header-height: 64px;
 }
+
+/*@layer components {*/
+/*  .dark-mode {*/
+/*    @apply bg-white dark:bg-slate-800;*/
+/*  }*/
+/*}*/

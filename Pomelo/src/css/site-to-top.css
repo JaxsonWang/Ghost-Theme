@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：site-to-top.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：site-to-top.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 .pomelo-to-top {
@@ -15,6 +15,3 @@
   @apply fixed z-10 rounded-full cursor-pointer;
 }
 
-.pomelo-to-top.d-none {
-  @apply hidden;
-}

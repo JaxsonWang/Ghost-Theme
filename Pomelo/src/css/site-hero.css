@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：site-hero.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：site-hero.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 .pomelo-hero {
@@ -17,6 +17,7 @@
   @apply absolute top-0 left-0 w-full h-full;
   @apply bg-no-repeat bg-cover bg-center;
   @apply opacity-70;
+  @apply dark:opacity-50;
 }
 
 .pomelo-hero-content {

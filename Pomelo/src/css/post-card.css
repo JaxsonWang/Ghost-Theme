@@ -1,34 +1,36 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：post-card.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：post-card.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 .post-card-list {
-  @apply grid grid-cols-6 gap-6;
+  @apply grid grid-cols-12 gap-y-12 gap-x-0 md:gap-12;
 }
 
 .post-card-default {
-  @apply col-span-6 md:col-span-2;
+  @apply col-span-12 md:col-span-6 xl:col-span-4;
 }
 
 .post-card-medium {
-  @apply col-span-6 md:col-span-3;
+  @apply col-span-12 md:col-span-6;
 }
 
 .post-card-large {
-  @apply col-span-6;
+  @apply col-span-12 md:col-span-12;
 }
 
 .post-card-container {
   @apply transition-[transform,box-shadow];
   @apply relative flex flex-col shadow-xl h-full rounded overflow-hidden;
   @apply duration-300;
+  @apply ring-1 ring-slate-900/5;
   @apply hover:shadow-2xl hover:-translate-y-1;
+  @apply dark:bg-slate-900;
 }
 
 .post-card-large .post-card-container {
@@ -40,11 +42,20 @@
 }
 
 .post-card-large .post-card-content  {
-  @apply md:pt-0 md:ml-2;
+  @apply md:ml-2;
 }
 
-.post-card-large .post-card-image-link  {
+.post-card-medium .post-card-image-link {
+  @apply max-h-[20rem] overflow-hidden;
+}
+
+.post-card-large .post-card-image-link {
+  @apply max-h-[24rem] overflow-hidden;
   @apply md:mr-2 md:min-w-[50%];
+}
+
+.post-card-image {
+  @apply w-full;
 }
 
 .post-card-primary-tag {

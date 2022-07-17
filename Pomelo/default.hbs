@@ -15,8 +15,8 @@
   <meta name="renderer" content="webkit" />
 
   {{!-- 主题样式 --}}
-  <link id="pomelo-css" rel="stylesheet" type="text/css" href="{{asset "assets/pomelo.css"}}" />
   <link id="font-awesome-css" rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.1/css/all.min.css">
+  <link id="pomelo-css" rel="stylesheet" type="text/css" href="{{asset "assets/pomelo.css"}}" />
 
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
@@ -37,7 +37,7 @@
   {{> "site-footer"}}
 </div>
 
-<!--<script src="https://unpkg.com/@floating-ui/dom@0.5.4"></script>-->
+<script src="https://lib.baomitu.com/popper.js/2.11.5/umd/popper.min.js"></script>
 <script src="{{asset "assets/pomelo.js"}}"></script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}

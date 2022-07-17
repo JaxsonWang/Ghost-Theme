@@ -1,31 +1,44 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：site-tooltip.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：site-tooltip.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 .pomelo-tooltip {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #222;
-  color: white;
-  font-weight: bold;
-  padding: 5px;
-  border-radius: 4px;
-  font-size: 90%;
-  pointer-events: none;
+  @apply animated;
+  @apply absolute top-0 left-0 bg-black text-white;
+  @apply p-2 rounded-md;
+}
+
+.pomelo-tooltip-arrow,
+.pomelo-tooltip-arrow::before {
+  @apply absolute w-2 h-2 bg-inherit;
 }
 
 .pomelo-tooltip-arrow {
-  position: absolute;
-  background: #333;
-  width: 8px;
-  height: 8px;
-  transform: rotate(45deg);
+  @apply invisible;
+}
+
+.pomelo-tooltip-arrow::before {
+  @apply visible content-['_'] rotate-45;
+}
+
+.pomelo-tooltip[data-popper-placement^='top'] > .pomelo-tooltip-arrow {
+  @apply -bottom-1
+}
+
+.pomelo-tooltip[data-popper-placement^='bottom'] > .pomelo-tooltip-arrow {
+  @apply -top-1
+}
+
+.pomelo-tooltip[data-popper-placement^='left'] > .pomelo-tooltip-arrow {
+  @apply -right-1
+}
+
+.pomelo-tooltip[data-popper-placement^='right'] > .pomelo-tooltip-arrow {
+  @apply -left-1
 }
