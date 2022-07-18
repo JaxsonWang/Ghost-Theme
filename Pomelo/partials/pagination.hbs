@@ -1,19 +1,19 @@
 <nav class="pomelo-pagination flex justify-center items-center">
   <div class="hidden" aria-hidden="true">
-    <span class="pomelo-current-page">{{page}}</span>
-    <span class="pomelo-total-pages">{{pages}}</span>
+    <span class="pomelo-pagination-current-page">{{page}}</span>
+    <span class="pomelo-pagination-total-pages">{{pages}}</span>
   </div>
   <ul class="pomelo-pagination-wrapper flex justify-center items-center">
     {{#if prev}}
-      <li class="pomelo-page-item">
-        <a href="{{page_url prev}}" class="pomelo-page-link">
+      <li class="pomelo-pagination-page-item">
+        <a href="{{page_url prev}}" class="pomelo-pagination-page-link">
           <i class="fa-solid fa-angles-left"></i>
         </a>
       </li>
     {{/if}}
     {{#if next}}
-      <li class="pomelo-page-item">
-        <a href="{{page_url next}}" class="pomelo-page-link">
+      <li class="pomelo-pagination-page-item">
+        <a href="{{page_url next}}" class="pomelo-pagination-page-link">
           <i class="fa-solid fa-angles-right"></i>
         </a>
       </li>

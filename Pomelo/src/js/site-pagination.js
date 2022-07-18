@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：site-pagination.js
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：site-pagination.js
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 /**
@@ -13,13 +13,13 @@
  */
 const createPagination = () => {
   let url = window.location.href
-  const currPageElm = document.querySelector('.pomelo-current-page')
-  const totalPagesElm = document.querySelector('.pomelo-total-pages')
+  const currPageElm = document.querySelector('.pomelo-pagination-current-page')
+  const totalPagesElm = document.querySelector('.pomelo-pagination-total-pages')
   if (!currPageElm || !totalPagesElm) return
   const currentPage = Number.parseInt(currPageElm.textContent, 10)
   const totalPages = Number.parseInt(totalPagesElm.textContent, 10)
   const paginationElm = document.querySelector('.pomelo-pagination-wrapper')
-  const paginationPrev = document.querySelector('.pomelo-page-item')
+  const paginationPrev = document.querySelector('.pomelo-pagination-page-item')
   if (totalPages > 1) {
     const paginationItems = []
     const paginationArr = pagination(currentPage, totalPages)
@@ -27,26 +27,34 @@ const createPagination = () => {
       const urlArray = url.split('/')
       if (pagElm === currentPage) {
         paginationItems.push(
-          '<li class="pomelo-page-item"><span class="pomelo-page-link active pomelo-page-link-mobile">' +
+          '<li class="pomelo-pagination-page-item">' +
+            '<span class="pomelo-pagination-page-link active pomelo-pagination-page-link-mobile">' +
             pagElm +
-            '</span></li>'
+            '</span>' +
+            '</li>'
         )
       } else if (typeof pagElm === 'number') {
         if (urlArray[urlArray.length - 3] === 'page') {
           url = url.replace(/\/page\/.*$/, '') + '/'
         }
         paginationItems.push(
-          '<li class="pomelo-page-item"><a class="pomelo-page-link pomelo-page-link-mobile" href="' +
+          '<li class="pomelo-pagination-page-item">' +
+            '<a class="pomelo-pagination-page-link pomelo-pagination-page-link-mobile" href="' +
             url +
             'page/' +
             pagElm +
             '/">' +
             pagElm +
-            '</a></li>'
+            '</a>' +
+            '</li>'
         )
       } else {
         paginationItems.push(
-          '<li class="pomelo-page-item"><a class="pomelo-page-link more pomelo-page-link-mobile">...</a></li>'
+          '<li class="pomelo-pagination-page-item">' +
+            '<a class="pomelo-pagination-page-link more pomelo-pagination-page-link-mobile">' +
+            '...' +
+            '</a>' +
+            '</li>'
         )
       }
     })

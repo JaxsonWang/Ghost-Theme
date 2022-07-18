@@ -85,10 +85,12 @@
 
 .post-card-excerpt {
   @apply mb-5;
+  @apply dark:text-slate-400;
 }
 
 .post-card-meta {
   @apply text-xs md:text-sm;
+  @apply dark:text-slate-400;
 }
 
 .post-card-meta-author-avatar-image {

@@ -1,31 +1,38 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：site-pagination.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：site-pagination.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
-.pomelo-page-link {
+.pomelo-pagination {
+  @apply pt-8 pb-16;
+  @apply dark:bg-slate-800 dark:text-white;
+}
+
+.pomelo-pagination-page-link {
   @apply transition-[transform,box-shadow];
   @apply flex items-center justify-center;
   @apply flex-none mx-2 w-12 h-12;
   @apply rounded-full ring-1 ring-slate-100 shadow-md;
   @apply duration-300;
   @apply hover:shadow-lg hover:-translate-y-0.5;
+  @apply dark:bg-slate-900 dark:ring-slate-900 dark:text-slate-400;
 }
 
-.pomelo-page-link.active {
+.pomelo-pagination-page-link.active {
   @apply shadow-sm ring-slate-100;
   @apply hover:shadow-sm hover:translate-y-0;
+  @apply dark:ring-slate-700;
 }
 
-.pomelo-page-link.more {
+.pomelo-pagination-page-link.more {
   @apply hover:shadow-md hover:translate-y-0;
 }
 
-.pomelo-page-link-mobile {
+.pomelo-pagination-page-link-mobile {
   @apply hidden md:flex;
 }
