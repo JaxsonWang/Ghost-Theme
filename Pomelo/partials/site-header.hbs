@@ -1,37 +1,35 @@
 <header class="pomelo-header">
-  <div class="container mx-auto">
-    <div class="py-4 px-4 md:px-0">
-      <nav class="pomelo-header-inner relative flex justify-between items-center">
-        <div class="relative flex justify-between items-end">
-          <div class="pomelo-header-brand">
-            {{#if @site.logo}}
-              <a class="pomelo-header-navbar-logo" href="{{@site.url}}">
-                <img src="{{@site.logo}}" alt="{{@site.title}}" class="pomelo-header-navbar-logo-image" />
-              </a>
-            {{else}}
-              <a class="pomelo-header-navbar-title" href="{{@site.url}}">{{@site.title}}</a>
-            {{/if}}
-          </div>
-          <div class="pomelo-header-menu ml-4 hidden md:block">
-            {{navigation}}
-          </div>
+  <div class="container mx-auto px-4 md:px-0">
+    <nav class="pomelo-header-inner relative flex justify-between items-center">
+      <div class="relative flex justify-between items-end">
+        <div class="pomelo-header-brand">
+          {{#if @site.logo}}
+            <a class="pomelo-header-navbar-logo" href="{{@site.url}}">
+              <img src="{{@site.logo}}" alt="{{@site.title}}" class="pomelo-header-navbar-logo-image" />
+            </a>
+          {{else}}
+            <a class="pomelo-header-navbar-title" href="{{@site.url}}">{{@site.title}}</a>
+          {{/if}}
         </div>
-        <div class="flex relative">
-          <a class="pomelo-header-font-icon cursor-pointer text-lg hover:text-gray-500">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-          <a aria-describedby="tooltip" class="event-tooltip pomelo-header-font-icon cursor-pointer text-lg ml-4 hidden md:block hover:text-gray-500">
-            <i class="fa-solid fa-circle-half-stroke"></i>
-          </a>
-          <a class="event-mobile-menu pomelo-header-font-icon cursor-pointer text-lg ml-4 block md:hidden hover:text-gray-500">
-            <i class="fa-solid fa-bars"></i>
-          </a>
-          <div class="pomelo-tooltip d-none" role="tooltip">
-            My tooltip with more content
-            <div class="pomelo-tooltip-arrow" data-popper-arrow></div>
-          </div>
+        <div class="pomelo-header-menu ml-4 hidden md:block">
+          {{navigation}}
         </div>
-      </nav>
-    </div>
+      </div>
+      <div class="flex relative">
+        <a class="pomelo-header-icon cursor-pointer">
+          {{> "icons/search"}}
+        </a>
+        <a aria-describedby="tooltip" class="event-tooltip pomelo-header-font-icon cursor-pointer text-lg ml-4 hidden md:block hover:text-gray-500">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </a>
+        <a class="event-mobile-menu pomelo-header-font-icon cursor-pointer text-lg ml-4 block md:hidden hover:text-gray-500">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <div class="pomelo-tooltip pomelo-dark-tooltip d-none" role="tooltip">
+          My tooltip with more content
+          <div class="pomelo-tooltip-arrow" data-popper-arrow></div>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>

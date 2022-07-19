@@ -18,12 +18,14 @@
 .pomelo-mobile-sidebar {
   @apply w-2/3;
   @apply h-full py-8 px-4;
-  @apply bg-white;
+  @apply bg-white shadow-2xl;
   @apply dark:bg-slate-800 dark:text-white;
 }
 
 .pomelo-mobile-mask {
   @apply absolute top-0 left-0 w-full h-full;
+  @apply opacity-0 transition-opacity duration-300 delay-100 bg-white/75 -z-10;
+  @apply dark:bg-slate-800/75;
 }
 
 .pomelo-mobile-sidebar .pomelo-header-navbar {
@@ -42,7 +44,6 @@ body.pomelo-open-mobile-sidebar .pomelo-mobile-wrapper {
   @apply translate-x-0;
 }
 
-body.pomelo-open-mobile-sidebar .pomelo-content,
-body.pomelo-open-mobile-sidebar .pomelo-footer {
-  @apply blur-sm dark:blur-0;
+body.pomelo-open-mobile-sidebar .pomelo-mobile-mask {
+  @apply opacity-100;
 }

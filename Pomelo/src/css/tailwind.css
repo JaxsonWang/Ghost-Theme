@@ -13,7 +13,7 @@
 @tailwind utilities;
 
 :root {
-  --header-height: 64px;
+  --header-height: 75px;
 }
 
 /*@layer components {*/

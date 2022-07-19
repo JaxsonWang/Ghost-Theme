@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：index.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：index.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 @import "tailwind.css";
@@ -21,3 +21,4 @@
 @import "site-pagination.css";
 @import "site-to-top.css";
 @import "site-tooltip.css";
+@import "site-tooltip-dark.css";
