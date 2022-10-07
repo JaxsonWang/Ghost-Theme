@@ -1,0 +1,31 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!--Special header-background.hbs partial to generate the background image--}}
+{{> "site-hero" backgroundImage=@site.cover_image}}
+
+<main class="{{body_class}} custom-archive-for-page">
+  <div class="container mx-auto mt-8 pt-8 mb-12 pb-12 px-4 md:px-8">
+    {{#get "posts"}}
+      <div class="archive-page-title">{{date published_at format="YYYY年MM月DD日"}} 累计 {{pagination.total}} 篇文章</div>
+    {{/get}}
+    <ol class="relative space-y-2 mb-16" style="counter-reset: step 0;">
+      {{#foreach posts visibility="all"}}
+        <li class="relative pl-10 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5 pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5" style="counter-increment: step 1;">
+          <div class="mb-6 xl:mb-0">
+            <h4 class="text-sm leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
+              {{title}}
+            </h4>
+            <div>
+              <p>{{excerpt words="33"}}</p>
+            </div>
+          </div>
+        </li>
+      {{/foreach}}
+    </ol>
+  </div>
+  {{pagination}}
+  {{> "site-to-top"}}
+</main>
