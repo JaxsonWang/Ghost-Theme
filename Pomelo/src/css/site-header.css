@@ -20,6 +20,7 @@
 .pomelo-header-icon {
   @apply transition;
   @apply duration-300;
+  @apply w-6 h-6;
 }
 
 .pomelo-header-icon {

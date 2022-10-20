@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：template-archive.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.custom-archive-for-page {}
+
+.custom-archive-for-page-item {
+  @apply relative pl-10 pb-8;
+  @apply before:content-[attr(number)] before:absolute before:left-0 before:flex before:items-center before:justify-center;
+  @apply before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold;
+  @apply before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5;
+  @apply dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none;
+  @apply after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5;
+}

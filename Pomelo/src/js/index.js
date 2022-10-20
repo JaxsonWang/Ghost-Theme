@@ -15,6 +15,7 @@ import './site-mobile-sidebar'
 import './site-pagination'
 import './site-to-top'
 import './site-dark-mode'
+import './site-archive'
 // const ele = document.createElement('div')
 // ele.innerText = '12'
 // document.querySelector('body').appendChild(ele)
