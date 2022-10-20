@@ -16,17 +16,18 @@
         </div>
       </div>
       <div class="flex relative">
-        <a class="pomelo-header-icon cursor-pointer">
+        <a data-ghost-search class="pomelo-header-icon">
           {{> "icons/search"}}
         </a>
-        <a aria-describedby="tooltip" class="event-tooltip pomelo-header-font-icon cursor-pointer text-lg ml-4 hidden md:block hover:text-gray-500">
-          <i class="fa-solid fa-circle-half-stroke"></i>
+        <a aria-describedby="tooltip" class="event-tooltip pomelo-header-icon">
+          {{> "icons/auto"}}
         </a>
-        <a class="event-mobile-menu pomelo-header-font-icon cursor-pointer text-lg ml-4 block md:hidden hover:text-gray-500">
-          <i class="fa-solid fa-bars"></i>
+        <a class="event-mobile-menu pomelo-header-icon pomelo-header-icon-mobile">
+          {{> "icons/menu"}}
         </a>
         <div class="pomelo-tooltip pomelo-dark-tooltip d-none" role="tooltip">
-          My tooltip with more content
+          <div class="event-light">白天</div>
+          <div class="event-night">晚上</div>
           <div class="pomelo-tooltip-arrow" data-popper-arrow></div>
         </div>
       </div>

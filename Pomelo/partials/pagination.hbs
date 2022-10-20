@@ -8,14 +8,14 @@
     {{#if prev}}
       <li class="pomelo-pagination-page-item">
         <a href="{{page_url prev}}" class="pomelo-pagination-page-link">
-          <i class="fa-solid fa-angles-left"></i>
+          {{> "icons/arrow-left"}}
         </a>
       </li>
     {{/if}}
     {{#if next}}
       <li class="pomelo-pagination-page-item">
         <a href="{{page_url next}}" class="pomelo-pagination-page-link">
-          <i class="fa-solid fa-angles-right"></i>
+          {{> "icons/arrow-right"}}
         </a>
       </li>
     {{/if}}

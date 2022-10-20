@@ -12,27 +12,38 @@ import { createTooltip } from './utils/tooltip'
 const button = document.querySelector('.event-tooltip')
 const tooltip = document.querySelector('.pomelo-tooltip')
 
-const popperInstance = createTooltip(button, tooltip)
+let popper = null
 
-button.addEventListener('click', () => {
+button.addEventListener('click', function () {
   if (tooltip.classList.contains('d-none')) {
+    popper = createTooltip(button, tooltip)
     tooltip.classList.remove('fade-out', 'd-none')
     tooltip.classList.add('fade-in')
 
     // Enable the event listeners
-    popperInstance.setOptions(options => ({
+    popper.setOptions(options => ({
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }]
     }))
-  } else {
-    tooltip.classList.add('fade-out')
-    tooltip.classList.remove('fade-in')
-    // Disable the event listeners
-    popperInstance.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }]
-    }))
 
-    setTimeout(() => tooltip.classList.add('d-none'), 500)
+    // 监听全局点击事件
+    document.addEventListener('click', closePopper, true)
   }
+})
+
+function closePopper() {
+  tooltip.classList.add('fade-out')
+  tooltip.classList.remove('fade-in')
+  setTimeout(() => {
+    // 销毁当前 Popper
+    popper.destroy()
+    tooltip.classList.add('d-none')
+  }, 500)
+  document.removeEventListener('click', closePopper, true)
+}
+
+const lightBtn = document.querySelector('.event-light')
+
+lightBtn.addEventListener('click', function (event) {
+  console.log('我怕懂啊没了')
 })

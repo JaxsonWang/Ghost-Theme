@@ -20,12 +20,17 @@
 .pomelo-header-icon {
   @apply transition;
   @apply duration-300;
-  @apply w-6 h-6;
 }
 
 .pomelo-header-icon {
+  @apply cursor-pointer ml-4;
   @apply stroke-black hover:stroke-amber-600;
   @apply dark:stroke-white hover:dark:stroke-blue-500;
+  @apply w-6 h-6;
+}
+
+.pomelo-header-icon-mobile {
+  @apply block md:hidden hover:text-gray-500;
 }
 
 .pomelo-header-navbar-logo-image {

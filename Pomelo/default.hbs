@@ -15,12 +15,10 @@
   <meta name="renderer" content="webkit" />
 
   {{!-- 主题样式 --}}
-  <link id="font-awesome-css" rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.2.0/css/all.min.css">
   <link id="pomelo-css" rel="stylesheet" type="text/css" href="{{asset "assets/pomelo.css"}}" />
 
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
   <link rel="dns-prefetch" href="https://lib.baomitu.com" />
 
   {{!-- Ghost 相关标签信息 --}}
@@ -37,7 +35,7 @@
   {{> "site-footer"}}
 </div>
 
-<script src="https://lib.baomitu.com/popper.js/2.11.5/umd/popper.min.js"></script>
+<script src="https://lib.baomitu.com/popper.js/2.11.6/umd/popper.min.js"></script>
 <script src="{{asset "assets/pomelo.js"}}"></script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
