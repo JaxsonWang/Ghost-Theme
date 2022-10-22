@@ -24,8 +24,8 @@
 
 .pomelo-header-icon {
   @apply cursor-pointer ml-4;
-  @apply stroke-black hover:stroke-amber-600;
-  @apply dark:stroke-white hover:dark:stroke-blue-500;
+  @apply hover:fill-gray-400;
+  @apply dark:fill-white hover:dark:fill-gray-400;
   @apply w-6 h-6;
 }
 

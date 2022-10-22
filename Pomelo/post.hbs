@@ -8,13 +8,13 @@ into the {body} tag of the default.hbs template --}}
 
 
 {{!-- The main content area --}}
-<main class="site-posts-main {{body_class}}">
-  <div class="container mx-auto mt-8 pt-8 mb-12 pb-12 px-4 md:px-8">
+<main class="site-posts-main dark:bg-slate-800">
+  <div class="container mx-auto py-24 px-4 md:px-8">
     {{#post}}
-      <h3 class="text-4xl text-center mb-2 pb-2">
+      <h3 class="text-4xl text-center mb-2 pb-2 dark:text-white">
         {{title}}
       </h3>
-      <div class="text-center mb-4">
+      <div class="text-center mb-4 dark:text-white">
         {{#if primary_author}}
           <span class="meta meta-title">{{#primary_author}}{{name}}{{/primary_author}}</span>{{/if}}
         <span class="meta-cut">•</span>
@@ -27,7 +27,13 @@ into the {body} tag of the default.hbs template --}}
         <span class="meta-cut">•</span>
         <span id="{{url}}">评论量 <span id="twikoo_comments">0</span> 个</span>
       </div>
-      <article class="prose lg:prose-xl prose-slate max-w-none">{{content}}</article>
+      <article class="prose lg:prose-xl prose-slate dark:prose-invert max-w-none">{{content}}</article>
+
+      {{#if comments}}
+        <section class="mt-14 text-black dark:text-white">
+          {{comments title="评论" mode="auto"}}
+        </section>
+      {{/if}}
     {{/post}}
   </div>
 </main>

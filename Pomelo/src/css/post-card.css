@@ -26,8 +26,8 @@
 
 .post-card-container {
   @apply transition-[transform,box-shadow];
-  @apply relative flex flex-col shadow-xl h-full rounded overflow-hidden;
   @apply duration-300;
+  @apply relative flex flex-col shadow-xl h-full rounded overflow-hidden;
   @apply ring-1 ring-slate-900/5;
   @apply hover:shadow-2xl hover:-translate-y-1;
   @apply dark:bg-slate-900;

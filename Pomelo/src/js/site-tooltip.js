@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- *  File Name：site-dark-mode.js
+ *  File Name：site-tooltip.js
  *  Date：2022年07月13日
  *  Author：Jaxson Wang
  *  Email: i@iiong.com
@@ -41,9 +41,3 @@ function closePopper() {
   }, 500)
   document.removeEventListener('click', closePopper, true)
 }
-
-const lightBtn = document.querySelector('.event-light')
-
-lightBtn.addEventListener('click', function (event) {
-  console.log('我怕懂啊没了')
-})

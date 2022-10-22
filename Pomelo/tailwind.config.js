@@ -10,8 +10,7 @@
 
 module.exports = {
   content: ['./**/*.hbs', './src/js/**/*.js'],
-  // 'media' or 'class'
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     container: {
       screens: {

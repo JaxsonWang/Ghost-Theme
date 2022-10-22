@@ -6,7 +6,7 @@ into the {body} of the default.hbs template --}}
 {{!--Special header-background.hbs partial to generate the background image--}}
 {{> "site-hero" backgroundImage=@site.cover_image}}
 
-<main class="{{body_class}} custom-archive-for-page">
+<main class="custom-archive-for-page">
   <div class="container mx-auto mt-8 pt-8 px-4 md:px-8">
     {{#get "posts"}}
       <div class="archive-page-title text-xl font-bold pb-8">{{date published_at format="YYYY年MM月DD日"}} 累计 {{pagination.total}} 篇文章</div>

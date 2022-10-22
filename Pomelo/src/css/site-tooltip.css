@@ -10,8 +10,20 @@
 
 .pomelo-tooltip {
   @apply animated;
-  @apply absolute top-0 left-0 bg-black text-white;
-  @apply p-2 rounded-md;
+  @apply absolute top-0 left-0 text-white;
+  @apply rounded-md;
+}
+
+.pomelo-tooltip-light {
+  @apply text-inherit;
+  @apply bg-white;
+  @apply dark:bg-slate-900;
+  @apply border border-solid border-gray-200 shadow-xl;
+  @apply dark:border-gray-500;
+}
+
+.pomelo-tooltip-night {
+  @apply bg-black;
 }
 
 .pomelo-tooltip-arrow,
@@ -25,6 +37,8 @@
 
 .pomelo-tooltip-arrow::before {
   @apply visible content-['_'] rotate-45;
+  @apply border-t border-l border-solid border-gray-200;
+  @apply dark:border-gray-500;
 }
 
 .pomelo-tooltip[data-popper-placement^='top'] > .pomelo-tooltip-arrow {

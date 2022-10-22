@@ -14,8 +14,10 @@ import './site-header'
 import './site-mobile-sidebar'
 import './site-pagination'
 import './site-to-top'
-import './site-dark-mode'
+import './site-tooltip'
+import './site-color-scheme-mode'
 import './site-archive'
+import './site-comments'
 // const ele = document.createElement('div')
 // ele.innerText = '12'
 // document.querySelector('body').appendChild(ele)

@@ -20,7 +20,7 @@
   @apply rounded-full ring-1 ring-slate-100 shadow-md;
   @apply duration-300;
   @apply hover:shadow-lg hover:-translate-y-0.5;
-  @apply dark:bg-slate-900 dark:ring-slate-900 dark:text-slate-400;
+  @apply dark:bg-slate-900 dark:ring-slate-900 dark:text-slate-400 dark:fill-slate-400;
 }
 
 .pomelo-pagination-page-link.active {

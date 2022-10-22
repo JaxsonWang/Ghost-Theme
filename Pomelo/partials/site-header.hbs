@@ -20,14 +20,17 @@
           {{> "icons/search"}}
         </a>
         <a aria-describedby="tooltip" class="event-tooltip pomelo-header-icon">
-          {{> "icons/auto"}}
+          {{> "icons/system-mode"}}
         </a>
         <a class="event-mobile-menu pomelo-header-icon pomelo-header-icon-mobile">
           {{> "icons/menu"}}
         </a>
-        <div class="pomelo-tooltip pomelo-dark-tooltip d-none" role="tooltip">
-          <div class="event-light">白天</div>
-          <div class="event-night">晚上</div>
+        <div class="pomelo-tooltip pomelo-tooltip-color-scheme-mode pomelo-tooltip-light d-none" role="tooltip">
+          <div class="pomelo-color-scheme">
+            <div class="pomelo-color-scheme-item event-light">{{> "icons/light-mode"}} <span>浅色模式</span></div>
+            <div class="pomelo-color-scheme-item event-night">{{> "icons/night-mode"}} <span>深色模式</span></div>
+            <div class="pomelo-color-scheme-item event-system">{{> "icons/system-mode"}} <span>自动模式</span></div>
+          </div>
           <div class="pomelo-tooltip-arrow" data-popper-arrow></div>
         </div>
       </div>
