@@ -1,25 +1,13 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- *  File Name：global.css
+ *  File Name：global.js
  *  Date：2022年07月13日
  *  Author：Jaxson Wang
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
 
-.d-none {
-  @apply hidden;
-}
+// import smoothscroll from 'smoothscroll-polyfill'
 
-.pomelo-svg-icon {
-
-}
-
-html {
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-
-body {
-}
+// smoothscroll.polyfill()

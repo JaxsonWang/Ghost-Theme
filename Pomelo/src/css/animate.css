@@ -1,16 +1,20 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：animate.css
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：animate.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 
 .animated {
   animation-duration: 500ms;
   animation-fill-mode: both;
+}
+
+.animated-duration-200 {
+  animation-duration: 250ms;
 }
 
 @keyframes fade-in-right {

@@ -1,13 +1,14 @@
 /*
  * Copyright (c) 2022 Jaxson Wang
  * Theme Name：Pomelo
- * File Name：rollup.config.js
- * Date：2022年07月13日
- * Author：Jaxson Wang
- * Email: i@iiong.com
- * Blog: https://iiong.com
+ *  File Name：rollup.config.js
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
  */
 import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 import eslint from '@rbnlffl/rollup-plugin-eslint'
 import postcss from 'rollup-plugin-postcss'
@@ -24,6 +25,7 @@ module.exports = {
     sourcemap: !production
   },
   plugins: [
+    commonjs(),
     resolve({
       browser: true
     }),

@@ -9,7 +9,7 @@
  */
 
 .pomelo-tooltip {
-  @apply animated;
+  @apply animated animated-duration-200;
   @apply absolute top-0 left-0 text-white;
   @apply rounded-md;
 }

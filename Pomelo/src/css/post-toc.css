@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：post-toc.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.pomelo-article-toc {
+  @apply sticky top-24 overflow-y-auto;
+}
+
+.toc-list {
+  @apply m-0 pl-2.5 overflow-hidden relative;
+}
+
+.toc-list a.toc-link {
+  @apply text-current h-full;
+}
+.toc-list .is-collapsible {
+  @apply max-h-[62.5rem] overflow-hidden transition-all duration-300 ease-in-out;
+}
+.toc-list .is-collapsed {
+  @apply max-h-0;
+}
+.toc-list .is-position-fixed {
+  @apply fixed top-0;
+}
+.toc-list .is-active-link {
+  @apply font-bold;
+}
+.toc-list .toc-link:before {
+  @apply bg-gray-100 content-[''] inline-block h-full left-0 absolute w-0.5;
+}
+.toc-list .is-active-link:before {
+  @apply bg-black;
+}

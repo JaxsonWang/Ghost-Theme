@@ -38,6 +38,6 @@ function closePopper() {
     // 销毁当前 Popper
     popper.destroy()
     tooltip.classList.add('d-none')
-  }, 500)
+  }, 250)
   document.removeEventListener('click', closePopper, true)
 }
