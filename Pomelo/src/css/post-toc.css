@@ -29,11 +29,15 @@
   @apply fixed top-0;
 }
 .toc-list .is-active-link {
-  @apply font-bold;
+  @apply font-bold dark:text-white;
 }
 .toc-list .toc-link:before {
-  @apply bg-gray-100 content-[''] inline-block h-full left-0 absolute w-0.5;
+  @apply bg-gray-100 dark:bg-gray-600 content-[''] inline-block h-full left-0 absolute w-0.5;
 }
 .toc-list .is-active-link:before {
-  @apply bg-black;
+  @apply bg-black dark:bg-white;
+}
+
+.toc-list-item {
+  @apply dark:text-slate-400;
 }

@@ -3,15 +3,16 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} tag of the default.hbs template --}}
 
+{{#post}}
+
 {{!--Special header-background.hbs partial to generate the background image--}}
-{{> "site-hero" backgroundImage=@site.cover_image}}
+  {{> "site-hero" backgroundImage=feature_image}}
 
 
-{{!-- The main content area --}}
-<main class="site-posts-main dark:bg-slate-800">
-  <div class="container mx-auto">
-    <article class="py-24 px-4 md:px-0">
-      {{#post}}
+  {{!-- The main content area --}}
+  <main class="site-posts-main dark:bg-slate-800">
+    <div class="container mx-auto">
+      <article class="py-12 px-4 md:px-0">
         {{> "post-title"}}
         <div class="grid grid-cols-12 gap-4">
           <div class="col-span-12 md:col-span-10">
@@ -21,13 +22,18 @@ into the {body} tag of the default.hbs template --}}
             <div class="pomelo-article-toc event-article-toc"></div>
           </div>
         </div>
+      </article>
+      {{> "post-copyright"}}
+    </div>
+    {{> "post-divider"}}
+    {{#if comments}}
+      <div class="container mx-auto">
+        <section class="mt-14 text-black dark:text-white">
+          {{comments title="评论" mode="auto"}}
+        </section>
+      </div>
+    {{/if}}
+  </main>
 
-        {{#if comments}}
-          <section class="mt-14 text-black dark:text-white">
-            {{comments title="评论" mode="auto"}}
-          </section>
-        {{/if}}
-      {{/post}}
-    </article>
-  </div>
-</main>
+  {{> "post-to-top"}}
+{{/post}}

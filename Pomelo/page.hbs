@@ -13,21 +13,9 @@ into the {body} tag of the default.hbs template --}}
   <main class="site-posts-main dark:bg-slate-800">
     <div class="container mx-auto">
       <article class="py-12 px-4 md:px-0">
-        {{> "post-title"}}
         {{> "post-content"}}
       </article>
-      {{> "post-copyright"}}
     </div>
-    {{> "post-divider"}}
-    {{#if comments}}
-      <div class="container mx-auto">
-        <section class="mt-14 text-black dark:text-white">
-          {{comments title="评论" mode="auto"}}
-        </section>
-      </div>
-    {{/if}}
   </main>
-
-  {{> "post-to-top"}}
 
 {{/post}}

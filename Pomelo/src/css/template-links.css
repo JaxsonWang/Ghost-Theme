@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：template-links.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.custom-links-for-page ul {
+  list-style: none;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.custom-links-for-page ul li {
+  text-align: center;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.custom-links-for-page ul li .links-item-wrapper {
+  padding: 1.5rem 0;
+  transition: all 250ms ease 0ms;
+}
+.custom-links-for-page ul li .links-item-wrapper:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25) !important;
+}
+.custom-links-for-page ul li .links-item-wrapper-header {
+  text-align: center;
+}
+.custom-links-for-page ul li .links-item-wrapper-header-avatar {
+  border-radius: 50%;
+  width: 5rem;
+  margin: 0 auto;
+}
+.custom-links-for-page ul li .links-item-wrapper-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.custom-links-for-page ul li .links-item-wrapper-content-name {
+  margin-top: 0.5rem;
+}
+.custom-links-for-page ul li .links-item-wrapper-content-name a:hover {
+  opacity: 0.5;
+  text-decoration: none;
+}

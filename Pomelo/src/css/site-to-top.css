@@ -16,3 +16,13 @@
   @apply dark:bg-slate-900 dark:fill-white;
 }
 
+.pomelo-to-top .reading-progress-svg {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+.pomelo-to-top .reading-progress-svg circle {
+  @apply stroke-blue-600 -rotate-90 origin-center;
+  transition: stroke-dashoffset 0.2s;
+  stroke-dasharray: 157.08, 157.08;
+  stroke-dashoffset: 157.08;
+}

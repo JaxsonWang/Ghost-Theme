@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：post-copyright.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.pomelo-post-copyright {
+  @apply py-1 px-5;
+  @apply border-l-4 border-solid border-blue-600;
+  @apply list-none w-full;
+}
+.pomelo-post-copyright li {
+  @apply text-slate-500 dark:text-slate-200;
+  @apply list-item py-0.5;
+}
+.pomelo-post-copyright li a {
+  @apply border-b-2 border-dashed border-slate-500 dark:border-slate-200;
+}

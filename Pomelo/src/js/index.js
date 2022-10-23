@@ -20,3 +20,7 @@ import './site-color-scheme-mode'
 import './site-archive'
 import './site-comments'
 import './post-toc'
+import './post-to-top-progress'
+import './post-prism'
+
+import './template-links'

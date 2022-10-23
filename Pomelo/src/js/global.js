@@ -7,7 +7,3 @@
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
-
-// import smoothscroll from 'smoothscroll-polyfill'
-
-// smoothscroll.polyfill()

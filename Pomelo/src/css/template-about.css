@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：template-about.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.custom-about-for-page {
+  margin-top: 0;
+}
+.custom-about-for-page .about-me-home {
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(45deg, #e91e63, #9c27b0);
+}
+.custom-about-for-page .about-me-home .blue {
+  color: #29b6f6;
+}
+.custom-about-for-page .about-me-home .green {
+  color: #9ccc65;
+}
+.custom-about-for-page .about-me-home .purple {
+  color: #ba68c8;
+}
+.custom-about-for-page .about-me-home .cyan {
+  color: #4dd0e1;
+}
+.custom-about-for-page .about-me-home .red {
+  color: #ef5350;
+}
+.custom-about-for-page .about-me-home .about-me {
+  position: relative;
+  height: 15rem;
+  perspective: 150rem;
+  cursor: auto;
+  flex: initial;
+}
+.custom-about-for-page .about-me-home .about-me__side {
+  height: 15rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+}
+.custom-about-for-page .about-me-home .about-me__side--front {
+  background-color: #1c1c1c;
+  z-index: 1;
+}
+.custom-about-for-page .about-me-home .about-me__side--back {
+  transform: rotateY(180deg);
+  background-color: #1c1c1c;
+  z-index: 0;
+}
+.custom-about-for-page .about-me-home .about-me__cont {
+  height: 15rem;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-family: Consolas, "Lucida Console", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-about-for-page .about-me-home .about-me__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  color: white;
+}
+.custom-about-for-page .about-me-home .about-me__cta p {
+  margin: 0;
+  font-family: Consolas, "Lucida Console", monospace;
+}
+.custom-about-for-page .about-me-home .about-me__cta p > .space {
+  margin-left: 2rem;
+}
+.custom-about-for-page .about-me-home .about-me:hover .about-me__side--front {
+  transform: rotateY(-180deg);
+  z-index: 0;
+}
+.custom-about-for-page .about-me-home .about-me:hover .about-me__side--back {
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+html.dark .about-me-home {
+  background: linear-gradient(45deg, #000, #1e1e1e);
+}
+

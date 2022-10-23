@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：post-read-more.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.read-more-post-list {}
+
+.read-next-card {
+  @apply relative flex flex-col justify-between hidden p-14;
+  @apply border-4 h-full;
+  background: linear-gradient(#1a1c20, #0a0b0c);
+}

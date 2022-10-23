@@ -1,0 +1,45 @@
+{{!< default}}
+{{#post}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+  <main class="dark:bg-slate-800 custom-about-for-page">
+    <div class="grid grid-cols-12 gap-4 flex flex-row justify-center items-center about-me-home">
+      <div class="col-start-5 col-span-4 about-me">
+        <div class="about-me__side about-me__side--front">
+          <div class="about-me__cont">
+            <span class="blue">alert</span><span>(<span class="green">'Hello World!'</span>)</span>
+          </div>
+        </div>
+        <div class="about-me__side about-me__side--back">
+          <div class="about-me__cta">
+            <p>
+              <span class="purple">const</span> aboutMe <span class="cyan">=</span> {
+              <br />
+              <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Jaxson Wang'</span>,
+              <br />
+              <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iiong.com'</span>,
+              <br />
+              <span class="space red">position</span><span class="cyan">:</span>
+              <span class="green">'Web Front-End Developer'</span>,
+              <br />
+              <span class="space red">website</span><span class="cyan">:</span>
+              <span class="green">'https://iiong.com'</span>
+              <br /> };
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto">
+      <article class="py-12 px-4 md:px-0">
+        <h3 class="text-4xl text-center mb-2 pb-2 dark:text-white">
+          {{title}}
+        </h3>
+        <div class="prose lg:prose-xl prose-slate dark:prose-invert max-w-none prose-pre:bg-transparent prose-code:break-words w-full event-post-content">
+          {{content}}
+        </div>
+      </article>
+    </div>
+    {{> "site-to-top"}}
+  </main>
+{{/post}}

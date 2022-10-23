@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{#post}}
+
+  {{!--Special header-background.hbs partial to generate the background image--}}
+  {{> "site-hero" backgroundImage=feature_image}}
+
+  <main class="dark:bg-slate-800 custom-links-for-page">
+    <div class="container mx-auto">
+      <article class="py-12 px-4 md:px-0">
+        <h3 class="text-4xl text-center mb-2 pb-2 dark:text-white">
+          {{title}}
+        </h3>
+        <div class="prose lg:prose-xl prose-slate dark:prose-invert max-w-none prose-pre:bg-transparent prose-code:break-words w-full event-template-links-content">
+          {{content}}
+        </div>
+      </article>
+    </div>
+  </main>
+  {{> "site-to-top"}}
+{{/post}}
