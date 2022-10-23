@@ -41,7 +41,8 @@ module.exports = {
       copy({
         targets: [
           { src: '*.hbs', dest: 'pomelo/' },
-          { src: 'partials', dest: 'pomelo/partials/' }
+          { src: 'partials', dest: 'pomelo/partials/' },
+          { src: 'package.json', dest: 'pomelo/' }
         ]
       }),
     production && terser()

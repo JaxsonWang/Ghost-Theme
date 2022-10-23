@@ -18,7 +18,7 @@
 }
 
 .post-divider .meow {
-  @apply absolute top-6 left-[40%] opacity-0 select-none;
+  @apply absolute top-6 left-[40rem] opacity-0 select-none;
   @apply font-bold text-gray-600 dark:text-gray-400;
   @apply transition-opacity duration-500 ease-in-out;
 }

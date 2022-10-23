@@ -88,18 +88,7 @@
         "width": 2000
       }
     },
-    "card_assets": true,
-    "custom": {
-      "主题风格": {
-        "type": "select",
-        "options": [
-          "明亮",
-          "黑暗",
-          "自动"
-        ],
-        "default": "自动"
-      }
-    }
+    "card_assets": true
   },
   "dependencies": {
     "smoothscroll-polyfill": "^0.4.4"
