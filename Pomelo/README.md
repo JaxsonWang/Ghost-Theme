@@ -17,13 +17,13 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
 
 ```json
   "portal": {
-    "url": "http://localhost:2368/src/assets/portal.min.js",
+    "url": "http://你的博客地址/assets/portal.min.js",
     "version": "2.3"
   },
   "sodoSearch": {
-      "url": "http://localhost:2368/src/assets/sodo-search.min.js",
-      "version": "1.0.0"
-  },
+    "url": "http://你的博客地址/assets/sodo-search.min.js",
+    "version": "1.0.0"
+  }
 ```
 
 发件配置：https://ghost.org/docs/config/#mail
