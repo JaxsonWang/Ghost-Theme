@@ -10,3 +10,18 @@ search: https://forum.ghost.org/t/is-it-possible-to-disable-jsdelivr-cdn/31761/6
 
 
 https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/ghost/core/core/shared/config/defaults.json
+
+---
+
+打开 `config.production.json` 添加下列字段
+
+```json
+  "portal": {
+    "url": "http://localhost:2368/src/assets/portal.min.js",
+    "version": "2.3"
+  },
+  "sodoSearch": {
+      "url": "http://localhost:2368/src/assets/sodo-search.min.js",
+      "version": "1.0.0"
+  },
+```
