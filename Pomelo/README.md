@@ -25,3 +25,5 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
       "version": "1.0.0"
   },
 ```
+
+发件配置：https://ghost.org/docs/config/#mail
