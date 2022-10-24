@@ -17,11 +17,11 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
 
 ```json
   "portal": {
-    "url": "http://你的博客地址/assets/portal.min.js",
+    "url": "https://你的博客地址/assets/portal.min.js",
     "version": "2.3"
   },
   "sodoSearch": {
-    "url": "http://你的博客地址/assets/sodo-search.min.js",
+    "url": "https://你的博客地址/assets/sodo-search.min.js",
     "version": "1.0.0"
   }
 ```
