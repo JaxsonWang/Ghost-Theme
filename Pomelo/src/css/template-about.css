@@ -8,14 +8,9 @@
  *  Blog: https://iiong.com
  */
 
-.custom-about-for-page {
-  margin-top: 0;
-}
 .custom-about-for-page .about-me-home {
-  margin-bottom: 2rem;
-  width: 100%;
-  height: 50vh;
-  background: linear-gradient(45deg, #e91e63, #9c27b0);
+  @apply mb-8 w-full h-[calc(50vh+var(--header-height))] md:h-[calc(70vh+var(--header-height))];
+  @apply bg-[linear-gradient(45deg,#e91e63,#9c27b0)]
 }
 .custom-about-for-page .about-me-home .blue {
   color: #29b6f6;

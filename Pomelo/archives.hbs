@@ -4,7 +4,11 @@
 into the {body} of the default.hbs template --}}
 
 {{!--Special header-background.hbs partial to generate the background image--}}
-{{> "site-hero" backgroundImage=@site.cover_image}}
+{{#if @site.cover_image}}
+  <section class="pomelo-hero">
+    {{> "site-hero" backgroundImage=@site.cover_image}}
+  </section>
+{{/if}}
 
 <main class="custom-archive-for-page">
   <div class="container px-4 md:px-10 mt-8 pt-8">

@@ -7,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#ff69b4" />
   <meta name="description" content="<%description%>" />
@@ -29,13 +29,16 @@
 <body class="{{body_class}}">
 <div class="pomelo-app-wrapper">
   {{> "site-header"}}
-  <div class="pomelo-content site-content">
+  <div class="pomelo-content">
     {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
     {{{body}}}
   </div>
   {{> "site-footer"}}
 </div>
 
+<script>
+  {{#if @custom.custom_font_family_ttf_url}}window._ghost_pomeloFontUrl = '{{@custom.custom_font_family_ttf_url}}'{{/if}}
+</script>
 <script src="https://lib.baomitu.com/popper.js/2.11.6/umd/popper.min.js"></script>
 <script src="{{asset "assets/pomelo.js"}}"></script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}

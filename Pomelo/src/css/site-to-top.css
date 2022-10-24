@@ -10,7 +10,7 @@
 
 .pomelo-to-top {
   @apply transition-shadow animated;
-  @apply w-16 h-16 right-16 bottom-16 p-5 bg-white;
+  @apply w-16 h-16 right-8 bottom-8 md:right-16 md:bottom-16 p-5 bg-white;
   @apply flex justify-center items-center flex-col shadow-md hover:shadow-lg;
   @apply fixed z-10 rounded-full cursor-pointer;
   @apply dark:bg-slate-900 dark:fill-white;

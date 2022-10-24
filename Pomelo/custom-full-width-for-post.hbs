@@ -5,12 +5,16 @@ into the {body} tag of the default.hbs template --}}
 
 {{#post}}
 
-{{!--Special header-background.hbs partial to generate the background image--}}
-  {{> "site-hero" backgroundImage=feature_image}}
+  {{!--Special header-background.hbs partial to generate the background image--}}
+  {{#if feature_image}}
+    <section class="pomelo-hero">
+      {{> "site-hero" backgroundImage=feature_image}}
+    </section>
+  {{/if}}
 
 
   {{!-- The main content area --}}
-  <main class="site-posts-main dark:bg-slate-800">
+  <main class="site-posts-main mt-[var(--header-height)] dark:bg-slate-800">
     <div class="container px-4 md:px-10">
       <article class="py-12">
         {{> "post-title"}}
@@ -19,13 +23,8 @@ into the {body} tag of the default.hbs template --}}
       {{> "post-copyright"}}
     </div>
     {{> "post-divider"}}
-    {{#if comments}}
-      <div class="container">
-        <section class="mt-14 text-black dark:text-white">
-          {{comments title="评论" mode="auto"}}
-        </section>
-      </div>
-    {{/if}}
+    {{> "post-comments"}}
+    {{> "post-read-more"}}
   </main>
 
   {{> "post-to-top"}}

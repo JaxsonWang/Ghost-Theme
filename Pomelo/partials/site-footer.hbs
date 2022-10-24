@@ -1,22 +1,28 @@
 {{!-- The global footer at the very bottom of the screen --}}
 <footer class="pomelo-footer">
   <div class="container">
-    <div class="pt-12 pb-12 px-4 md:px-0 md:pb-20">
-      <nav class="pomelo-footer-nav mt-8 mb-16">
+    <div class="py-6 md:py-12 px-4 md:px-0 md:pb-20">
+      <nav class="pomelo-footer-nav mt-4 mb-8 md:mt-8 md:mb-16">
         {{navigation type="secondary"}}
       </nav>
       <div class="pomelo-footer-copyright">
         <div class="flex md:justify-between justify-center my-2">
           <section class="text-center">
-            <p>Powered by <a href="https://ghost.org/" rel="noopener nofollow" target="_blank">Ghost</a>. Copyright &copy; 2021 ~ {{date format="YYYY"}}. ❤️ Crafted with <a href="https://iiong.com" target="_blank" rel="noopener nofollow">Pomelo</a> Theme.</p>
+            <p>Powered by <a href="https://ghost.org" rel="noopener nofollow" target="_blank">Ghost</a>. Copyright &copy; 2021 ~ {{date format="YYYY"}}. ❤️ Crafted with <a href="https://iiong.com" target="_blank" rel="noopener nofollow">Pomelo</a> Theme.</p>
           </section>
-          <div class="hidden md:block">只争朝夕，不负韶华。</div>
+          <div class="hidden md:block">{{@custom.footer_one}}</div>
         </div>
         <div class="flex flex-wrap-reverse md:justify-between justify-center text-center my-2">
           <p>
-            <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener" class="block md:inline">苏ICP备15050739号</a>
-            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196" target="_blank" rel="nofollow noopener" class="block md:inline">苏公网安备32010402000196号</a>
-            <a href="https://tongji.baidu.com/web/welcome/ico?s=075de8ed5c2bfb5f678b1a620749aee4" target="_blank" rel="nofollow noopener" class="block md:inline">百度统计</a>
+            {{#if @custom.icp_name}}
+              <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener" class="block md:inline">{{@custom.icp_name}}</a>
+            {{/if}}
+            {{#if @custom.gongan_beian_name}}
+              <a href="{{@custom.gongan_beian_url}}" target="_blank" rel="nofollow noopener" class="block md:inline">{{@custom.gongan_beian_name}}</a>
+            {{/if}}
+            {{#if @custom.footer_url_url}}
+              <a href="{{@custom.footer_url_url}}" target="_blank" rel="nofollow noopener" class="block md:inline">{{@custom.footer_url_name}}</a>
+            {{/if}}
           </p>
         </div>
       </div>

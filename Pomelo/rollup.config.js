@@ -42,7 +42,8 @@ module.exports = {
         targets: [
           { src: '*.hbs', dest: 'pomelo/' },
           { src: 'partials', dest: 'pomelo/' },
-          { src: 'package.json', dest: 'pomelo/' }
+          { src: 'package.json', dest: 'pomelo/' },
+          { src: 'src/assets', dest: 'pomelo/' }
         ]
       }),
     production && terser()

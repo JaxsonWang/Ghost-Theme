@@ -12,10 +12,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --header-height: 75px;
-}
-
 /*@layer components {*/
 /*  .dark-mode {*/
 /*    @apply bg-white dark:bg-slate-800;*/

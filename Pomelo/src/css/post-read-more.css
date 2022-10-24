@@ -11,7 +11,4 @@
 .read-more-post-list {}
 
 .read-next-card {
-  @apply relative flex flex-col justify-between hidden p-14;
-  @apply border-4 h-full;
-  background: linear-gradient(#1a1c20, #0a0b0c);
 }

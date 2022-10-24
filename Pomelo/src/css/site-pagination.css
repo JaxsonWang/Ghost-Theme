@@ -9,7 +9,7 @@
  */
 
 .pomelo-pagination {
-  @apply pt-8 pb-16;
+  @apply pt-4 pb-8 md:pt-8 md:pb-16;
   @apply dark:bg-slate-800 dark:text-white;
 }
 

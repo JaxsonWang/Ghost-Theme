@@ -2,9 +2,9 @@
 {{#post}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
-  <main class="dark:bg-slate-800 custom-about-for-page">
-    <div class="grid grid-cols-12 gap-4 flex flex-row justify-center items-center about-me-home">
-      <div class="col-start-5 col-span-4 about-me">
+  <main class="dark:bg-slate-800 mt-0 custom-about-for-page">
+    <div class="grid grid-cols-12 gap-4 flex flex-row justify-center items-center mb-8 w-full about-me-home">
+      <div class="col-start-0 col-span-12 md:col-start-4 md:col-span-6 about-me">
         <div class="about-me__side about-me__side--front">
           <div class="about-me__cont">
             <span class="blue">alert</span><span>(<span class="green">'Hello World!'</span>)</span>
@@ -32,7 +32,7 @@ into the {body} of the default.hbs template --}}
     </div>
     <div class="container px-4 md:px-10">
       <article class="py-12">
-        <h3 class="text-4xl text-center mb-2 pb-2 dark:text-white">
+        <h3 class="text-3xl md:text-4xl text-center mb-2 pb-2 dark:text-white">
           {{title}}
         </h3>
         <div class="pomelo-post-content event-post-content">

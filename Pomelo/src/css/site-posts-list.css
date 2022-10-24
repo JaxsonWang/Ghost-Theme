@@ -9,6 +9,6 @@
  */
 
 .site-posts-list {
-  @apply relative py-24;
+  @apply relative py-12 md:py-24;
   @apply dark:bg-slate-800 dark:text-white;
 }

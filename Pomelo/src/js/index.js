@@ -24,4 +24,6 @@ import './post-prism'
 import './post-zooming'
 import './post-to-top-progress'
 
+import './font-face'
+
 import './template-links'

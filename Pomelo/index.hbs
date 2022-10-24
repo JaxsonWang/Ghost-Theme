@@ -4,11 +4,19 @@
 into the {body} of the default.hbs template --}}
 
 {{!--Special header-background.hbs partial to generate the background image--}}
-{{> "site-hero" backgroundImage=@site.cover_image showContent=true}}
+{{#if @site.cover_image}}
+  <section class="pomelo-hero">
+    {{> "site-hero" backgroundImage=@site.cover_image}}
+    <div class="pomelo-hero-content">
+      <h1 class="pomelo-hero-content-title">{{ @site.title }}</h1>
+      <div class="pomelo-hero-content-description">永远年轻，永远热泪盈眶！</div>
+    </div>
+  </section>
+{{/if}}
 
 {{!-- The main content area --}}
 <main class="site-posts-list">
-  <div class="container px-4 md:px-10">
+  <div class="container px-4 xl:px-10">
     <div class="post-card-list">
       {{#foreach posts}}
       {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}

@@ -12,7 +12,7 @@
   @apply relative h-24 text-center;
   @apply border-t-2 border-b-2 border-solid border-slate-200 dark:border-slate-500;
   @apply bg-[#f7fafc] dark:bg-[#000] bg-[url('https://img.alicdn.com/imgextra/i1/2038135983/O1CN013eyOJe1u4GJLwBYrj_!!2038135983.png')];
-  @apply bg-left bg-no-repeat;
+  @apply bg-[200%_center] md:bg-left bg-no-repeat;
   @apply my-12 overflow-hidden;
   background-size: auto 2rem;
 }

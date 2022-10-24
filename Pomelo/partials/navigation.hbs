@@ -1,8 +1,8 @@
 {{#if isSecondary}}
   {{#if @site.secondary_navigation}}
-    <ul class="pomelo-footer-navbar flex justify-center">
+    <ul class="pomelo-footer-navbar flex justify-center flex-wrap">
       {{#foreach navigation}}
-        <li class="{{link_class for=(url) class=(concat "nav-" slug)}} pomelo-footer-menu-li mr-2">
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}} pomelo-footer-menu-li mx-2">
           <a href="{{url absolute="true"}}" class="pomelo-footer-menu-link hover:text-gray-500{{#if current}} text-gray-500 pointer-events-none{{/if}}">{{label}}</a>
         </li>
       {{/foreach}}

@@ -15,7 +15,7 @@
 }
 .pomelo-post-copyright li {
   @apply text-slate-500 dark:text-slate-200;
-  @apply list-item py-0.5;
+  @apply list-item py-1;
 }
 .pomelo-post-copyright li a {
   @apply border-b-2 border-dashed border-slate-500 dark:border-slate-200;

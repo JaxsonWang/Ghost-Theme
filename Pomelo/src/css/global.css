@@ -12,10 +12,8 @@
   @apply hidden;
 }
 
-.pomelo-svg-icon {
-
-}
-
 html {
   -webkit-font-smoothing: subpixel-antialiased;
 }
+
+body {}

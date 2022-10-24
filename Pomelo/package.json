@@ -88,9 +88,43 @@
         "width": 2000
       }
     },
-    "card_assets": true
-  },
-  "dependencies": {
-    "smoothscroll-polyfill": "^0.4.4"
+    "card_assets": true,
+    "custom": {
+      "custom_font_family_ttf_url": {
+        "type": "text",
+        "default": "https://github.rc1844.workers.dev/JaxsonWang/jaxsonwang.github.io/raw/master/assets/PuHuiTi.ttf",
+        "grounp": "sitewide"
+      },
+      "icp_name": {
+        "type": "text",
+        "default": "苏ICP备15050739号",
+        "grounp": "sitewide"
+      },
+      "gongan_beian_name": {
+        "type": "text",
+        "default": "苏公网安备32010402000196号",
+        "grounp": "sitewide"
+      },
+      "gongan_beian_url": {
+        "type": "text",
+        "default": "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196",
+        "grounp": "sitewide"
+      },
+      "footer_url_name": {
+        "type": "text",
+        "default": "百度统计",
+        "grounp": "sitewide"
+      },
+      "footer_url_url": {
+        "type": "text",
+        "default": "https://tongji.baidu.com/web/welcome/ico?s=075de8ed5c2bfb5f678b1a620749aee4",
+        "grounp": "sitewide"
+      },
+      "footer_one": {
+        "type": "text",
+        "default": "只争朝夕，不负韶华。",
+        "grounp": "sitewide"
+      }
+    }
   }
 }

@@ -5,12 +5,16 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 
   {{!--Special header-background.hbs partial to generate the background image--}}
-  {{> "site-hero" backgroundImage=feature_image}}
+  {{#if feature_image}}
+    <section class="pomelo-hero">
+      {{> "site-hero" backgroundImage=feature_image}}
+    </section>
+  {{/if}}
 
   <main class="dark:bg-slate-800 custom-links-for-page">
     <div class="container px-4 md:px-10">
       <article class="py-12">
-        <h3 class="text-4xl text-center mb-2 pb-2 dark:text-white">
+        <h3 class="text-3xl md:text-4xl text-center mb-2 pb-2 dark:text-white">
           {{title}}
         </h3>
         <div class="pomelo-post-content event-template-links-content">
