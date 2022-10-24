@@ -16,42 +16,17 @@
   @apply col-span-12 md:col-span-6 xl:col-span-4;
 }
 
-.post-card-medium {
-  @apply col-span-12 md:col-span-6;
-}
-
-.post-card-large {
-  @apply col-span-12 md:col-span-12;
-}
-
 .post-card-container {
   @apply transition-[transform,box-shadow];
   @apply duration-300;
   @apply relative flex flex-col shadow-xl h-full rounded overflow-hidden;
   @apply ring-1 ring-slate-900/5;
-  @apply hover:shadow-2xl hover:-translate-y-1;
+  @apply hover:shadow-2xl hover:-translate-y-2;
   @apply dark:bg-slate-900;
-}
-
-.post-card-large .post-card-container {
-  @apply md:flex-row;
 }
 
 .post-card-content  {
   @apply flex flex-col p-5 justify-between flex-auto;
-}
-
-.post-card-large .post-card-content  {
-  @apply md:ml-2;
-}
-
-.post-card-medium .post-card-image-link {
-  @apply max-h-[20rem] overflow-hidden;
-}
-
-.post-card-large .post-card-image-link {
-  @apply max-h-[24rem] overflow-hidden;
-  @apply md:mr-2 md:min-w-[50%];
 }
 
 .post-card-image {
@@ -73,14 +48,6 @@
 
 .post-card-title {
   @apply text-xl my-3;
-}
-
-.post-card-medium .post-card-title {
-  @apply md:text-2xl md:my-4;
-}
-
-.post-card-large .post-card-title  {
-  @apply md:text-3xl md:my-5;
 }
 
 .post-card-excerpt {

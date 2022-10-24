@@ -7,8 +7,8 @@
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
-import { isScrollTop } from './utils'
-
-if (isScrollTop()) {
-  console.log('xxx')
-}
+// import { isScrollTop } from './utils'
+//
+// if (isScrollTop()) {
+//   console.log('xxx')
+// }

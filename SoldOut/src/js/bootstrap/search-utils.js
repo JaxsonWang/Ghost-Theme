@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import GhostContentAPI from './content-api'
 
 class GhostSearch {

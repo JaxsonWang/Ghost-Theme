@@ -2,8 +2,7 @@
   "name": "sold-out",
   "version": "1.2.0",
   "engines": {
-    "ghost": ">=5.0.0",
-    "ghost-api": "v5"
+    "ghost": ">=5.0.0"
   },
   "keywords": [
     "ghost-theme"
@@ -63,6 +62,7 @@
       "xl": {
         "width": 2000
       }
-    }
+    },
+    "card_assets": true
   }
 }
