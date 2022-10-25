@@ -10,7 +10,7 @@
 
 .pomelo-post-copyright {
   @apply py-1 px-5;
-  @apply border-l-4 border-solid border-blue-600;
+  @apply border-l-4 border-solid border-[color:var(--ghost-accent-color)];
   @apply list-none w-full;
 }
 .pomelo-post-copyright li {
@@ -19,4 +19,5 @@
 }
 .pomelo-post-copyright li a {
   @apply border-b-2 border-dashed border-slate-500 dark:border-slate-200;
+  @apply hover:text-[color:var(--ghost-accent-color)] hover:border-[color:var(--ghost-accent-color)];
 }

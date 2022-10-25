@@ -21,7 +21,7 @@
 }
 
 .pomelo-to-top .reading-progress-svg circle {
-  @apply stroke-blue-600 -rotate-90 origin-center;
+  @apply -rotate-90 origin-center stroke-[color:var(--ghost-accent-color)];
   transition: stroke-dashoffset 0.2s;
   stroke-dasharray: 157.08, 157.08;
   stroke-dashoffset: 157.08;

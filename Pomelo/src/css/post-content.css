@@ -13,6 +13,11 @@
   @apply max-w-none w-full;
 }
 
+.pomelo-post-content p a {
+  @apply transition-colors duration-200;
+  @apply hover:text-[color:var(--ghost-accent-color)];
+}
+
 .pomelo-post-content p img {
   @apply mx-auto;
   @apply max-w-full md:max-w-2xl;

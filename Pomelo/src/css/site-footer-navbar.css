@@ -9,5 +9,13 @@
  */
 
 .pomelo-footer-navbar {
+  @apply flex justify-center flex-wrap;
+}
 
+.pomelo-footer-menu-link {
+  @apply hover:text-gray-500;
+}
+
+.pomelo-footer-menu-link.active {
+  @apply pointer-events-none text-gray-500;
 }

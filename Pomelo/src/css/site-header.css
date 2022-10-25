@@ -15,11 +15,23 @@
   @apply ring-1 ring-slate-900/5 shadow-xl;
 }
 
+.pomelo-header-navbar {
+  @apply flex;
+}
+
 .pomelo-header-navbar-title,
 .pomelo-header-menu-link,
 .pomelo-header-icon {
-  @apply transition;
+  @apply transition-colors;
   @apply duration-300;
+}
+
+.pomelo-header-menu-link {
+  @apply hover:text-gray-500;
+}
+
+.pomelo-header-menu-link.active {
+  @apply pointer-events-none font-bold text-[color:var(--ghost-accent-color)];
 }
 
 .pomelo-header-icon {

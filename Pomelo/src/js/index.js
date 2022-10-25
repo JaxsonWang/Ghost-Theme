@@ -23,6 +23,7 @@ import './post-toc'
 import './post-prism'
 import './post-zooming'
 import './post-to-top-progress'
+import './post-read-progress'
 
 import './font-face'
 

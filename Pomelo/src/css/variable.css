@@ -9,5 +9,6 @@
  */
 
 :root {
+  --ghost-accent-color: '#000';
   --header-height: 75px;
 }
