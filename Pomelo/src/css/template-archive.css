@@ -8,7 +8,9 @@
  *  Blog: https://iiong.com
  */
 
-.custom-archive-for-page {}
+.custom-archive-for-page {
+  @apply pt-[var(--header-height)] dark:bg-slate-800 dark:text-slate-400;
+}
 
 .custom-archive-for-page-item {
   @apply relative pl-10 pb-8;

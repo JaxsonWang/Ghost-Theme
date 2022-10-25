@@ -9,7 +9,9 @@ into the {body} of the default.hbs template --}}
     {{> "site-hero" backgroundImage=@site.cover_image}}
     <div class="pomelo-hero-content">
       <h1 class="pomelo-hero-content-title">{{ @site.title }}</h1>
-      <div class="pomelo-hero-content-description">永远年轻，永远热泪盈眶！</div>
+      {{#if @custom.hero_one}}
+        <div class="pomelo-hero-content-description">{{@custom.hero_one}}</div>
+      {{/if}}
     </div>
   </section>
 {{/if}}

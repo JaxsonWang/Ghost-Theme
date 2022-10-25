@@ -9,7 +9,7 @@
   "engines": {
     "ghost": ">=5.0.0"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "author": {
     "name": "Jaxson Wang",
@@ -90,6 +90,11 @@
     },
     "card_assets": true,
     "custom": {
+      "hero_one": {
+        "type": "text",
+        "default": "永远年轻，永远热泪盈眶",
+        "grounp": "sitewide"
+      },
       "custom_font_family_ttf_url": {
         "type": "text",
         "default": "https://github.rc1844.workers.dev/JaxsonWang/jaxsonwang.github.io/raw/master/assets/PuHuiTi.ttf",
