@@ -9,7 +9,10 @@
     format="YYYY年MM月DD日"}}</time>
   <span class="meta-cut">•</span>
   {{#if primary_tag}}<span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>{{/if}}
-  <span class="meta-cut">•</span>
-  <span>评论 {{comment_count singular="" plural="" empty="0"}} 个</span>
+  {{#if @custom.post_comments_twikoo_env_id}}
+    <span class="meta-cut">•</span>
+    <span id="{{url}}">阅读量 <span id="twikoo_visitors">0</span> 次</span>
+    <span class="meta-cut">•</span>
+    <span id="{{url}}">评论量 <span id="twikoo_comments">0</span> 个</span>
+  {{/if}}
 </div>
-

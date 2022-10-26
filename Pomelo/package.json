@@ -30,32 +30,33 @@
     "ncu": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
-    "@babel/preset-env": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
     "@rbnlffl/rollup-plugin-eslint": "^4.0.0",
-    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-babel": "^6.0.2",
     "@rollup/plugin-commonjs": "^23.0.2",
-    "@rollup/plugin-eslint": "^8.0.2",
-    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-eslint": "^8.0.5",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.12",
     "chokidar": "^3.5.3",
     "cssnano": "^5.1.13",
-    "eslint": "^8.24.0",
+    "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-promise": "^6.1.1",
     "lint-staged": "^13.0.3",
-    "postcss": "^8.4.17",
+    "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
     "prettier": "^2.7.1",
     "rollup": "2.79.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "3.1.8"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -93,42 +94,47 @@
       "hero_one": {
         "type": "text",
         "default": "永远年轻，永远热泪盈眶",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "custom_font_family_ttf_url": {
         "type": "text",
         "default": "https://github.rc1844.workers.dev/JaxsonWang/jaxsonwang.github.io/raw/master/assets/PuHuiTi.ttf",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "icp_name": {
         "type": "text",
         "default": "苏ICP备15050739号",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "gongan_beian_name": {
         "type": "text",
         "default": "苏公网安备32010402000196号",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "gongan_beian_url": {
         "type": "text",
         "default": "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "footer_url_name": {
         "type": "text",
         "default": "百度统计",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "footer_url_url": {
         "type": "text",
         "default": "https://tongji.baidu.com/web/welcome/ico?s=075de8ed5c2bfb5f678b1a620749aee4",
-        "grounp": "sitewide"
+        "group": "sitewide"
       },
       "footer_one": {
         "type": "text",
         "default": "只争朝夕，不负韶华。",
-        "grounp": "sitewide"
+        "group": "sitewide"
+      },
+      "comments_twikoo_env_id": {
+        "type": "text",
+        "default": "",
+        "group": "post"
       }
     }
   }
