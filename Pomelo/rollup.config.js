@@ -21,22 +21,23 @@ module.exports = {
   input: 'src/js/index.js',
   output: {
     file: production ? 'pomelo/assets/pomelo.js' : 'assets/pomelo.js',
-    format: 'esm',
+    format: 'iife',
     sourcemap: !production
   },
   plugins: [
-    commonjs(),
     resolve({
       browser: true
     }),
+    commonjs(),
+    babel({ babelHelpers: 'runtime' }),
     postcss({
       extract: true
     }),
-    babel({ babelHelpers: 'bundled' }),
     eslint({
       filterExclude: ['src/css/*'],
       filterInclude: ['src/**']
     }),
+    production && terser(),
     production &&
       copy({
         targets: [
@@ -47,8 +48,7 @@ module.exports = {
           { src: 'LICENSE', dest: 'pomelo/' },
           { src: 'robots.txt', dest: 'pomelo/' }
         ]
-      }),
-    production && terser()
+      })
   ],
   watch: {
     exclude: ['node_modules/**']

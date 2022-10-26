@@ -1,0 +1,7 @@
+.post-comments {
+  @apply dark:text-slate-400;
+}
+
+.post-comments .el-loading-mask .el-loading-spinner {
+  @apply flex justify-center items-center;
+}
