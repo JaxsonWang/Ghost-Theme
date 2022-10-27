@@ -11,21 +11,21 @@
 import '../css/index.css'
 
 import './global'
+import './font-face'
+
 import './site-header'
 import './site-mobile-sidebar'
 import './site-pagination'
 import './site-to-top'
 import './site-tooltip'
 import './site-color-scheme-mode'
-import './site-comments'
+
 import './post-toc'
 import './post-prism'
 import './post-zooming'
 import './post-to-top-progress'
 import './post-read-progress'
 import './post-comments'
-
-import './font-face'
 
 import './template-links'
 import './template-archive'

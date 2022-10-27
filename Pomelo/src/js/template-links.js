@@ -14,16 +14,18 @@ document.querySelectorAll('.custom-links-for-page .event-template-links-content 
   const itemLink = block.textContent.split('|')
   block.classList.add('col-span-12', 'md:col-span-4', 'mb-4', 'text-center', 'px-4')
   block.innerHTML = `
-      <div class="shadow px-3 py-4 transition-shadow duration-200 ease-in-out hover:shadow-xl">
-        <div class="">
-          <img src="${itemLink[2]}" class="border border-gray-300 rounded-full w-20 mx-auto !my-0" alt="${itemLink[0]}"/>
-        </div>
-        <div class="grow flex flex-col">
-          <div class="mt-3">
-            <a target="_blank" href="${itemLink[1]}" class="transition-opacity duration-200 hover:opacity-50">${itemLink[0]}</a>
+      <a target="_blank" href="${itemLink[1]}" class="!no-underline group">
+        <div class="shadow-xl px-3 py-4 transition-[transform,box-shadow] duration-300 hover:shadow-2xl hover:-translate-y-2 dark:bg-slate-900 rounded-lg">
+          <div>
+            <img src="${itemLink[2]}" class="border border-gray-300 rounded-full w-20 mx-auto !my-0" alt="${itemLink[0]}"/>
           </div>
-          <div class="links-item-wrapper-content-desc">${itemLink[3]}</div>
+          <div class="grow flex flex-col">
+            <div class="mt-3 group-hover:text-[color:var(--ghost-accent-color)] transition-colors duration-300">
+              ${itemLink[0]}
+            </div>
+            <div class="links-item-wrapper-content-desc">${itemLink[3]}</div>
+          </div>
         </div>
-      </div>
+      </a>
       `
 })

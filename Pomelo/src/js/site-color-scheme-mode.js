@@ -7,6 +7,7 @@
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
+const toggleBtn = document.querySelector('.event-tooltip')
 const lightBtn = document.querySelector('.event-light')
 const nightBtn = document.querySelector('.event-night')
 const systemBtn = document.querySelector('.event-system')
@@ -31,9 +32,11 @@ function colorSchemeMode() {
     if (localStorage.theme === 'dark') {
       document.documentElement.classList.add('dark')
       siteCommentSchemeMode(true)
+      toggleBtn.innerHTML = nightBtn.querySelector('svg').outerHTML
     } else {
       document.documentElement.classList.remove('dark')
       siteCommentSchemeMode(false)
+      toggleBtn.innerHTML = lightBtn.querySelector('svg').outerHTML
     }
   } else {
     prefersColorSchemeDark()
@@ -52,6 +55,8 @@ function prefersColorSchemeDark() {
     document.documentElement.classList.remove('dark')
     siteCommentSchemeMode(false)
   }
+
+  toggleBtn.innerHTML = systemBtn.querySelector('svg').outerHTML
 }
 
 function siteCommentSchemeMode(isDark) {
