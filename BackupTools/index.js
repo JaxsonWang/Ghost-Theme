@@ -3,7 +3,7 @@ const { exec } = require('child_process')
 const got = require('got')
 
 // Server sendkey
-const sendkey = 'SCTxxxxxxxx'
+const sendkey = 'SCTxxxxx'
 
 let title = ''
 let message = ''
