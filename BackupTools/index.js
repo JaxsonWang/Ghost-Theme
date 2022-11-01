@@ -8,7 +8,7 @@ const sendkey = 'SCTxxxxx'
 let title = ''
 let message = ''
 
-exec('bash /home/ubuntu/backup.sh', (error, stdout, stderr) => {
+exec('bash /home/ubuntu/backup/backup.sh', (error, stdout, stderr) => {
   if (error) {
     title = error.toString()
   } else {
