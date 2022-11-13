@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Pomelo
+ *  File Name：site-tooltip-color-scheme-mode.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.pomelo-ghost-search {
+  @apply p-2 text-xs text-center;
+}

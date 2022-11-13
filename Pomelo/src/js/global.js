@@ -9,6 +9,8 @@
  */
 
 // 链接跳转
+import { initPopper } from './site-tooltip'
+
 document.querySelectorAll('.event-post-content a').forEach(block => {
   if (block.getAttribute('href') !== null && !/^(#|javascript).*/.test(block.getAttribute('href'))) {
     block.setAttribute('target', '_blank')
@@ -32,3 +34,17 @@ document.querySelectorAll('.event-post-content li').forEach(block => {
     block.parentElement.classList.add('todo-list')
   }
 })
+
+// 搜索在 iOS X5 存在问题，需要处理
+const ua = window.navigator.userAgent
+const isIPhoneAndIPad = /iPad|iPhone/i.test(ua)
+const isWeChat = /MicroMessenger/i.test(ua)
+const isMQQBrowser = /MQQBrowser/i.test(ua)
+
+if (isIPhoneAndIPad && (isWeChat || isMQQBrowser)) {
+  const searchBtn = document.querySelector('.event-ghost-search')
+  searchBtn.removeAttribute('data-ghost-search')
+  searchBtn.classList.add('event-disable-ghost-search')
+
+  initPopper('.event-disable-ghost-search', '.event-tooltip-search')
+}

@@ -15,8 +15,8 @@
   max-width: 100vw;
 }
 .pomelo-post-content .kg-image-card .kg-image {
-  margin: 0 auto;
-  height: auto;
+  @apply mx-auto;
+  @apply max-w-full md:max-w-2xl;
 }
 .pomelo-post-content .kg-gallery-card {
   display: flex;

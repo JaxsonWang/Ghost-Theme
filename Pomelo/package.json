@@ -9,7 +9,7 @@
   "engines": {
     "ghost": ">=5.0.0"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "author": {
     "name": "Jaxson Wang",
@@ -132,6 +132,21 @@
         "group": "sitewide"
       },
       "comments_twikoo_env_id": {
+        "type": "text",
+        "default": "",
+        "group": "post"
+      },
+      "name_in_the_about_me_page": {
+        "type": "text",
+        "default": "",
+        "group": "post"
+      },
+      "email_in_the_about_me_page": {
+        "type": "text",
+        "default": "",
+        "group": "post"
+      },
+      "position_in_the_about_me_page": {
         "type": "text",
         "default": "",
         "group": "post"

@@ -15,15 +15,15 @@ into the {body} of the default.hbs template --}}
             <p>
               <span class="purple">const</span> aboutMe <span class="cyan">=</span> {
               <br />
-              <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Jaxson Wang'</span>,
+              <span class="space red">name</span><span class="cyan">:</span> <span class="green">'{{@custom.name_in_the_about_me_page}}'</span>,
               <br />
-              <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iiong.com'</span>,
+              <span class="space red">email</span><span class="cyan">:</span> <span class="green">'{{@custom.email_in_the_about_me_page}}'</span>,
               <br />
               <span class="space red">position</span><span class="cyan">:</span>
-              <span class="green">'Web Front-End Developer'</span>,
+              <span class="green">'{{@custom.position_in_the_about_me_page}}'</span>,
               <br />
               <span class="space red">website</span><span class="cyan">:</span>
-              <span class="green">'https://iiong.com'</span>
+              <span class="green">'{{@site.url}}'</span>
               <br /> };
             </p>
           </div>
