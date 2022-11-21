@@ -9,8 +9,8 @@
  */
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import eslint from '@rollup/plugin-eslint'
 import { babel } from '@rollup/plugin-babel'
-import eslint from '@rbnlffl/rollup-plugin-eslint'
 import postcss from 'rollup-plugin-postcss'
 import copy from 'rollup-plugin-copy'
 import { terser } from 'rollup-plugin-terser'
@@ -34,8 +34,10 @@ module.exports = {
       extract: true
     }),
     eslint({
-      filterExclude: ['src/css/*'],
-      filterInclude: ['src/**']
+      throwOnError: true,
+      throwOnWarning: true,
+      include: ['src/**'],
+      exclude: ['node_modules/**']
     }),
     production && terser(),
     production &&
@@ -49,8 +51,5 @@ module.exports = {
           { src: 'robots.txt', dest: 'pomelo/' }
         ]
       })
-  ],
-  watch: {
-    exclude: ['node_modules/**']
-  }
+  ]
 }
