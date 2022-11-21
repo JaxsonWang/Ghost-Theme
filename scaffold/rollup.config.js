@@ -1,26 +1,24 @@
 import resolve from '@rollup/plugin-node-resolve'
-import { babel } from '@rollup/plugin-babel'
+import eslint from '@rollup/plugin-eslint'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
 
-const production = process.env.NODE_ENV === 'production'
-
-module.exports = {
+export default {
   input: 'src/js/index.js',
   output: {
-    file: production ? 'dist/app.js' : 'src/app.js',
-    format: 'esm',
-    sourcemap: !production
+    file: 'dist/app.js',
+    format: 'cjs',
+    sourcemap: true
   },
   plugins: [
     resolve(),
     postcss({
       extract: true
     }),
-    babel({ babelHelpers: 'bundled' }),
-    production && terser()
-  ],
-  watch: {
-    exclude: ['node_modules/**']
-  }
+    eslint({
+      throwOnError: true,
+      throwOnWarning: true,
+      include: ['src/**'],
+      exclude: ['node_modules/**']
+    })
+  ]
 }
