@@ -15,7 +15,7 @@ const zooming = () => {
     loadScripts([
       {
         name: 'zooming-js',
-        path: 'https://cdn.staticfile.org/zooming/2.1.1/zooming.js'
+        path: 'https://npm.elemecdn.com/zooming@2.1.1/build/zooming.min.js'
       }
     ]).then(() => {
       const zooming = new window.Zooming()

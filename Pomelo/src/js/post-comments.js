@@ -16,7 +16,7 @@ if (comments && envId) {
   loadScripts([
     {
       name: 'twikoo-js',
-      path: 'https://cdn.staticfile.org/twikoo/1.6.11/twikoo.all.min.js'
+      path: 'https://npm.elemecdn.com/twikoo@1.6.11/dist/twikoo.min.js'
     }
   ]).then(() => {
     window.twikoo.init({

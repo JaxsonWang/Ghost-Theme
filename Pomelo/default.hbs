@@ -20,8 +20,7 @@
 
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
-  <link rel="dns-prefetch" href="https://lib.baomitu.com" />
-  <link rel="dns-prefetch" href="https://cdn.staticfile.org" />
+  <link rel="dns-prefetch" href="https://npm.elemecdn.com" />
 
   {{!-- Ghost 相关标签信息 --}}
   {{ghost_head}}
@@ -45,7 +44,7 @@
     window.__gost_twikoo_env_id = '{{@custom.comments_twikoo_env_id}}'
   {{/if}}
 </script>
-<script src="https://lib.baomitu.com/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://npm.elemecdn.com/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
 <script src="{{asset "assets/pomelo.js"}}"></script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}

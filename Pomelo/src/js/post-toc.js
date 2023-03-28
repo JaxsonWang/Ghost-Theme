@@ -13,7 +13,7 @@ if (document.querySelector('.event-article-toc') !== null) {
   loadScripts([
     {
       name: 'tocbot-js',
-      path: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.18.2/tocbot.min.js'
+      path: 'https://npm.elemecdn.com/tocbot@4.20.1/dist/tocbot.min.js'
     }
   ]).then(() => {
     window.tocbot.init({
