@@ -5,3 +5,8 @@
 .post-comments .el-loading-mask .el-loading-spinner {
   @apply flex justify-center items-center;
 }
+
+.OwO .OwO-body .OwO-items .OwO-item {
+  font-size: 28px !important;
+  line-height: 28px !important;
+}
