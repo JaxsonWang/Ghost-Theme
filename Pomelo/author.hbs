@@ -10,7 +10,9 @@ into the {body} of the default.hbs template --}}
       <div class="pomelo-hero-content">
         {{!-- This is a responsive image, it loads different sizes depending on device
         https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-        <img src="{{img_url profile_image size="xs"}}" class="rounded-full w-24 h-24 mx-auto border-2 border-solid border-gray-300" alt="{{name}}" />
+        {{#if profile_image}}
+          <img src="{{img_url profile_image size="xs"}}" class="rounded-full w-24 h-24 mx-auto border-2 border-solid border-gray-300" alt="{{name}}" />
+        {{/if}}
         <h1 class="pomelo-hero-content-title">{{name}}</h1>
         <div class="mt-2 text-lg font-light">{{bio}}</div>
         <div class="mt-2 text-base">
