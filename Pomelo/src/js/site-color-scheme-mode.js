@@ -32,9 +32,11 @@ function colorSchemeMode() {
     if (localStorage.theme === 'dark') {
       document.documentElement.classList.add('dark')
       toggleBtn.innerHTML = nightBtn.querySelector('svg').outerHTML
+      setHeaderMetaColor('dark')
     } else {
       document.documentElement.classList.remove('dark')
       toggleBtn.innerHTML = lightBtn.querySelector('svg').outerHTML
+      setHeaderMetaColor('light')
     }
   } else {
     prefersColorSchemeDark()
@@ -48,11 +50,25 @@ function colorSchemeMode() {
 function prefersColorSchemeDark() {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.classList.add('dark')
+    setHeaderMetaColor('dark')
   } else {
     document.documentElement.classList.remove('dark')
+    setHeaderMetaColor('light')
   }
 
   toggleBtn.innerHTML = systemBtn.querySelector('svg').outerHTML
+}
+
+function setHeaderMetaColor(type) {
+  // 设置白天全局状态栏颜色
+  const meta = document.querySelector('meta[name="theme-color"]')
+  const rootStyles = getComputedStyle(document.documentElement)
+  if (type === 'dark') {
+    meta.setAttribute('content', '#20293A')
+  } else {
+    const primaryColor = rootStyles.getPropertyValue('--ghost-accent-color')
+    meta.setAttribute('content', primaryColor)
+  }
 }
 
 colorSchemeMode()

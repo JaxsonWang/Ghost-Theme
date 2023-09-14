@@ -9,8 +9,7 @@
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#20293B" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="<%description%>" />
   <meta name="keywords" content="<%keywords%>">
   <meta name="renderer" content="webkit" />
@@ -21,6 +20,11 @@
   {{!-- dns预加载 --}}
   <link rel="dns-prefetch" href="{{@site.url}}" />
   <link rel="dns-prefetch" href="https://npm.elemecdn.com" />
+
+  {{!-- 谷歌字体 --}}
+  <link rel="preconnect" href="https://fonts.font.im">
+  <link rel="preconnect" href="https://fonts.gstatic.font.im" crossorigin>
+  <link href="https://fonts.font.im/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   {{!-- Ghost 相关标签信息 --}}
   {{ghost_head}}

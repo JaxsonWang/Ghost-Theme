@@ -15,6 +15,7 @@ module.exports = {
     fontFamily: {
       sans: [
         'PomeloFont',
+        'Noto Serif SC',
         'georgia',
         '"ui-sans-serif"',
         '"system-ui"',
