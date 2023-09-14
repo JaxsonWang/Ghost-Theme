@@ -3,9 +3,7 @@ import AppContext from '../AppContext';
 import {ReactComponent as SearchIcon} from '../icons/search.svg';
 import {ReactComponent as ClearIcon} from '../icons/clear.svg';
 import {ReactComponent as CircleAnimated} from '../icons/circle-anim.svg';
-import {useContext, useEffect, useMemo, useRef, useState} from 'react';
-
-const React = require('react');
+import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
 
 const DEFAULT_MAX_POSTS = 10;
 const STEP_MAX_POSTS = 10;
@@ -73,8 +71,7 @@ class PopupContent extends React.Component {
 }
 
 function SearchBox() {
-    const {searchValue, dispatch} = useContext(AppContext);
-    const inputRef = useRef(null);
+    const {searchValue, dispatch, inputRef} = useContext(AppContext);
     const containerRef = useRef(null);
     useEffect(() => {
         setTimeout(() => {
@@ -94,7 +91,7 @@ function SearchBox() {
         return () => {
             containeRefNode?.ownerDocument.removeEventListener('keyup', keyUphandler);
         };
-    }, [dispatch]);
+    }, [dispatch, inputRef]);
 
     let className = 'z-10 relative flex items-center py-5 px-4 sm:px-7 bg-white rounded-t-lg shadow dark:bg-slate-800';
     if (!searchValue) {
