@@ -1,5 +1,7 @@
 # Sodo Search
 
+本库支持中文关键词搜索
+
 ## Development
 
 ### Pre-requisites
