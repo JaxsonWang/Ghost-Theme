@@ -18,8 +18,7 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
 ```json
 {
   "portal": {
-    "url": "https://你的博客地址/assets/portal.min.js",
-    "version": "2.3.0"
+    "url": false
   },
   "sodoSearch": {
     "url": "https://你的博客地址/assets/sodo-search.min.js",
