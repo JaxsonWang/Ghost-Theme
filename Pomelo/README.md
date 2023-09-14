@@ -27,9 +27,7 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
     "version": "1.0.0"
   },
   "comments": {
-    "url": "https://你的博客地址/assets/comments-ui.min.js",
-    "styles": "https://你的博客地址/assets/comments-ui.min.css",
-    "version": "0.10"
+    "url": false
   },
   "gravatar": {
     "url": "https://gravatar.loli.net/avatar/{hash}?s={size}&r={rating}&d={_default}"
