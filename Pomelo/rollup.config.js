@@ -48,7 +48,8 @@ module.exports = {
           { src: 'package.json', dest: 'pomelo/' },
           { src: 'src/assets', dest: 'pomelo/' },
           { src: 'LICENSE', dest: 'pomelo/' },
-          { src: 'robots.txt', dest: 'pomelo/' }
+          { src: 'robots.txt', dest: 'pomelo/' },
+          { src: 'ads.txt', dest: 'pomelo/' }
         ]
       })
   ]
