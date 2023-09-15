@@ -6,11 +6,13 @@ export default {
   input: 'src/js/index.js',
   output: {
     file: 'dist/app.js',
-    format: 'cjs',
+    format: 'iife',
     sourcemap: true
   },
   plugins: [
-    resolve(),
+    resolve({
+      browser: true
+    }),
     postcss({
       extract: true
     }),
@@ -20,5 +22,9 @@ export default {
       include: ['src/**'],
       exclude: ['node_modules/**']
     })
-  ]
+  ],
+  watch: {
+    // exclude: ['node_modules/**', 'pomelo/**', 'assets/**'],
+    include: 'src/**'
+  }
 }

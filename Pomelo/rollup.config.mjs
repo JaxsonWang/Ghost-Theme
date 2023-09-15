@@ -17,7 +17,7 @@ import { terser } from 'rollup-plugin-terser'
 
 const production = process.env.NODE_ENV === 'production'
 
-module.exports = {
+export default {
   input: 'src/js/index.js',
   output: {
     file: production ? 'pomelo/assets/pomelo.js' : 'assets/pomelo.js',
@@ -52,5 +52,9 @@ module.exports = {
           { src: 'ads.txt', dest: 'pomelo/' }
         ]
       })
-  ]
+  ],
+  watch: {
+    // exclude: ['node_modules/**', 'pomelo/**', 'assets/**'],
+    include: 'src/**'
+  }
 }

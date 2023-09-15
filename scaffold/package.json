@@ -1,26 +1,27 @@
 {
   "name": "package-based",
   "version": "0.0.0",
+  "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "rollup -c -w --bundleConfigAsCjs",
-    "build": "rollup -c --bundleConfigAsCjs"
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
   },
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "@rollup/plugin-eslint": "^9.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "postcss": "^8.4.19",
-    "postcss-import": "^15.0.0",
-    "prettier": "^2.7.1",
-    "rollup": "^3.3.0",
+    "@rollup/plugin-eslint": "^9.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "autoprefixer": "^10.4.15",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "postcss": "^8.4.29",
+    "postcss-import": "^15.1.0",
+    "prettier": "^3.0.3",
+    "rollup": "^3.29.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.3.3"
   }
 }
