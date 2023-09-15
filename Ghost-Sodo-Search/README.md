@@ -2,6 +2,8 @@
 
 本库支持中文关键词搜索
 
+last upgrade: c6cb350
+
 ## Development
 
 ### Pre-requisites
