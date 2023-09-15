@@ -1,3 +1,7 @@
 .DS_Store
-casper/
+**/.DS_Store
 **/yarn.lock
+**/.idea/
+**/dist/
+**/node_modules/
+/casper/
