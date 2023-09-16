@@ -1,0 +1,21 @@
+{{#if isSecondary}}
+  {{#if @site.secondary_navigation}}
+    <ul class="brave-footer-navbar">
+      {{#foreach navigation}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}} brave-footer-menu-li mx-2">
+          <a href="{{url absolute="true"}}" class="brave-footer-menu-link{{#if current}} active{{/if}}">{{label}}</a>
+        </li>
+      {{/foreach}}
+    </ul>
+  {{/if}}
+{{else}}
+  <ul class="brave-header-navbar">
+    {{#foreach navigation}}
+      <li class="{{link_class for=(url) class=(concat "nav-" slug)}} brave-header-menu-li mr-4">
+        <a href="{{url absolute="true"}}" class="brave-header-menu-link{{#if current}} active{{/if}}">{{label}}</a>
+      </li>
+    {{/foreach}}
+  </ul>
+{{/if}}
+
+

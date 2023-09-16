@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：animate.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.animated {
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.animated-duration-200 {
+  animation-duration: 250ms;
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-out-down {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+/* 从右边冒出 */
+.fade-in-right {
+  animation-name: fade-in-right;
+}
+
+/* 从底部消失 */
+.fade-out-down {
+  animation-name: fade-out-down;
+}
+
+.fade-in {
+  animation-name: fade-in
+}
+
+.fade-out {
+  animation-name: fade-out
+}

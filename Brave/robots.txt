@@ -1,0 +1,7 @@
+User-agent: *
+Sitemap: /sitemap.xml
+Disallow: /admin/
+Disallow: /ghost/
+Disallow: /p/
+Disallow: /feed
+Disallow: /rss

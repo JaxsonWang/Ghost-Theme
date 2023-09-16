@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：site-tooltip-color-scheme-mode.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.brave-color-scheme {
+  @apply py-2;
+}
+
+.brave-color-scheme-item {
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply duration-300;
+  @apply w-28 text-base;
+  @apply flex justify-between items-center px-3 py-2;
+  @apply hover:bg-gray-200 hover:dark:bg-slate-600;
+  @apply dark:fill-white;
+}
+
+.brave-color-scheme-item svg {
+  @apply w-5 h-5;
+}
+
+.brave-color-scheme-item span {
+}

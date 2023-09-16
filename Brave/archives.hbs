@@ -1,0 +1,38 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!--Special header-background.hbs partial to generate the background image--}}
+{{#if @site.cover_image}}
+  <section class="brave-hero">
+    {{> "site-hero" backgroundImage=@site.cover_image}}
+  </section>
+{{/if}}
+
+<main class="custom-archive-for-page">
+  <div class="container px-4 md:px-10">
+    {{#get "posts"}}
+      <div class="archive-page-title text-xl font-bold pb-8">{{date published_at format="YYYY年MM月DD日"}} 累计 {{pagination.total}} 篇文章</div>
+    {{/get}}
+    <ol class="relative">
+      {{#foreach posts visibility="all"}}
+        <li number="{{@number}}" class="custom-archive-for-page-item">
+          <a href="{{url}}">
+            <div class="mb-6 xl:mb-0">
+              <h4 class="text-lg leading-6 text-slate-900 font-semibold mb-2 dark:text-slate-200">
+                {{title}}
+                <time class="text-xs text-gray-500" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+              </h4>
+              <div>
+                <p>{{excerpt words="33"}}</p>
+              </div>
+            </div>
+          </a>
+        </li>
+      {{/foreach}}
+    </ol>
+  </div>
+  {{pagination}}
+  {{> "site-to-top"}}
+</main>

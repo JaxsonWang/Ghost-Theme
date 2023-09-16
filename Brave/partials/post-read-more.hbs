@@ -1,0 +1,21 @@
+<div class="site-posts-list">
+  <div class="container px-4 xl:px-10">
+    {{!-- The {#get} helper below fetches some of the latest posts here
+    so that people have something else to read when they finish this one.
+
+    This query gets the latest 3 posts on the site, but adds a filter to
+    exclude the post we're currently on from being included. --}}
+    {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
+
+      {{#if more_posts}}
+        <aside class="post-card-list">
+          {{#foreach more_posts}}
+            {{> "post-card"}}
+          {{/foreach}}
+        </aside>
+      {{/if}}
+
+    {{/get}}
+  </div>
+
+</div>

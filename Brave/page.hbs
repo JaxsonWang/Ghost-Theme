@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+
+{{#post}}
+
+  {{!--Special header-background.hbs partial to generate the background image--}}
+  {{#match @page.show_title_and_feature_image}}
+    <section class="brave-hero">
+      {{> "site-hero" backgroundImage=feature_image}}
+    </section>
+  {{/match}}
+
+
+  {{!-- The main content area --}}
+  <main class="site-posts-main pt-[var(--header-height)] dark:bg-slate-800">
+    <div class="container px-4 md:px-10">
+      <article class="pb-12">
+        {{> "post-content"}}
+      </article>
+    </div>
+  </main>
+
+{{/post}}

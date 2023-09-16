@@ -1,0 +1,23 @@
+<nav class="brave-pagination flex justify-center items-center">
+  <div class="hidden" aria-hidden="true">
+    <span class="brave-pagination-current-page">{{page}}</span>
+    <span class="brave-pagination-total-pages">{{pages}}</span>
+    <span class="brave-pagination-limit-pages">{{limit}}</span>
+  </div>
+  <ul class="brave-pagination-wrapper flex justify-center items-center">
+    {{#if prev}}
+      <li class="brave-pagination-page-item">
+        <a href="{{page_url prev}}" class="brave-pagination-page-link">
+          {{> "icons/arrow-left"}}
+        </a>
+      </li>
+    {{/if}}
+    {{#if next}}
+      <li class="brave-pagination-page-item">
+        <a href="{{page_url next}}" class="brave-pagination-page-link">
+          {{> "icons/arrow-right"}}
+        </a>
+      </li>
+    {{/if}}
+  </ul>
+</nav>

@@ -1,0 +1,45 @@
+<header class="brave-header">
+  <div class="container px-4 md:px-10">
+    <nav class="brave-header-inner relative flex justify-between items-center">
+      <div class="relative flex justify-between items-end">
+        <div class="brave-header-brand">
+          {{#if @site.logo}}
+            <a class="brave-header-navbar-logo" href="{{@site.url}}">
+              <img src="{{@site.logo}}" alt="{{@site.title}}" class="brave-header-navbar-logo-image" />
+            </a>
+          {{else}}
+            <a class="brave-header-navbar-title" href="{{@site.url}}">{{@site.title}}</a>
+          {{/if}}
+        </div>
+        <div class="brave-header-menu ml-4 hidden md:block">
+          {{navigation}}
+        </div>
+      </div>
+      <div class="flex relative">
+        <a aria-describedby="tooltip" data-ghost-search class="event-ghost-search brave-header-icon">
+          {{> "icons/search"}}
+        </a>
+        <a aria-describedby="tooltip" class="event-color-scheme-mode brave-header-icon">
+          {{> "icons/system-mode"}}
+        </a>
+        <a class="event-mobile-menu brave-header-icon brave-header-icon-mobile">
+          {{> "icons/menu"}}
+        </a>
+        <div class="event-tooltip-color-scheme-mode brave-tooltip brave-tooltip-light d-none" role="tooltip">
+          <div class="brave-color-scheme">
+            <div class="brave-color-scheme-item event-light">{{> "icons/light-mode"}} <span>浅色模式</span></div>
+            <div class="brave-color-scheme-item event-night">{{> "icons/night-mode"}} <span>深色模式</span></div>
+            <div class="brave-color-scheme-item event-system">{{> "icons/system-mode"}} <span>自动模式</span></div>
+          </div>
+          <div class="brave-tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <div class="event-tooltip-search brave-tooltip brave-tooltip-light d-none" role="tooltip">
+          <div class="brave-ghost-search">
+            因微信和 QQ 浏览器存在的问题，搜索功能无法使用，请更换其它浏览器进行搜索。
+          </div>
+          <div class="brave-tooltip-arrow" data-popper-arrow></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

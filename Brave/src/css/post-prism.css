@@ -1,0 +1,379 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：post-prism.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.event-post-content pre[class*='language-'] {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.event-post-content code[class*='language-'],
+.event-post-content pre[class*='language-'] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #90a4ae;
+  background: #fafafa;
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  tab-size: 4;
+  hyphens: none;
+}
+.event-post-content code[class*='language-']::-moz-selection,
+.event-post-content pre[class*='language-']::-moz-selection,
+.event-post-content code[class*='language-'] ::-moz-selection,
+.event-post-content pre[class*='language-'] ::-moz-selection {
+  background: #cceae7;
+  color: #263238;
+}
+.event-post-content code[class*='language-']::selection,
+.event-post-content pre[class*='language-']::selection,
+.event-post-content code[class*='language-'] ::selection,
+.event-post-content pre[class*='language-'] ::selection {
+  background: #cceae7;
+  color: #263238;
+}
+.event-post-content :not(pre) > code[class*='language-'] {
+  white-space: normal;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+}
+.event-post-content pre[class*='language-'] {
+  overflow: auto;
+  position: relative;
+  margin: 0.5rem 0;
+  padding: 2.725rem 1rem 1.25rem 3.8rem;
+}
+.event-post-content .language-css > code,
+.event-post-content .language-sass > code,
+.event-post-content .language-scss > code {
+  color: #f76d47;
+}
+.event-post-content [class*='language-'] .namespace {
+  opacity: 0.7;
+}
+.event-post-content .token.atrule {
+  color: #7c4dff;
+}
+.event-post-content .token.attr-name {
+  color: #39adb5;
+}
+.event-post-content .token.attr-value {
+  color: #f6a434;
+}
+.event-post-content .token.attribute {
+  color: #f6a434;
+}
+.event-post-content .token.boolean {
+  color: #7c4dff;
+}
+.event-post-content .token.builtin {
+  color: #39adb5;
+}
+.event-post-content .token.cdata {
+  color: #39adb5;
+}
+.event-post-content .token.char {
+  color: #39adb5;
+}
+.event-post-content .token.class {
+  color: #39adb5;
+}
+.event-post-content .token.class-name {
+  color: #6182b8;
+}
+.event-post-content .token.comment {
+  color: #aabfc9;
+}
+.event-post-content .token.constant {
+  color: #7c4dff;
+}
+.event-post-content .token.deleted {
+  color: #e53935;
+}
+.event-post-content .token.doctype {
+  color: #aabfc9;
+}
+.event-post-content .token.entity {
+  color: #e53935;
+}
+.event-post-content .token.function {
+  color: #7c4dff;
+}
+.event-post-content .token.hexcode {
+  color: #f76d47;
+}
+.event-post-content .token.id {
+  color: #7c4dff;
+  font-weight: bold;
+}
+.event-post-content .token.important {
+  color: #7c4dff;
+  font-weight: bold;
+}
+.event-post-content .token.inserted {
+  color: #39adb5;
+}
+.event-post-content .token.keyword {
+  color: #7c4dff;
+}
+.event-post-content .token.number {
+  color: #f76d47;
+}
+.event-post-content .token.operator {
+  color: #39adb5;
+}
+.event-post-content .token.prolog {
+  color: #aabfc9;
+}
+.event-post-content .token.property {
+  color: #39adb5;
+}
+.event-post-content .token.pseudo-class {
+  color: #f6a434;
+}
+.event-post-content .token.pseudo-element {
+  color: #f6a434;
+}
+.event-post-content .token.punctuation {
+  color: #39adb5;
+}
+.event-post-content .token.regex {
+  color: #6182b8;
+}
+.event-post-content .token.selector {
+  color: #e53935;
+}
+.event-post-content .token.string {
+  color: #f6a434;
+}
+.event-post-content .token.symbol {
+  color: #7c4dff;
+}
+.event-post-content .token.tag {
+  color: #e53935;
+}
+.event-post-content .token.unit {
+  color: #f76d47;
+}
+.event-post-content .token.url {
+  color: #e53935;
+}
+.event-post-content .token.variable {
+  color: #e53935;
+}
+.event-post-content .code-toolbar .toolbar {
+  background-color: #9ed0ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 1.725rem;
+  width: 100%;
+  font-size: 1rem;
+}
+.event-post-content .code-toolbar .toolbar .toolbar-item .show-language {
+  @apply flex justify-between items-center fill-white;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #fff;
+  background-color: transparent;
+  box-shadow: none;
+  height: 100%;
+  line-height: 1.8;
+}
+.event-post-content .code-toolbar .toolbar .toolbar-item .show-language i.fas {
+  margin-right: 0.5rem;
+}
+.event-post-content .code-toolbar .toolbar .toolbar-item .select-code {
+  @apply flex justify-between items-center fill-white;
+  box-shadow: none;
+  color: #fff;
+  background-color: transparent;
+  height: 100%;
+  border-radius: 0;
+  outline: none;
+  transition: all 500ms ease 0ms;
+}
+.event-post-content .code-toolbar .toolbar .toolbar-item .select-code:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+html.dark .event-post-content code[class*='language-'],
+html.dark .event-post-content pre[class*='language-'] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #c3cee3;
+  background-color: #3a3c3d;
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  tab-size: 4;
+  hyphens: none;
+}
+html.dark .event-post-content code[class*='language-']::selection,
+html.dark .event-post-content pre[class*='language-']::selection,
+html.dark .event-post-content code[class*='language-'] ::selection,
+html.dark .event-post-content pre[class*='language-'] ::selection {
+  background: #363636;
+}
+html.dark .event-post-content :not(pre) > code[class*='language-'] {
+  white-space: normal;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+}
+html.dark .event-post-content .language-css > code,
+html.dark .event-post-content .language-sass > code,
+html.dark .event-post-content .language-scss > code {
+  color: #fd9170;
+}
+html.dark .event-post-content [class*='language-'] .namespace {
+  opacity: 0.7;
+}
+html.dark .event-post-content .token.atrule {
+  color: #c792ea;
+}
+html.dark .event-post-content .token.attr-name {
+  color: #ffcb6b;
+}
+html.dark .event-post-content .token.attr-value {
+  color: #c3e88d;
+}
+html.dark .event-post-content .token.attribute {
+  color: #c3e88d;
+}
+html.dark .event-post-content .token.boolean {
+  color: #c792ea;
+}
+html.dark .event-post-content .token.builtin {
+  color: #ffcb6b;
+}
+html.dark .event-post-content .token.cdata {
+  color: #80cbc4;
+}
+html.dark .event-post-content .token.char {
+  color: #80cbc4;
+}
+html.dark .event-post-content .token.class {
+  color: #ffcb6b;
+}
+html.dark .event-post-content .token.class-name {
+  color: #f2ff00;
+}
+html.dark .event-post-content .token.color {
+  color: #f2ff00;
+}
+html.dark .event-post-content .token.comment {
+  color: #546e7a;
+}
+html.dark .event-post-content .token.constant {
+  color: #c792ea;
+}
+html.dark .event-post-content .token.deleted {
+  color: #f07178;
+}
+html.dark .event-post-content .token.doctype {
+  color: #546e7a;
+}
+html.dark .event-post-content .token.entity {
+  color: #f07178;
+}
+html.dark .event-post-content .token.function {
+  color: #c792ea;
+}
+html.dark .event-post-content .token.hexcode {
+  color: #f2ff00;
+}
+html.dark .event-post-content .token.id {
+  color: #c792ea;
+  font-weight: bold;
+}
+html.dark .event-post-content .token.important {
+  color: #c792ea;
+  font-weight: bold;
+}
+html.dark .event-post-content .token.inserted {
+  color: #80cbc4;
+}
+html.dark .event-post-content .token.keyword {
+  color: #c792ea;
+  font-style: italic;
+}
+html.dark .event-post-content .token.number {
+  color: #fd9170;
+}
+html.dark .event-post-content .token.operator {
+  color: #89ddff;
+}
+html.dark .event-post-content .token.prolog {
+  color: #546e7a;
+}
+html.dark .event-post-content .token.property {
+  color: #80cbc4;
+}
+html.dark .event-post-content .token.pseudo-class {
+  color: #c3e88d;
+}
+html.dark .event-post-content .token.pseudo-element {
+  color: #c3e88d;
+}
+html.dark .event-post-content .token.punctuation {
+  color: #89ddff;
+}
+html.dark .event-post-content .token.regex {
+  color: #f2ff00;
+}
+html.dark .event-post-content .token.selector {
+  color: #f07178;
+}
+html.dark .event-post-content .token.string {
+  color: #c3e88d;
+}
+html.dark .event-post-content .token.symbol {
+  color: #c792ea;
+}
+html.dark .event-post-content .token.tag {
+  color: #f07178;
+}
+html.dark .event-post-content .token.unit {
+  color: #f07178;
+}
+html.dark .event-post-content .token.url {
+  color: #fd9170;
+}
+html.dark .event-post-content .token.variable {
+  color: #f07178;
+}
+html.dark .event-post-content .code-toolbar .toolbar {
+  background-color: #171717;
+  border-bottom: 1px solid #000;
+}
+html.dark .event-post-content .code-toolbar .toolbar .toolbar-item .show-language {
+  color: #c9d1d9;
+  background-color: transparent;
+}
+html.dark .event-post-content .code-toolbar .toolbar .toolbar-item .select-code {
+  color: #c9d1d9;
+  background-color: transparent;
+}
+html.dark .event-post-content .code-toolbar .toolbar .toolbar-item .select-code:hover {
+  color: rgba(201, 209, 207, 0.5);
+}
+
+.pre-block-loading {
+  @apply absolute top-0 left-0 w-full h-full z-10 bg-white dark:bg-black;
+}
+.pre-block-loading .loading-text {
+  @apply mt-0.5 text-base text-black dark:text-white;
+}

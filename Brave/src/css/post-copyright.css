@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：post-copyright.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.brave-post-copyright {
+  @apply py-1 px-5;
+  @apply border-l-4 border-solid border-[color:var(--ghost-accent-color)];
+  @apply list-none w-full;
+}
+.brave-post-copyright li {
+  @apply text-slate-500 dark:text-slate-200;
+  @apply list-item py-1;
+}
+.brave-post-copyright li a {
+  @apply border-b-2 border-dashed border-slate-500 dark:border-slate-200;
+  @apply hover:text-[color:var(--ghost-accent-color)] hover:border-[color:var(--ghost-accent-color)];
+}

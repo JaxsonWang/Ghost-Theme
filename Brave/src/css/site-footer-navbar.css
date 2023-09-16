@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：site-footer-navbar.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.brave-footer-navbar {
+  @apply flex justify-center flex-wrap;
+}
+
+.brave-footer-menu-link {
+  @apply hover:text-gray-500;
+}
+
+.brave-footer-menu-link.active {
+  @apply pointer-events-none text-gray-500;
+}

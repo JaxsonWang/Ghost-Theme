@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+  {{!-- 基本信息 --}}
+  <title>{{meta_title page=(t " - 第%页")}}{{#is "post"}} - {{@site.title}}{{/is}}</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="{{@site.description}}" />
+  {{#if @custom.site_meta_keywords}}
+    <meta name="keywords" content="{{@custom.site_meta_keywords}}">
+  {{/if}}
+  <meta name="renderer" content="webkit" />
+
+  {{!-- 主题样式 --}}
+  <link id="brave-css" rel="stylesheet" type="text/css" href="{{asset "assets/brave.css"}}" />
+
+  {{!-- dns预加载 --}}
+  <link rel="dns-prefetch" href="{{@site.url}}" />
+  <link rel="dns-prefetch" href="https://npm.elemecdn.com" />
+
+  {{!-- 谷歌字体 --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  {{!-- Ghost 相关标签信息 --}}
+  {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+<div class="brave-app-wrapper">
+  {{> "site-header"}}
+  <div class="brave-content">
+    {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
+  </div>
+  {{> "site-footer"}}
+</div>
+
+<script>
+  {{#if @custom.custom_font_family_ttf_url}}
+    window._ghost_brave_font_url = '{{@custom.custom_font_family_ttf_url}}'
+  {{/if}}
+  {{#if @custom.comments_twikoo_env_id}}
+    window.__gost_twikoo_env_id = '{{@custom.comments_twikoo_env_id}}'
+  {{/if}}
+</script>
+<script src="https://npm.elemecdn.com/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="{{asset "assets/brave.js"}}"></script>
+{{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
+{{ghost_foot}}
+</body>
+</html>

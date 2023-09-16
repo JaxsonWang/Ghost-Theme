@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!--Special header-background.hbs partial to generate the background image--}}
+{{#if @site.cover_image}}
+  <section class="brave-hero">
+    {{> "site-hero" backgroundImage=@site.cover_image}}
+    <div class="brave-hero-content">
+      <h1 class="brave-hero-content-title">{{ @site.title }}</h1>
+      {{#if @custom.hero_one}}
+        <div class="brave-hero-content-description">{{@custom.hero_one}}</div>
+      {{/if}}
+    </div>
+  </section>
+{{/if}}
+
+{{!-- The main content area --}}
+<main class="site-posts-list">
+  <div class="container px-4 xl:px-10">
+    <div class="post-card-list">
+      {{#foreach posts}}
+      {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+      {{/foreach}}
+    </div>
+  </div>
+</main>
+
+{{pagination}}
+
+{{> "site-to-top"}}

@@ -1,0 +1,33 @@
+{{!-- The global footer at the very bottom of the screen --}}
+<footer class="brave-footer">
+  <div class="md:container">
+    <div class="py-6 md:py-12 px-4 md:px-0 md:pb-20 text-sm md:text-base">
+      <nav class="brave-footer-nav mt-4 mb-8 md:mt-8 md:mb-16">
+        {{navigation type="secondary"}}
+      </nav>
+      <div class="brave-footer-copyright">
+        <div class="flex md:justify-between justify-center my-2">
+          <section class="text-center md:text-left block md:flex">
+            <p class="md:mr-0.5">Powered by <a href="https://ghost.org" rel="noopener nofollow" target="_blank" class="text-[color:var(--ghost-accent-color)]">Ghost</a>. Copyright &copy; 2021 ~ {{date format="YYYY"}}.</p>
+            <p>❤️ Crafted with <a href="https://iiong.com" target="_blank" rel="noopener nofollow" class="text-[color:var(--ghost-accent-color)]">Brave</a> Theme.</p>
+          </section>
+          <div class="hidden md:block">{{@custom.footer_one}}</div>
+        </div>
+        <div class="flex flex-wrap-reverse md:justify-between justify-center text-center my-2">
+          <p>
+            {{#if @custom.icp_name}}
+              <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener" class="block md:inline text-[color:var(--ghost-accent-color)]">{{@custom.icp_name}}</a>
+            {{/if}}
+            {{#if @custom.gongan_beian_name}}
+              <a href="{{@custom.gongan_beian_url}}" target="_blank" rel="nofollow noopener" class="block md:inline text-[color:var(--ghost-accent-color)]">{{@custom.gongan_beian_name}}</a>
+            {{/if}}
+            {{#if @custom.footer_url_url}}
+              <a href="{{@custom.footer_url_url}}" target="_blank" rel="nofollow noopener" class="block md:inline text-[color:var(--ghost-accent-color)]">{{@custom.footer_url_name}}</a>
+            {{/if}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{{> "site-mobile-sidebar"}}

@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：post-content.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.brave-post-content {
+  @apply prose lg:prose-xl prose-slate dark:prose-invert prose-pre:bg-transparent prose-code:break-words;
+  @apply max-w-none w-full;
+}
+
+.brave-post-content p a {
+  @apply transition-colors duration-200;
+  @apply hover:text-[color:var(--ghost-accent-color)];
+}
+
+.brave-post-content p img {
+  @apply mx-auto;
+  @apply max-w-full md:max-w-2xl;
+}
+
+.brave-post-content ul.todo-list {
+  @apply list-none;
+}
+
+.brave-post-content ul.todo-list .todo-checkbox {
+  @apply inline-block relative top-1 rounded-sm box-border w-6 h-6 mr-2;
+  @apply bg-white border border-solid border-gray-400;
+  @apply after:box-content after:content-[''] after:absolute after:-top-0.5 after:h-4 after:left-1 after:w-2;
+  @apply after:border after:border-solid after:border-white after:border-l-0 after:border-t-0;
+  @apply after:rotate-45 after:scale-y-0;
+}
+
+.brave-post-content ul.todo-list .todo-checkbox.checked {
+  @apply bg-green-400 border-green-600;
+  @apply after:rotate-45 after:scale-y-100;
+}
+
+.brave-post-content ul.todo-list .todo-checkbox + input {
+  @apply hidden;
+}

@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：site-header.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.brave-header {
+  @apply fixed top-0 z-40 w-full h-[calc(var(--header-height)_+_16px)];
+  @apply flex items-center;
+  @apply bg-white dark:bg-slate-800 text-inherit dark:text-white;
+  @apply ring-1 ring-slate-900/5 shadow-xl;
+  @apply py-6;
+  @apply transition-[height];
+  @apply duration-300;
+}
+
+.brave-header.top-header-nav {
+  @apply h-[var(--header-height)];
+  @apply bg-transparent shadow-none;
+  @apply ring-0;
+}
+
+.brave-header.top-header-nav .brave-header-menu {
+  @apply text-white;
+}
+
+.brave-header.top-header-nav .brave-header-menu-link {
+  @apply hover:text-gray-300 hover:dark:text-gray-400;
+}
+
+.brave-header.top-header-nav .brave-header-icon {
+  @apply fill-white;
+  @apply hover:fill-gray-300 hover:dark:fill-gray-400;
+}
+
+.brave-header.top-header-nav .brave-header-navbar-logo-image {
+  @apply invert;
+}
+
+.brave-header-navbar {
+  @apply flex;
+}
+
+.brave-header-navbar-title,
+.brave-header-menu-link,
+.brave-header-icon {
+  @apply transition-colors;
+  @apply duration-300;
+}
+
+.brave-header-menu-link {
+  @apply text-lg;
+  @apply hover:text-gray-500;
+}
+
+.brave-header-menu-link.active {
+  @apply pointer-events-none font-bold text-[color:var(--ghost-accent-color)];
+}
+
+.brave-header-icon {
+  @apply cursor-pointer ml-4;
+  @apply hover:fill-gray-400;
+  @apply dark:fill-white hover:dark:fill-gray-400;
+  @apply w-6 h-6;
+}
+
+.brave-header-icon-mobile {
+  @apply block md:hidden hover:text-gray-500;
+}
+
+.brave-header-navbar-logo-image {
+  @apply w-36 dark:invert;
+}
+
+.brave-header-navbar-title {
+  @apply text-2xl hover:text-gray-500;
+}

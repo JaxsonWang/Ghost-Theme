@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2022 Jaxson Wang
+ * Theme Name：Brave
+ *  File Name：site-posts-list.css
+ *  Date：2022年07月13日
+ *  Author：Jaxson Wang
+ *  Email: i@iiong.com
+ *  Blog: https://iiong.com
+ */
+
+.site-posts-list {
+  @apply relative py-12 md:py-24;
+  @apply dark:bg-slate-800 dark:text-white;
+}
