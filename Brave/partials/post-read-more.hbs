@@ -5,12 +5,12 @@
 
     This query gets the latest 3 posts on the site, but adds a filter to
     exclude the post we're currently on from being included. --}}
-    {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
+    {{#get "posts" include="authors" filter="id:-{{id}}" limit="3" as |more_posts|}}
 
       {{#if more_posts}}
         <aside class="post-card-list">
           {{#foreach more_posts}}
-            {{> "post-card"}}
+            {{> "post-card" lazyLoad=true}}
           {{/foreach}}
         </aside>
       {{/if}}
