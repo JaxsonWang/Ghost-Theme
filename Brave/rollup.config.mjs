@@ -7,17 +7,29 @@
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
-import resolve from '@rollup/plugin-node-resolve'
+import { defineConfig } from 'rollup'
+// A Rollup plugin which locates modules using the Node resolution algorithm
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+// A Rollup plugin to convert CommonJS modules to ES6, so they can be included in a Rollup bundle
 import commonjs from '@rollup/plugin-commonjs'
-import eslint from '@rollup/plugin-eslint'
-import { babel } from '@rollup/plugin-babel'
+// Use the latest JS features in your Rollup bundle
+import babel from '@rollup/plugin-babel'
+// Minifies the bundle
+import terser from '@rollup/plugin-terser'
+// Enable the PostCSS preprocessor
 import postcss from 'rollup-plugin-postcss'
+// Use @import to include other CSS files
+import atImport from 'postcss-import'
+// Use the latest CSS features in your Rollup bundle
+import postcssPresetEnv from 'postcss-preset-env'
+// Use the eslint
+import eslint from '@rollup/plugin-eslint'
+// Use the copy
 import copy from 'rollup-plugin-copy'
-import { terser } from 'rollup-plugin-terser'
 
 const production = process.env.NODE_ENV === 'production'
 
-export default {
+export default defineConfig({
   input: 'src/js/index.js',
   output: {
     file: production ? 'brave/assets/brave.js' : 'assets/brave.js',
@@ -25,14 +37,20 @@ export default {
     sourcemap: false
   },
   plugins: [
-    resolve({
-      browser: true
-    }),
     commonjs(),
-    babel({ babelHelpers: 'runtime' }),
+    nodeResolve(),
+    babel({ babelHelpers: 'bundled' }),
     postcss({
-      extract: true
+      extract: true,
+      sourceMap: true,
+      plugins: [
+        atImport(),
+        postcssPresetEnv({})
+      ],
+      minimize: true,
     }),
+
+
     eslint({
       throwOnError: true,
       throwOnWarning: true,
@@ -40,21 +58,20 @@ export default {
       exclude: ['node_modules/**']
     }),
     production && terser(),
-    production &&
-      copy({
-        targets: [
-          { src: '*.hbs', dest: 'brave/' },
-          { src: 'partials', dest: 'brave/' },
-          { src: 'package.json', dest: 'brave/' },
-          { src: 'src/assets', dest: 'brave/' },
-          { src: 'LICENSE', dest: 'brave/' },
-          { src: 'robots.txt', dest: 'brave/' },
-          { src: 'ads.txt', dest: 'brave/' }
-        ]
-      })
+    production && copy({
+      targets: [
+        { src: '*.hbs', dest: 'brave/' },
+        { src: 'partials', dest: 'brave/' },
+        { src: 'package.json', dest: 'brave/' },
+        { src: 'src/assets', dest: 'brave/' },
+        { src: 'LICENSE', dest: 'brave/' },
+        { src: 'robots.txt', dest: 'brave/' },
+        { src: 'ads.txt', dest: 'brave/' }
+      ]
+    }),
   ],
   watch: {
     // exclude: ['node_modules/**', 'brave/**', 'assets/**'],
     include: 'src/**'
   }
-}
+})

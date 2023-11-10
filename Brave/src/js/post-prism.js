@@ -77,7 +77,7 @@ const initPostPrism = async () => {
       Prism.plugins.toolbar.registerButton('show-language', env => {
         const button = document.createElement('div')
         button.className = 'show-language'
-        button.innerHTML = `${code} <span class="ml-1">${env.language}</span>`
+        button.innerHTML = `${code} <span class="ml-1">${env.language.replace(/markup/i, 'HTML')}</span>`
         return button
       })
       // 注册按钮 - 复制代码
