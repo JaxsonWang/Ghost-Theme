@@ -137,6 +137,11 @@
         "default": "",
         "group": "post"
       },
+      "comments_twikoo_js_url": {
+        "type": "text",
+        "default": "",
+        "group": "post"
+      },
       "name_in_the_about_me_page": {
         "type": "text",
         "default": "",

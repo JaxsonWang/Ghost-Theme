@@ -46,7 +46,10 @@
     window._ghost_brave_font_url = '{{@custom.custom_font_family_ttf_url}}'
   {{/if}}
   {{#if @custom.comments_twikoo_env_id}}
-    window.__gost_twikoo_env_id = '{{@custom.comments_twikoo_env_id}}'
+    window.__ghost_twikoo_env_id = '{{@custom.comments_twikoo_env_id}}'
+  {{/if}}
+  {{#if @custom.comments_twikoo_js_url}}
+    window.__ghost_twikoojs_url = '{{@custom.comments_twikoo_js_url}}'
   {{/if}}
 </script>
 <script src="https://npm.elemecdn.com/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
