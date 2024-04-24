@@ -1,7 +1,7 @@
 #!/bin/bash
 . ~/.bashrc
 
-alipanBackupPath="Ghost/"
+alipanBackupPath="/Ghost/"
 
 now=$(date +'%Y-%m-%d_%H-%M')
 database="$HOME/backup/ghost/iiong-$now.sql.gz"
