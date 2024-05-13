@@ -1,3 +1,3 @@
 #!/bin/bash
-. ~/.bashrc
-echo "refresh_token: '$(aliyunpan-cli token --refresh)'"  >  ~/.config/aliyunpan.yaml
+. ~/.bashrc # 导入环境变量
+aliyunpan token update

@@ -11,7 +11,7 @@ echo "保存数据库文件到备份文件夹"
 mysqldump iiong --no-tablespaces | gzip > $database
 
 echo "备份 Ghost 数据"
-tar -zcvf $ghostdata --absolute-names /var/www/ghost/content/ > /dev/null
+tar -zcvf $ghostdata --absolute-names /var/www/iiong.com/content/ > /dev/null
 
 echo "备份Ghost和数据库文件到阿里云盘"
-aliyunpan-cli upload -p $ghostdata $database $alipanBackupPath
+aliyunpan upload $ghostdata $database $alipanBackupPath
