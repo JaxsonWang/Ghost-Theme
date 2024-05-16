@@ -11,13 +11,12 @@ import { loadScripts } from './utils'
 
 const comments = document.querySelector('#vcomments')
 const envId = window.__ghost_twikoo_env_id
-const twikooJS = window.__ghost_twikoojs_url || 'https://cdn.staticfile.org/twikoo/1.6.29/twikoo.all.min.js'
+const twikooJS = window.__ghost_twikoojs_url || 'https://cdn.staticfile.org/twikoo/1.6.34/twikoo.all.min.js'
 
 if (comments && envId) {
   loadScripts([
     {
       name: 'twikoo-js',
-      // path: 'https://npm.elemecdn.com/twikoo@1.6.21/dist/twikoo.min.js'
       path: twikooJS
     }
   ]).then(() => {

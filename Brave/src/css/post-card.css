@@ -33,6 +33,10 @@
   @apply w-full;
 }
 
+.post-card-image-link {
+  /*@apply min-h-[200px];*/
+}
+
 .post-card-primary-tag {
   @apply text-xs text-gray-400;
 }

@@ -24,6 +24,8 @@
 @import "site-tooltip.css";
 @import "site-tooltip-color-scheme-mode.css";
 @import "site-tooltip-ghost-search.css";
+
+@import "post-table.css";
 @import "post-card.css";
 @import "post-content.css";
 @import "post-toc.css";

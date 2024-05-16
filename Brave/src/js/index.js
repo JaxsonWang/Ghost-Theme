@@ -20,6 +20,7 @@ import './site-to-top'
 import './site-tooltip'
 import './site-color-scheme-mode'
 
+import './post-table'
 import './post-toc'
 import './post-prism'
 import './post-zooming'

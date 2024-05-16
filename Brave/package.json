@@ -28,6 +28,7 @@
   "scripts": {
     "dev": "rollup -c -w --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
+    "gscan": "npx gscan ./brave",
     "ncu": "npx npm-check-updates -u"
   },
   "devDependencies": {

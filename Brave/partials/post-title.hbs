@@ -4,11 +4,18 @@
 <div class="text-sm md:text-base text-center mb-4 dark:text-white block md:flex justify-center">
   <div class="flex justify-center">
     {{#if primary_author}}
-      <span class="meta meta-title">{{#primary_author}}{{name}}{{/primary_author}}</span>{{/if}}
+      <span class="meta meta-title">{{#primary_author}}{{name}}{{/primary_author}}</span>
+    {{/if}}
     <span class="meta-cut">•</span>
-    <time class="meta-title title-date-time" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY年MM月DD日"}}</time>
+    {{#if primary_tag}}
+      <span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>
+    {{/if}}
+  </div>
+  <div class="flex justify-center">
+    <span class="meta-cut hidden md:block">•</span>
+    <time class="meta-title title-date-time" datetime="{{date published_at format="YYYY-MM-DD"}}">发布于 {{date published_at format="YYYY年MM月DD日"}}</time>
     <span class="meta-cut">•</span>
-    {{#if primary_tag}}<span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>{{/if}}
+    <time class="meta-title title-date-time" datetime="{{date updated_at format="YYYY-MM-DD"}}">更新于 {{date updated_at format="YYYY年MM月DD日"}}</time>
   </div>
   <div class="flex justify-center">
     {{#if @custom.comments_twikoo_env_id}}

@@ -13,6 +13,10 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
 
 ---
 
+> 执行 `gscan` 检查主题的时候先要 `npm run build` 生成生产主题才能进行检查主题
+
+---
+
 打开 `config.production.json` 添加下列字段
 
 ```json
