@@ -2,8 +2,8 @@ const { exec } = require('child_process')
 
 const got = require('got')
 
-// Server sendkey
-const sendkey = 'SCTxxxxx'
+// Server sendkey 更换你的 Token
+const sendkey = 'PDU7221T3T2Axxxx'
 
 let title = ''
 let message = ''
@@ -17,17 +17,17 @@ exec('bash /home/ubuntu/backup/backup.sh', (error, stdout, stderr) => {
   }
 
   // Server
-  const url = `https://sctapi.ftqq.com/${sendkey}.send`
+  const url = `https://api2.pushdeer.com/message/push`
   got.post(url, {
     json: {
-      title,
+      text: title,
       desp: message,
-      channel: '66|18'
+      pushkey: sendkey
     }
   }).then(response => {
-    console.log('Server通知', response)
+    console.log('PushDeer 通知', response)
   }).catch(err => {
-    console.log('Server错误通知', err)
+    console.log('PushDeer 错误通知', err)
   })
 });
 
