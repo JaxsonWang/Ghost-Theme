@@ -1,4 +1,4 @@
-import FlexSearch from 'flexsearch';
+import Flexsearch from 'flexsearch';
 import GhostContentAPI from '@tryghost/content-api';
 
 export default class SearchIndex {
@@ -8,62 +8,33 @@ export default class SearchIndex {
             key: apiKey,
             version: 'v5.0'
         });
-
-        this.postsIndex = new FlexSearch.Document({
-            tokenize: 'forward',
+        const tokenize = 'forward';
+        this.postsIndex = new Flexsearch.Document({
+            tokenize: tokenize,
             document: {
                 id: 'id',
                 index: ['title', 'excerpt'],
                 store: true
-            }
+            },
+            ...this.#getEncodeOptions()
         });
-        // 支持中文关键词搜索
-        // https://github.com/nextapps-de/flexsearch#cjk-word-break-chinese-japanese-korean
-        this.postsIndexCN = new FlexSearch.Document({
-            encode: str => str.replace(/[\x00-\x7F]/g, '').split(''),
-            document: {
-                id: 'id',
-                index: ['title', 'excerpt'],
-                store: true
-            }
-        });
-
-        this.authorsIndex = new FlexSearch.Document({
-            tokenize: 'forward',
+        this.authorsIndex = new Flexsearch.Document({
+            tokenize: tokenize,
             document: {
                 id: 'id',
                 index: ['name'],
                 store: true
-            }
+            },
+            ...this.#getEncodeOptions()
         });
-        // 支持中文关键词搜索
-        // https://github.com/nextapps-de/flexsearch#cjk-word-break-chinese-japanese-korean
-        this.authorsIndexCN = new FlexSearch.Document({
-            encode: str => str.replace(/[\x00-\x7F]/g, '').split(''),
+        this.tagsIndex = new Flexsearch.Document({
+            tokenize: tokenize,
             document: {
                 id: 'id',
                 index: ['name'],
                 store: true
-            }
-        });
-
-        this.tagsIndex = new FlexSearch.Document({
-            tokenize: 'forward',
-            document: {
-                id: 'id',
-                index: ['name'],
-                store: true
-            }
-        });
-        // 支持中文关键词搜索
-        // https://github.com/nextapps-de/flexsearch#cjk-word-break-chinese-japanese-korean
-        this.tagsIndexCN = new FlexSearch.Document({
-            encode: str => str.replace(/[\x00-\x7F]/g, '').split(''),
-            document: {
-                id: 'id',
-                index: ['name'],
-                store: true
-            }
+            },
+            ...this.#getEncodeOptions()
         });
 
         this.init = this.init.bind(this);
@@ -73,21 +44,18 @@ export default class SearchIndex {
     #updatePostIndex(posts) {
         posts.forEach((post) => {
             this.postsIndex.add(post);
-            this.postsIndexCN.add(post);
         });
     }
 
     #updateAuthorsIndex(authors) {
         authors.forEach((author) => {
             this.authorsIndex.add(author);
-            this.authorsIndexCN.add(author);
         });
     }
 
     #updateTagsIndex(tags) {
         tags.forEach((tag) => {
             this.tagsIndex.add(tag);
-            this.tagsIndexCN.add(tag);
         });
     }
 
@@ -151,47 +119,34 @@ export default class SearchIndex {
         return normalized;
     }
 
-    mergeAndFilterObjects(arr1, arr2) {
-        // 合并两个数组
-        const mergedArray = [...arr1, ...arr2];
-        // 使用一个 Map 来存储唯一的对象
-        const uniqueObjectsMap = new Map();
-        // 遍历合并后的数组，以对象的某个属性（或整个对象）作为唯一标识符
-        for (const obj of mergedArray) {
-            // 这里假设对象有一个唯一的属性叫做 'id'，你可以根据需要修改
-            const uniqueIdentifier = obj.id;
-            // 将对象添加到 Map 中，使用唯一标识符作为键
-            uniqueObjectsMap.set(uniqueIdentifier, obj);
-        }
-        // 将 Map 中的对象转换回数组
-        return [...uniqueObjectsMap.values()];
-    }
-
     search(value) {
         const posts = this.postsIndex.search(value, {
             enrich: true
         });
-        const postsCN = this.postsIndexCN.search(value, {
-            enrich: true
-        });
-
         const authors = this.authorsIndex.search(value, {
-            enrich: true
-        });
-        const authorsCN = this.authorsIndexCN.search(value, {
             enrich: true
         });
         const tags = this.tagsIndex.search(value, {
             enrich: true
         });
-        const tagsCN = this.tagsIndexCN.search(value, {
-            enrich: true
-        });
 
         return {
-            posts: this.mergeAndFilterObjects(this.#normalizeSearchResult(posts), this.#normalizeSearchResult(postsCN)),
-            authors: this.mergeAndFilterObjects(this.#normalizeSearchResult(authors), this.#normalizeSearchResult(authorsCN)),
-            tags: this.mergeAndFilterObjects(this.#normalizeSearchResult(tags), this.#normalizeSearchResult(tagsCN))
+            posts: this.#normalizeSearchResult(posts),
+            authors: this.#normalizeSearchResult(authors),
+            tags: this.#normalizeSearchResult(tags)
+        };
+    }
+
+    #getEncodeOptions() {
+        const regex = new RegExp(
+            `[\u{4E00}-\u{9FFF}\u{3040}-\u{309F}\u{30A0}-\u{30FF}\u{AC00}-\u{D7A3}\u{3400}-\u{4DBF}\u{20000}-\u{2A6DF}\u{2A700}-\u{2B73F}\u{2B740}-\u{2B81F}\u{2B820}-\u{2CEAF}\u{2CEB0}-\u{2EBEF}\u{30000}-\u{3134F}\u{31350}-\u{323AF}\u{2EBF0}-\u{2EE5F}\u{F900}-\u{FAFF}\u{2F800}-\u{2FA1F}]|[0-9A-Za-zа-я\u00C0-\u017F\u0400-\u04FF\u0600-\u06FF\u0980-\u09FF\u1E00-\u1EFF]+`,
+            'mug'
+        );
+
+        return {
+            encode: (str) => {
+                return ('' + str).toLowerCase().match(regex) ?? [];
+            }
         };
     }
 }
