@@ -9,35 +9,32 @@
  */
 
 .brave-article-toc {
-  @apply sticky top-24 overflow-y-auto;
+  @apply sticky top-32 overflow-y-auto;
 }
 
 .toc-list {
   @apply m-0 pl-2.5 overflow-hidden relative;
 }
 
+.toc-list .toc-list-item {
+  @apply relative h-12 flex items-center dark:text-slate-400;
+}
+
 .toc-list a.toc-link {
-  @apply text-current h-full;
+  @apply inline-block w-full h-full text-current text-xl leading-[3rem] relative pl-4 whitespace-nowrap text-ellipsis overflow-hidden;
+  @apply transition-all duration-300 ease-in-out;
 }
-.toc-list .is-collapsible {
-  @apply max-h-[62.5rem] overflow-hidden transition-all duration-300 ease-in-out;
-}
-.toc-list .is-collapsed {
-  @apply max-h-0;
-}
-.toc-list .is-position-fixed {
-  @apply fixed top-0;
-}
+
 .toc-list .is-active-link {
   @apply font-bold dark:text-white;
 }
+
 .toc-list .toc-link:before {
-  @apply bg-gray-100 dark:bg-gray-600 content-[''] inline-block h-full left-0 absolute w-0.5;
+  @apply bg-gray-100 dark:bg-gray-600 content-[''] absolute top-0 left-0 w-0.5 h-12;
+  @apply transition-all duration-300 ease-linear;
 }
+
 .toc-list .is-active-link:before {
   @apply bg-black dark:bg-white;
 }
 
-.toc-list-item {
-  @apply dark:text-slate-400;
-}
