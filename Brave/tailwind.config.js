@@ -15,7 +15,7 @@ module.exports = {
     fontFamily: {
       sans: [
         'BraveFont',
-        'Noto Serif SC',
+        'Noto Sans SC',
         'georgia',
         '"ui-sans-serif"',
         '"system-ui"',

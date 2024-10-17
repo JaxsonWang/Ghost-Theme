@@ -7,6 +7,8 @@
  *  Email: i@iiong.com
  *  Blog: https://iiong.com
  */
+import { readFileSync } from 'node:fs'
+
 import { defineConfig } from 'rollup'
 // A Rollup plugin which locates modules using the Node resolution algorithm
 import { nodeResolve } from '@rollup/plugin-node-resolve'
@@ -26,6 +28,10 @@ import postcssPresetEnv from 'postcss-preset-env'
 import eslint from '@rollup/plugin-eslint'
 // Use the copy
 import copy from 'rollup-plugin-copy'
+// Use the zip
+import compression from './build/zip.js'
+
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'))
 
 const production = process.env.NODE_ENV === 'production'
 
@@ -43,14 +49,9 @@ export default defineConfig({
     postcss({
       extract: true,
       sourceMap: true,
-      plugins: [
-        atImport(),
-        postcssPresetEnv({})
-      ],
-      minimize: true,
+      plugins: [atImport(), postcssPresetEnv({})],
+      minimize: true
     }),
-
-
     eslint({
       throwOnError: true,
       throwOnWarning: true,
@@ -58,17 +59,25 @@ export default defineConfig({
       exclude: ['node_modules/**']
     }),
     production && terser(),
-    production && copy({
-      targets: [
-        { src: '*.hbs', dest: 'brave/' },
-        { src: 'partials', dest: 'brave/' },
-        { src: 'package.json', dest: 'brave/' },
-        { src: 'src/assets', dest: 'brave/' },
-        { src: 'LICENSE', dest: 'brave/' },
-        { src: 'robots.txt', dest: 'brave/' },
-        { src: 'ads.txt', dest: 'brave/' }
-      ]
-    }),
+    production &&
+      copy({
+        targets: [
+          { src: '*.hbs', dest: 'brave/' },
+          { src: 'partials', dest: 'brave/' },
+          { src: 'package.json', dest: 'brave/' },
+          { src: 'src/assets', dest: 'brave/' },
+          { src: 'LICENSE', dest: 'brave/' },
+          { src: 'robots.txt', dest: 'brave/' },
+          { src: 'ads.txt', dest: 'brave/' }
+        ]
+      }),
+    production &&
+      compression({
+        sourceName: 'brave',
+        type: 'zip',
+        targetName: `brave`,
+        ignoreBase: true // 默认打包源文件夹本身,配置为true则只打包文件夹内文件  默认是false,
+      })
   ],
   watch: {
     // exclude: ['node_modules/**', 'brave/**', 'assets/**'],

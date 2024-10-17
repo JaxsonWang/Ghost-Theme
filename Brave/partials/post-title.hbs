@@ -1,6 +1,11 @@
-<h3 class="text-3xl md:text-4xl text-center mb-2 pb-2 dark:text-white">
-  {{title}}
-</h3>
+<div class="flex justify-center items-start">
+  <h3 class="text-3xl md:text-4xl text-center mb-2 pb-2 dark:text-white">
+    {{title}}
+  </h3>
+  {{#if featured}}
+    <span class="text-pink-500 w-5 h-5">{{> "icons/bard-line"}}</span>
+  {{/if}}
+</div>
 <div class="text-sm md:text-base text-center mb-4 dark:text-white block md:flex justify-center">
   <div class="flex justify-center">
     {{#if primary_author}}
