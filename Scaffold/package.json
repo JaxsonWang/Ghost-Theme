@@ -1,27 +1,31 @@
 {
-  "name": "package-based",
+  "name": "vite-project",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
-  "license": "MIT",
-  "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c"
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/app.umd.cjs",
+  "module": "./dist/app.js",
+  "exports": {
+    "import": "./dist/app.js",
+    "require": "./dist/app.umd.cjs"
   },
-  "private": true,
-  "dependencies": {},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
   "devDependencies": {
-    "@rollup/plugin-eslint": "^9.0.4",
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "autoprefixer": "^10.4.15",
-    "cssnano": "^6.0.1",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "postcss": "^8.4.29",
-    "postcss-import": "^15.1.0",
-    "prettier": "^3.0.3",
-    "rollup": "^3.29.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "tailwindcss": "^3.3.3"
+    "@eslint/js": "^9.15.0",
+    "@unocss/transformer-directives": "^0.64.1",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.0",
+    "unocss": "^0.64.1",
+    "vite": "^5.4.9",
+    "vite-plugin-eslint": "^1.8.1"
   }
 }
