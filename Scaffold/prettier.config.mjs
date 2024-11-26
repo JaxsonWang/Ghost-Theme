@@ -1,11 +1,4 @@
-/*
- * Copyright (c) 2022, Suzhou ChisalSoft Technology Co., Ltd
- * ProjectName：东吴医药平台
- * FileName：.prettierrc.js
- * Date：2022-05-23
- */
-
-module.exports = {
+export default {
   // 行宽 default:80
   printWidth: 120,
   // tab 宽度 default:2
