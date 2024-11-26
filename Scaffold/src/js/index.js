@@ -1,3 +1,5 @@
+import 'virtual:uno.css'
+
 import '../css/index.css'
 
 console.log('💀')

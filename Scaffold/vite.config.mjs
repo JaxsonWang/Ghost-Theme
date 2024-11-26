@@ -3,6 +3,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 import unoCSS from 'unocss/vite'
 
 import { fileURLToPath, URL } from 'node:url'
+import { resolve } from 'node:path'
 
 export default defineConfig({
   plugins: [eslintPlugin(), unoCSS()],
@@ -13,7 +14,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: './src/app.js',
+      entry: resolve(process.cwd(), 'src/js/index.js'),
       name: 'app',
       fileName: 'app'
     }
