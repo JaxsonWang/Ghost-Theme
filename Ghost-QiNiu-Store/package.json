@@ -1,6 +1,6 @@
 {
   "name": "ghost-qiniu-store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "keywords": [
     "Ghost",
@@ -11,10 +11,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "dayjs": "^1.8.29",
-    "ghost-storage-base": "^0.0.5",
-    "node-fetch": "^2.6.0",
-    "qiniu": "^7.3.2"
+    "ghost-storage-base": "^1.1.1",
+    "qiniu": "^7.14.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
