@@ -3,7 +3,7 @@ const { exec } = require('child_process')
 const got = require('got')
 
 // Server sendkey 更换你的 Token
-const sendkey = 'PDU7221T3T2Axxxx'
+const sendkey = 'xxxxxxx'
 
 let title = ''
 let message = ''
@@ -13,21 +13,15 @@ exec('bash /home/ubuntu/backup/backup.sh', (error, stdout, stderr) => {
     title = error.toString()
   } else {
     title = `${parseTime(new Date())} 备份成功！`
-    message = `${stdout} - ${stderr}`
+    message = ``
   }
 
   // Server
-  const url = `https://api2.pushdeer.com/message/push`
-  got.post(url, {
-    json: {
-      text: title,
-      desp: message,
-      pushkey: sendkey
-    }
-  }).then(response => {
-    console.log('PushDeer 通知', response)
+  const url = `https://api.day.app/${sendkey}/${title}?isArchive=1&group=Ghost备份`
+  got.post(url).then(response => {
+    console.log('Bark 通知', response)
   }).catch(err => {
-    console.log('PushDeer 错误通知', err)
+    console.log('Bark 错误通知', err)
   })
 });
 
