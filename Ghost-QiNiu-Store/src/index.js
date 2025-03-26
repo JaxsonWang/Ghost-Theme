@@ -8,13 +8,13 @@ const path = require('node:path')
 const BaseAdapter = require('ghost-storage-base')
 const qiniu = require('qiniu')
 
-const compile = (source) => {
+const compile = source => {
   return (context) => {
     return source.replace(/\${(.*?)}/g, (_, key) => context[key] || '')
   }
 }
 
-const getPathContext = (file) => {
+const getPathContext = file => {
   const now = new Date()
   return {
     year: now.getFullYear(),
@@ -43,7 +43,6 @@ class GhostQiNiuStoreAdapter extends BaseAdapter {
     const mac = new qiniu.auth.digest.Mac(this.accessKey, this.secretKey)
     this.config = new qiniu.conf.Config()
     this.bucketManager = new qiniu.rs.BucketManager(mac, this.config)
-    this.uploadTokenProvider = new qiniu.rs.PutPolicy({ scope: this.bucket }).uploadToken(mac)
   }
 
   async exists(fileName, targetDir) {
@@ -55,16 +54,22 @@ class GhostQiNiuStoreAdapter extends BaseAdapter {
     targetDir = targetDir || compile(this.dirFormat)(context)
     file.name = compile(this.nameFormat)(context)
 
-    const filename = await this.getUniqueFileName(file, targetDir)
+    const filename = this.getUniqueSecureFilePath(file, targetDir)
     const res = await this.uploadFile(filename.replace(/\\/g, '/'), file.path)
     return new URL(res.key, this.domain).toString()
   }
 
   async uploadFile(key, filePath) {
     return new Promise((resolve, reject) => {
+      // 每次上传前重新生成Token
+      const mac = new qiniu.auth.digest.Mac(this.accessKey, this.secretKey)
+      const putPolicy = new qiniu.rs.PutPolicy({ scope: this.bucket })
+      const uploadToken = putPolicy.uploadToken(mac)
+
       const formUploader = new qiniu.form_up.FormUploader(this.config)
       const putExtra = new qiniu.form_up.PutExtra()
-      formUploader.putFile(this.uploadTokenProvider, key, filePath, putExtra, (err, body, info) => {
+
+      formUploader.putFile(uploadToken, key, filePath, putExtra, (err, body, info) => {
         if (err) return reject(err)
         if (info.statusCode !== 200) return reject(new Error(body.error))
         resolve(body)
