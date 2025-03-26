@@ -71,7 +71,7 @@ class PopupContent extends React.Component {
 }
 
 function SearchBox() {
-    const {searchValue, dispatch, inputRef} = useContext(AppContext);
+    const {searchValue, dispatch, inputRef, t} = useContext(AppContext);
     const containerRef = useRef(null);
     useEffect(() => {
         setTimeout(() => {
@@ -117,7 +117,7 @@ function SearchBox() {
                     }
                 }}
                 className='grow -my-5 py-5 -ms-3 ps-3 text-[1.65rem] focus-visible:outline-none placeholder:text-gray-400 outline-none truncate dark:bg-slate-800 dark:text-white'
-                placeholder='请输入要搜索的内容...'
+                placeholder={t('Search posts, tags and authors')}
             />
             <Loading />
             <CancelButton />
@@ -158,14 +158,14 @@ function CancelButton() {
 
     return (
         <button
-            className='ms-3 text-sm text-neutral-500 sm:hidden' alt='取消'
+            className='ms-3 text-sm text-neutral-500 sm:hidden' alt='Cancel'
             onClick={() => {
                 dispatch('update', {
                     showPopup: false
                 });
             }}
         >
-            取消
+            {t('Cancel')}
         </button>
     );
 }
@@ -195,6 +195,8 @@ function TagListItem({tag, selectedResult, setSelectedResult}) {
 }
 
 function TagResults({tags, selectedResult, setSelectedResult}) {
+    const {t} = useContext(AppContext);
+
     if (!tags?.length) {
         return null;
     }
@@ -210,7 +212,7 @@ function TagResults({tags, selectedResult, setSelectedResult}) {
     });
     return (
         <div className='border-t border-gray-200 py-3 px-4 sm:px-7'>
-            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>标签</h1>
+            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>{t('Tags')}</h1>
             {TagItems}
         </div>
     );
@@ -355,6 +357,8 @@ function HighlightWord({word, isExcerpt}) {
 }
 
 function ShowMoreButton({posts, maxPosts, setMaxPosts}) {
+    const {t} = useContext(AppContext);
+
     if (!posts?.length || maxPosts >= posts?.length) {
         return null;
     }
@@ -366,34 +370,37 @@ function ShowMoreButton({posts, maxPosts, setMaxPosts}) {
                 setMaxPosts(updatedMaxPosts);
             }}
         >
-            显示更多
+            {t('Show more results')}
         </button>
     );
 }
 
 function PostResults({posts, selectedResult, setSelectedResult}) {
+    const {t} = useContext(AppContext);
     const [maxPosts, setMaxPosts] = useState(DEFAULT_MAX_POSTS);
+    const [paginatedPosts, setPaginatedPosts] = useState([]);
     useEffect(() => {
         setMaxPosts(DEFAULT_MAX_POSTS);
     }, [posts]);
-
+    useEffect(() => {
+        setPaginatedPosts(posts?.slice(0, maxPosts + 1));
+    }, [maxPosts, posts]);
     if (!posts?.length) {
         return null;
     }
-    const paginatedPosts = posts?.slice(0, maxPosts);
-    const PostItems = paginatedPosts.map((d) => {
-        return (
+    function PostItems() {
+        return paginatedPosts.map(d => (
             <PostListItem
                 key={d.title}
                 post={d}
                 {...{selectedResult, setSelectedResult}}
             />
-        );
-    });
+        ));
+    }
     return (
         <div className='border-t border-neutral-200 py-3 px-4 sm:px-7'>
-            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>文章</h1>
-            {PostItems}
+            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>{t('Posts')}</h1>
+            <PostItems/>
             <ShowMoreButton setMaxPosts={setMaxPosts} maxPosts={maxPosts} posts={posts} />
         </div>
     );
@@ -437,6 +444,8 @@ function AuthorAvatar({name, avatar}) {
 }
 
 function AuthorResults({authors, selectedResult, setSelectedResult}) {
+    const {t} = useContext(AppContext);
+
     if (!authors?.length) {
         return null;
     }
@@ -453,7 +462,7 @@ function AuthorResults({authors, selectedResult, setSelectedResult}) {
 
     return (
         <div className='border-t border-neutral-200 py-3 px-4 sm:px-7'>
-            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>作者</h1>
+            <h1 className='uppercase text-xs text-neutral-400 font-semibold mb-1 tracking-wide'>{t('Authors')}</h1>
             {AuthorItems}
         </div>
     );
@@ -572,9 +581,10 @@ function Results({posts, authors, tags}) {
 }
 
 function NoResultsBox() {
+    const {t} = useContext(AppContext);
     return (
         <div className='py-4 px-7'>
-            <p className='text-[1.65rem] text-neutral-400 leading-normal'>没有搜索到相关的内容...</p>
+            <p className='text-[1.65rem] text-neutral-400 leading-normal'>{t('No matches found')}</p>
         </div>
     );
 }
@@ -643,14 +653,14 @@ export default class PopupModal extends React.Component {
                 <>
                     <link rel='stylesheet' href={stylesUrl} />
                     <style dangerouslySetInnerHTML={{__html: styles}} />
-                    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+                    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=0' />
                 </>
             );
         }
         return (
             <>
                 <style dangerouslySetInnerHTML={{__html: styles}} />
-                <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+                <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=0' />
             </>
         );
     }
@@ -664,7 +674,7 @@ export default class PopupModal extends React.Component {
 
         return (
             <div style={Styles.modalContainer} className='gh-root-frame'>
-                <Frame style={frameStyle} title='portal-popup' head={this.renderFrameStyles()} searchdir="ltr">
+                <Frame style={frameStyle} title='portal-popup' head={this.renderFrameStyles()} searchdir={this.context.dir}>
                     <div
                         onClick = {e => this.handlePopupClose(e)}
                         className='absolute top-0 bottom-0 left-0 right-0 block backdrop-blur-[2px] animate-fadein z-0 bg-gradient-to-br from-[rgba(0,0,0,0.2)] to-[rgba(0,0,0,0.1)]' />

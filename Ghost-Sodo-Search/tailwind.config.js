@@ -100,9 +100,9 @@ module.exports = {
         },
         keyframes: {
             popup: {
-              '0%': { transform: 'translateY(-20px)', opacity: '0' },
-              '1%': { transform: 'translateY(20px)', opacity: '0'  },
-              '100%': { transform: 'translateY(0)', opacity: '1.0' }
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '1%': { transform: 'translateY(20px)', opacity: '0'  },
+                '100%': { transform: 'translateY(0)', opacity: '1.0' }
             },
             fadein: {
                 '0%': { opacity: '0' },
@@ -113,5 +113,8 @@ module.exports = {
     content: [
         './src/**/*.{js,jsx,ts,tsx}'
     ],
+    corePlugins: {
+        textSize: true,
+    },
     plugins: []
 };
