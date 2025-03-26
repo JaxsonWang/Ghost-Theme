@@ -25,8 +25,8 @@ https://github.com/TryGhost/Ghost/blob/c667620d8f2e32c96fe376ad0f3dabc79488532a/
     "url": false
   },
   "sodoSearch": {
-    "url": "https://你的博客地址/assets/sodo-search.min.js",
-    "styles": "https://你的博客地址/assets/sodo-search.min.css",
+    "url": "/assets/sodo-search.min.js",
+    "styles": "/assets/sodo-search.min.css",
     "version": "1.0.0"
   },
   "comments": {
