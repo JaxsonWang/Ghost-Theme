@@ -26,8 +26,10 @@
 
 .brave-hero-content-title {
   @apply text-3xl md:text-4xl py-4;
+  font-family: var(--gh-font-heading, var(--brave-font-family)), sans-serif;
 }
 
 .brave-hero-content-description {
   @apply text-xl md:text-2xl py-4;
+  font-family: var(--gh-font-heading, var(--brave-font-family)), sans-serif;
 }

@@ -11,6 +11,7 @@
 .brave-post-content {
   @apply prose lg:prose-xl prose-slate dark:prose-invert prose-pre:bg-transparent prose-code:break-words;
   @apply max-w-none w-full;
+  font-family: var(--gh-font-body, var(--brave-font-family)), sans-serif;
 }
 
 .brave-post-content p a {

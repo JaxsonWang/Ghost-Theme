@@ -12,29 +12,6 @@ module.exports = {
   content: ['./**/*.hbs', './src/js/**/*.js'],
   darkMode: 'class',
   theme: {
-    fontFamily: {
-      sans: [
-        'BraveFont',
-        'Noto Sans SC',
-        'georgia',
-        '"ui-sans-serif"',
-        '"system-ui"',
-        '"-apple-system"',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'serif',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        '"Liberation Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"'
-      ]
-    },
     container: {
       center: true,
       padding: '2.5rem',

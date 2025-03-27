@@ -11,4 +11,5 @@
 :root {
   --ghost-accent-color: '#000';
   --header-height: 75px;
+  --brave-font-family: BraveFont, Noto Sans SC, georgia, "ui-sans-serif", "system-ui", -apple-system, BlinkMacSystemFont, Segoe UI, serif, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
