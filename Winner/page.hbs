@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{#post}}
+<article class="gh-article {{post_class}}">
+    {{#match @page.show_title_and_feature_image}}
+        <header class="art-head page-head wrap">
+            <div>
+                <h1 class="art-title">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="art-lede">{{custom_excerpt}}</p>{{/if}}
+            </div>
+        </header>
+        {{#if feature_image}}
+            <figure class="art-hero">
+                {{> "picture" image=feature_image sizes="100vw"}}
+                {{#if feature_image_caption}}<figcaption>{{{feature_image_caption}}}</figcaption>{{/if}}
+            </figure>
+        {{/if}}
+    {{/match}}
+    <div class="page-body wrap">
+        <div class="prose gh-content">{{content}}</div>
+    </div>
+</article>
+{{/post}}

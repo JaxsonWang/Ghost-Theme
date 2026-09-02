@@ -1,0 +1,17 @@
+<picture{{#if picture_class}} class="{{picture_class}}"{{/if}}>
+    <source
+        srcset="{{img_url image size="xxs" format="avif"}} 30w, {{img_url image size="xs" format="avif"}} 100w, {{img_url image size="s" format="avif"}} 300w, {{img_url image size="m" format="avif"}} 600w, {{img_url image size="l" format="avif"}} 1200w, {{img_url image size="xl" format="avif"}} 2000w"
+        sizes="{{sizes}}"
+        type="image/avif">
+    <source
+        srcset="{{img_url image size="xxs" format="webp"}} 30w, {{img_url image size="xs" format="webp"}} 100w, {{img_url image size="s" format="webp"}} 300w, {{img_url image size="m" format="webp"}} 600w, {{img_url image size="l" format="webp"}} 1200w, {{img_url image size="xl" format="webp"}} 2000w"
+        sizes="{{sizes}}"
+        type="image/webp">
+    <img
+        src="{{img_url image size="l"}}"
+        srcset="{{img_url image size="xxs"}} 30w, {{img_url image size="xs"}} 100w, {{img_url image size="s"}} 300w, {{img_url image size="m"}} 600w, {{img_url image size="l"}} 1200w, {{img_url image size="xl"}} 2000w"
+        sizes="{{sizes}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        {{#if image_class}}class="{{image_class}}"{{/if}}
+        {{#if loading}}loading="{{loading}}"{{/if}}>
+</picture>

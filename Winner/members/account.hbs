@@ -1,0 +1,14 @@
+{{!< ../default}}
+
+<section class="member-page wrap">
+    {{#if @member}}
+        <div class="member-card">
+            <p class="listing-kicker">会员中心</p>
+            <h1>{{#if @member.paid}}订阅已生效{{else}}免费订阅账户{{/if}}</h1>
+            <p><strong>{{@member.email}}</strong> 已登录 {{@site.title}}。</p>
+            <a class="btn" href="#/portal/account">管理账户<i>→</i></a>
+        </div>
+    {{else}}
+        <script>window.location = '{{@site.url}}/signin/';</script>
+    {{/if}}
+</section>

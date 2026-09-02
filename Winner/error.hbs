@@ -1,0 +1,16 @@
+{{!< default}}
+
+<section class="error-page wrap">
+    <p class="listing-kicker">{{statusCode}}</p>
+    <h1>{{message}}</h1>
+    <p>这个页面可能已经移动，或者从未存在。</p>
+    <a class="btn" href="{{@site.url}}">返回首页<i>→</i></a>
+    {{#if errorDetails}}
+        <div class="error-details">
+            {{#foreach errorDetails}}
+                <h2>{{rule}}</h2>
+                {{#foreach failures}}<p>{{message}}</p>{{/foreach}}
+            {{/foreach}}
+        </div>
+    {{/if}}
+</section>

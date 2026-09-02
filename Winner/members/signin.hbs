@@ -1,0 +1,20 @@
+{{!< ../default}}
+
+<section class="member-page wrap">
+    {{#if @member}}
+        <script>window.location = '{{@site.url}}';</script>
+    {{else}}
+        <form class="member-card" data-members-form="signin">
+            <p class="listing-kicker">会员登录</p>
+            <h1>欢迎回来</h1>
+            <p>输入订阅邮箱，我们会向你发送登录链接。</p>
+            <div class="member-form-row">
+                <input data-members-email type="email" placeholder="you@example.com" aria-label="邮箱" required autocomplete="email">
+                <button class="btn" type="submit"><span class="member-button-label">发送登录链接</span><span class="member-button-loading">发送中…</span></button>
+            </div>
+            <p class="message-success">请检查邮箱并点击登录链接。</p>
+            <p class="message-error">请输入有效的邮箱地址。</p>
+            <p class="member-help">还没有账号？<a href="{{@site.signup_url}}">立即订阅</a></p>
+        </form>
+    {{/if}}
+</section>

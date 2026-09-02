@@ -1,0 +1,55 @@
+{{!< default}}
+
+{{^is "paged"}}
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid wrap">
+        <div class="hero-main">
+            <h1 class="hero-title" id="hero-title">{{@custom.hero_title_line_one}}{{#if @custom.hero_title_line_two}}<br>{{@custom.hero_title_line_two}}{{/if}}{{#if @custom.hero_title_accent}}<em>{{@custom.hero_title_accent}}</em>{{/if}}</h1>
+            <div class="hero-cta">
+                {{#foreach posts limit="1"}}
+                    {{#if @custom.hero_cta_text}}<a class="btn" href="{{url}}">{{@custom.hero_cta_text}}<i>→</i></a>{{/if}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{#if @custom.hero_side_text}}<p class="hero-lede">{{@custom.hero_side_text}}</p>{{/if}}
+        <figure class="hero-figure">
+            {{#if @site.cover_image}}
+                <img src="{{img_url @site.cover_image size="xl"}}" alt="{{@site.title}}" fetchpriority="high">
+            {{else}}
+                <img src="{{asset "images/night-transit.jpg"}}" width="1800" height="1200" alt="{{@site.title}}" fetchpriority="high">
+            {{/if}}
+        </figure>
+    </div>
+</section>
+{{/is}}
+
+<section class="sec wrap" id="posts" aria-label="文章">
+    <div class="sec-head reveal">
+        <h1>最近写的</h1>
+        <p class="sec-count">{{plural pagination.total empty="暂无文章" singular="1 篇" plural="% 篇"}}</p>
+    </div>
+    <div class="post-grid">
+        {{#foreach posts}}
+            {{> "card"}}
+        {{else}}
+            <p class="empty-state">还没有发布文章。</p>
+        {{/foreach}}
+    </div>
+    <div class="pagination-wrap">{{pagination}}</div>
+</section>
+
+<section class="sec about" id="about" aria-labelledby="about-title">
+    <div class="about-grid wrap reveal">
+        {{#if @custom.about_side_text}}<p class="about-vert">{{@custom.about_side_text}}</p>{{/if}}
+        <div class="about-copy">
+            <h2 id="about-title">{{@custom.about_title_line_one}}{{#if @custom.about_title_line_two}}<br>{{@custom.about_title_line_two}}{{/if}}</h2>
+            <div class="about-detail">
+                {{#if @custom.about_body_text}}<p class="about-body">{{@custom.about_body_text}}</p>{{/if}}
+                <div class="about-actions">
+                    {{#if @custom.about_cta_text}}{{#if @custom.about_cta_url}}<p class="about-cta"><a class="btn btn--ghost" href="{{@custom.about_cta_url}}">{{@custom.about_cta_text}}<i>→</i></a></p>{{/if}}{{/if}}
+                    {{> "social-links"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

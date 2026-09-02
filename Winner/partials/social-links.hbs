@@ -1,0 +1,7 @@
+{{#social_accounts @site}}
+    {{#if @first}}<nav class="social-links" aria-label="社交链接">{{/if}}
+    <a class="social-link" href="{{href}}" target="_blank" rel="noopener noreferrer" aria-label="访问 {{name}}" title="{{name}}">
+        {{#> (concat "icons/" type)}}<span>{{name}}</span>{{/undefined}}
+    </a>
+    {{#if @last}}</nav>{{/if}}
+{{/social_accounts}}

@@ -1,0 +1,25 @@
+{{!< ../default}}
+
+<section class="member-page wrap">
+    {{#if @member}}
+        <div class="member-card">
+            <p class="listing-kicker">会员中心</p>
+            <h1>你已经登录</h1>
+            <p>可在账户页面管理订阅状态。</p>
+            <a class="btn" href="/account/">查看账户<i>→</i></a>
+        </div>
+    {{else}}
+        <form class="member-card" data-members-form="signup">
+            <p class="listing-kicker">订阅</p>
+            <h1>订阅 {{@site.title}}</h1>
+            <p>{{@site.description}}</p>
+            <div class="member-form-row">
+                <input data-members-email type="email" placeholder="you@example.com" aria-label="邮箱" required autocomplete="email">
+                <button class="btn" type="submit"><span class="member-button-label">继续</span><span class="member-button-loading">发送中…</span></button>
+            </div>
+            <p class="message-success">请检查邮箱并确认订阅。</p>
+            <p class="message-error">请输入有效的邮箱地址。</p>
+            <p class="member-help">已经订阅？<a href="/signin/">登录</a></p>
+        </form>
+    {{/if}}
+</section>

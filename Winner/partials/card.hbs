@@ -1,0 +1,18 @@
+<article class="post reveal {{post_class}} post--standard">
+    <a class="post-link" href="{{url}}">
+        {{#if feature_image}}
+            <span class="post-figure">
+                {{> "picture" image=feature_image sizes="(min-width: 1100px) 50vw, (min-width: 760px) 50vw, 100vw" image_class="post-image" loading="lazy"}}
+            </span>
+        {{/if}}
+        <div class="post-copy">
+            <p class="post-meta">
+                {{#if primary_tag}}<span class="tag">{{primary_tag.name}}</span>{{/if}}
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time>
+                <span>{{reading_time minute="1 分钟" minutes="% 分钟"}}</span>
+            </p>
+            <h2 class="post-title"><span>{{title}}</span></h2>
+            <p class="post-excerpt">{{excerpt words="44"}}</p>
+        </div>
+    </a>
+</article>

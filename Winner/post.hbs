@@ -1,0 +1,74 @@
+{{!< default}}
+
+{{#post}}
+<article class="gh-article {{post_class}}">
+    <div class="progress" role="presentation"></div>
+    <header class="art-head wrap">
+        <p class="art-rail">{{@site.title}}{{#if primary_tag}} · {{primary_tag.name}}{{/if}}</p>
+        <div>
+            <h1 class="art-title">{{title}}</h1>
+            <p class="art-meta">
+                <span>{{#foreach authors}}<b>{{name}}</b>{{#unless @last}}、{{/unless}}{{/foreach}} 撰文</span>
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time>
+                <span>{{reading_time minute="1 分钟" minutes="% 分钟"}}</span>
+            </p>
+        </div>
+    </header>
+
+    {{#if feature_image}}
+        <figure class="art-hero">
+            {{> "picture" image=feature_image sizes="100vw"}}
+            {{#if feature_image_caption}}<figcaption>{{{feature_image_caption}}}</figcaption>{{/if}}
+        </figure>
+    {{/if}}
+
+    <div class="art-body wrap" id="content">
+        <nav class="toc" aria-label="本文目录">
+            <h2>目录</h2>
+            <div data-toc><a href="#content">正文</a></div>
+        </nav>
+        <div class="prose gh-content">{{content}}</div>
+    </div>
+
+    {{#if comments}}
+        <section class="comments wrap">{{comments}}</section>
+    {{/if}}
+
+    <div class="art-end">
+        <div class="wrap">
+            <div class="author">
+                <div class="author-profile">
+                    {{#if primary_author.profile_image}}<p class="author-mark"><img src="{{img_url primary_author.profile_image size="xs"}}" alt="{{primary_author.name}}"></p>{{else}}<p class="author-mark" aria-hidden="true">猫</p>{{/if}}
+                    <div><p class="author-name">{{primary_author.name}}</p>{{#if primary_author.bio}}<p class="author-line">{{primary_author.bio}}</p>{{/if}}</div>
+                </div>
+                <div class="author-actions">
+                    {{> "social-links"}}
+                    <a class="author-link" href="{{primary_author.url}}">查看全部文章 <i>→</i></a>
+                </div>
+            </div>
+            <nav class="pager" aria-label="文章导航">
+                {{#prev_post}}
+                    <a class="pager-card" href="{{url}}">
+                        {{#if feature_image}}<span class="post-figure pager-figure">{{> "picture" image=feature_image sizes="(max-width: 760px) 100vw, 50vw" image_class="post-image" loading="lazy"}}</span>{{/if}}
+                        <div class="post-copy pager-copy">
+                            <p class="post-meta"><span class="tag">上一篇</span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time><span>{{reading_time minute="1 分钟" minutes="% 分钟"}}</span></p>
+                            <h2 class="post-title"><span>{{title}}</span></h2>
+                            <p class="post-excerpt">{{excerpt words="28"}}</p>
+                        </div>
+                    </a>
+                {{/prev_post}}
+                {{#next_post}}
+                    <a class="pager-card" href="{{url}}">
+                        {{#if feature_image}}<span class="post-figure pager-figure">{{> "picture" image=feature_image sizes="(max-width: 760px) 100vw, 50vw" image_class="post-image" loading="lazy"}}</span>{{/if}}
+                        <div class="post-copy pager-copy">
+                            <p class="post-meta"><span class="tag">下一篇</span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time><span>{{reading_time minute="1 分钟" minutes="% 分钟"}}</span></p>
+                            <h2 class="post-title"><span>{{title}}</span></h2>
+                            <p class="post-excerpt">{{excerpt words="28"}}</p>
+                        </div>
+                    </a>
+                {{/next_post}}
+            </nav>
+        </div>
+    </div>
+</article>
+{{/post}}

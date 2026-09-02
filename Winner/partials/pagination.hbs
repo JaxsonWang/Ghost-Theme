@@ -1,0 +1,9 @@
+<nav class="pagination" role="navigation" aria-label="分页">
+    {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}">← 上一页</a>
+    {{/if}}
+    <span class="page-number">第 {{page}} 页，共 {{pages}} 页</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">下一页 →</a>
+    {{/if}}
+</nav>

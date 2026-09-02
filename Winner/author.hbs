@@ -1,0 +1,21 @@
+{{!< default}}
+
+<section class="listing-head wrap">
+    {{#author}}
+        <p class="listing-kicker">作者</p>
+        {{#if profile_image}}<img class="listing-avatar" src="{{img_url profile_image size="s"}}" alt="{{name}}">{{/if}}
+        <h1>{{name}}</h1>
+        {{#if bio}}<p>{{bio}}</p>{{/if}}
+        <div class="listing-links">
+            {{#if website}}<a href="{{website}}" rel="noreferrer">个人网站</a>{{/if}}
+            {{#if twitter}}<a href="{{social_url type="twitter"}}" rel="noreferrer">Twitter</a>{{/if}}
+            {{#if facebook}}<a href="{{social_url type="facebook"}}" rel="noreferrer">Facebook</a>{{/if}}
+        </div>
+    {{/author}}
+</section>
+<section class="sec wrap">
+    <div class="post-grid">
+        {{#foreach posts}}{{> "card"}}{{else}}<p class="empty-state">这位作者还没有发布文章。</p>{{/foreach}}
+    </div>
+    <div class="pagination-wrap">{{pagination}}</div>
+</section>

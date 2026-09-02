@@ -1,0 +1,43 @@
+{{!< default}}
+
+{{#contentFor "title"}}文章归档{{#is "paged"}} - 第{{pagination.page}}页{{/is}} - {{@site.title}}{{/contentFor}}
+
+<section class="archive-page wrap" aria-labelledby="archive-page-title">
+    <header class="archive-page-head">
+        <div class="archive-page-heading">
+            <p class="listing-kicker">ARCHIVE</p>
+            <h1 id="archive-page-title">文章归档</h1>
+        </div>
+        <div class="archive-page-summary">
+            <p class="archive-page-count"><strong>{{pagination.total}}</strong><span>篇文章</span></p>
+            <p>按发布时间倒序 · 第 {{pagination.page}} / {{pagination.pages}} 页</p>
+        </div>
+    </header>
+
+    <ol class="archive-timeline">
+        {{#foreach posts}}
+            <li class="archive-timeline-item reveal">
+                <a href="{{url}}">
+                    <time class="archive-timeline-date" datetime="{{date format="YYYY-MM-DD"}}">
+                        <strong>{{date format="MM.DD"}}</strong>
+                        <span>{{date format="YYYY"}}</span>
+                    </time>
+                    <span class="archive-timeline-axis" aria-hidden="true"></span>
+                    <div class="archive-timeline-copy">
+                        <p class="archive-timeline-meta">
+                            {{#if primary_tag}}<span>{{primary_tag.name}}</span>{{/if}}
+                            <span>{{reading_time minute="1 分钟阅读" minutes="% 分钟阅读"}}</span>
+                        </p>
+                        <h2><span>{{title}}</span></h2>
+                        <p class="archive-timeline-excerpt">{{excerpt words="24"}}</p>
+                    </div>
+                    <span class="archive-timeline-arrow" aria-hidden="true">→</span>
+                </a>
+            </li>
+        {{else}}
+            <li class="empty-state">还没有发布文章。</li>
+        {{/foreach}}
+    </ol>
+
+    <div class="archive-page-pagination pagination-wrap">{{pagination}}</div>
+</section>

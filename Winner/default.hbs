@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="{{@site.locale}}" class="no-js" data-theme-mode="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2436e0">
+    <title>{{#block "title"}}{{meta_title page=" - 第%页"}}{{#is "post"}} - {{@site.title}}{{/is}}{{/block}}</title>
+    {{#if @custom.site_meta_keywords}}<meta name="keywords" content="{{@custom.site_meta_keywords}}">{{/if}}
+    <link rel="stylesheet" href="{{asset "built/index.css"}}">
+    <script>
+        document.documentElement.classList.remove('no-js');
+        try {
+            var theme = localStorage.getItem('winner-theme');
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.setAttribute('data-theme-mode', theme);
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        } catch (error) {}
+    </script>
+    <script src="{{asset "built/index.js"}}" defer></script>
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-head">
+    <div class="head-in wrap">
+        <a class="brand" href="{{@site.url}}">{{@site.title}}{{#if @custom.brand_suffix}}<span>{{@custom.brand_suffix}}</span>{{/if}}</a>
+        <nav class="site-nav" aria-label="主导航">
+            {{navigation}}
+        </nav>
+        <div class="site-tools">
+            <svg class="tool-icons" aria-hidden="true">
+                <symbol id="winner-icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></symbol>
+                <symbol id="winner-icon-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"></rect><path d="M8 21h8M12 17v4"></path></symbol>
+                <symbol id="winner-icon-light" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></symbol>
+                <symbol id="winner-icon-dark" viewBox="0 0 24 24"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path></symbol>
+            </svg>
+            <button class="tool-toggle search-toggle" type="button" data-ghost-search aria-label="搜索" title="搜索">
+                <svg class="tool-icon" aria-hidden="true"><use href="#winner-icon-search"></use></svg>
+            </button>
+            <details class="theme-picker" data-theme-picker>
+                <summary class="tool-toggle theme-toggle" data-theme-trigger aria-label="主题模式：自动" title="主题模式：自动">
+                    <svg class="tool-icon theme-icon theme-icon--auto" aria-hidden="true"><use href="#winner-icon-auto"></use></svg>
+                    <svg class="tool-icon theme-icon theme-icon--light" aria-hidden="true"><use href="#winner-icon-light"></use></svg>
+                    <svg class="tool-icon theme-icon theme-icon--dark" aria-hidden="true"><use href="#winner-icon-dark"></use></svg>
+                </summary>
+                <div class="theme-menu" role="radiogroup" aria-label="主题模式">
+                    <button class="theme-option" type="button" role="radio" aria-checked="true" data-theme-option="auto">
+                        <svg class="tool-icon" aria-hidden="true"><use href="#winner-icon-auto"></use></svg><span>自动</span>
+                    </button>
+                    <button class="theme-option" type="button" role="radio" aria-checked="false" data-theme-option="light">
+                        <svg class="tool-icon" aria-hidden="true"><use href="#winner-icon-light"></use></svg><span>亮色</span>
+                    </button>
+                    <button class="theme-option" type="button" role="radio" aria-checked="false" data-theme-option="dark">
+                        <svg class="tool-icon" aria-hidden="true"><use href="#winner-icon-dark"></use></svg><span>暗色</span>
+                    </button>
+                </div>
+            </details>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    {{{body}}}
+</main>
+
+<footer class="site-foot">
+    <div class="foot-in wrap">
+        <nav class="foot-nav" aria-label="页脚导航">
+            {{navigation type="secondary"}}
+        </nav>
+        <div class="foot-meta">
+            <div class="foot-credit">
+                <p>Powered by <a href="https://ghost.org/" target="_blank" rel="nofollow noopener">Ghost</a>. Copyright © {{#if @custom.copyright_start_year}}{{@custom.copyright_start_year}} ~ {{/if}}{{date format="YYYY"}}.</p>
+                <p>❤️ Crafted with <a href="https://github.com/JaxsonWang/Ghost-Theme" target="_blank" rel="nofollow noopener">Winner</a> Theme.</p>
+            </div>
+            {{#if @custom.footer_one}}<p class="foot-motto">{{@custom.footer_one}}</p>{{/if}}
+        </div>
+        {{#if @custom.icp_name}}
+            <div class="foot-legal">
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">{{@custom.icp_name}}</a>
+                {{#if @custom.gongan_beian_name}}<a href="{{@custom.gongan_beian_url}}" target="_blank" rel="nofollow noopener">{{@custom.gongan_beian_name}}</a>{{/if}}
+                {{#if @custom.footer_url_url}}<a href="{{@custom.footer_url_url}}" target="_blank" rel="nofollow noopener">{{@custom.footer_url_name}}</a>{{/if}}
+            </div>
+        {{/if}}
+    </div>
+</footer>
+
+{{ghost_foot}}
+</body>
+</html>
