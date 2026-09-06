@@ -4,6 +4,7 @@ import {highlightCodeBlocks} from "./syntax-highlight.js";
 import {enhanceHeroTitle} from "./depth-text.js";
 import {enhanceGhostFibers} from "./ghost-fibers.js";
 import {enhanceCardEffects} from "./card-effects.js";
+import {enhanceAboutProfile} from "./profile-card.js";
 
 (function () {
     "use strict";
@@ -127,6 +128,7 @@ import {enhanceCardEffects} from "./card-effects.js";
     paintThemePicker();
 
     enhanceLinksPage();
+    enhanceAboutProfile();
     enhanceCardEffects();
     highlightCodeBlocks();
     enhanceHeroTitle();

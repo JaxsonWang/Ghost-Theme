@@ -1,0 +1,387 @@
+/* Profile Card adapted from React Bits; license in assets/js/card-effects.js. */
+@font-face {
+  font-family: "Winner Geist";
+  src: url("../fonts/geist.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.page-body:has(.about-profile-intro) { max-width: 1180px; }
+.page-body:has(.about-profile-intro) > .gh-content > :not(.about-profile-intro) {
+  max-width: 860px;
+  margin-inline: auto;
+}
+.prose .about-profile-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 387.72px);
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+  margin-block: 2.8em;
+}
+.about-profile-copy > :first-child { margin-top: 0; }
+.about-profile-copy > :last-child { margin-bottom: 0; }
+
+.profile-card-wrapper {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --card-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --grain: url("../images/profile-card-grain.webp");
+  --icon: url("../images/profile-card-icon.png");
+  --behind-glow-color: rgba(125, 190, 255, 0.67);
+  --behind-glow-size: 50%;
+  --inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71c4ff44 100%);
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  --sunpillar-clr-1: var(--sunpillar-1);
+  --sunpillar-clr-2: var(--sunpillar-2);
+  --sunpillar-clr-3: var(--sunpillar-3);
+  --sunpillar-clr-4: var(--sunpillar-4);
+  --sunpillar-clr-5: var(--sunpillar-5);
+  --sunpillar-clr-6: var(--sunpillar-6);
+  --card-radius: 30px;
+}
+
+.profile-card-wrapper {
+  perspective: 500px;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  width: min(100%, calc(0.718 * min(80svh, 540px)));
+  justify-self: end;
+  touch-action: auto;
+  font: 16px/1.5 "Winner Geist", sans-serif;
+  letter-spacing: normal;
+  color: #fff;
+}
+
+.profile-card-behind {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    var(--behind-glow-color) 0%,
+    transparent var(--behind-glow-size)
+  );
+  filter: blur(50px) saturate(1.1);
+  opacity: calc(0.8 * var(--card-opacity));
+  transition: opacity 200ms ease;
+}
+
+.profile-card {
+  width: 100%;
+  display: grid;
+  aspect-ratio: 0.718;
+  border-radius: var(--card-radius);
+  position: relative;
+  background-blend-mode: color-dodge, normal, normal, normal;
+  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px)
+    calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+  transition: transform 1s ease;
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  background: rgba(0, 0, 0, 0.9);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.profile-card-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-card * {
+  display: grid;
+  grid-area: 1/-1;
+  border-radius: var(--card-radius);
+  pointer-events: none;
+}
+
+.profile-card-inside {
+  inset: 0;
+  position: absolute;
+  background-image: var(--inner-gradient);
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: none;
+}
+
+.profile-card-shine {
+  mask-image: var(--icon);
+  mask-mode: luminance;
+  mask-repeat: repeat;
+  mask-size: 150%;
+  mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  transition: filter 0.8s ease;
+  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  animation: holo-bg 18s linear infinite;
+  animation-play-state: running;
+  mix-blend-mode: color-dodge;
+}
+
+.profile-card-shine,
+.profile-card-shine::after {
+  --space: 5%;
+  --angle: -45deg;
+  transform: translate3d(0, 0, 1px);
+  overflow: hidden;
+  z-index: 3;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--sunpillar-clr-1) calc(var(--space) * 1),
+      var(--sunpillar-clr-2) calc(var(--space) * 2),
+      var(--sunpillar-clr-3) calc(var(--space) * 3),
+      var(--sunpillar-clr-4) calc(var(--space) * 4),
+      var(--sunpillar-clr-5) calc(var(--space) * 5),
+      var(--sunpillar-clr-6) calc(var(--space) * 6),
+      var(--sunpillar-clr-1) calc(var(--space) * 7)
+    ),
+    repeating-linear-gradient(
+      var(--angle),
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 0%, 0.1) 12%,
+      hsla(0, 0%, 0%, 0.15) 20%,
+      hsla(0, 0%, 0%, 0.25) 120%
+    );
+  background-position:
+    0 var(--background-y),
+    var(--background-x) var(--background-y),
+    center;
+  background-blend-mode: color, hard-light;
+  background-size:
+    500% 500%,
+    300% 300%,
+    200% 200%;
+  background-repeat: repeat;
+}
+
+.profile-card-shine::before,
+.profile-card-shine::after {
+  content: '';
+  background-position: center;
+  background-size: cover;
+  grid-area: 1/1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.profile-card-shine::before {
+  background-image:
+    linear-gradient(
+      45deg,
+      var(--sunpillar-4),
+      var(--sunpillar-5),
+      var(--sunpillar-6),
+      var(--sunpillar-1),
+      var(--sunpillar-2),
+      var(--sunpillar-3)
+    ),
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
+    var(--grain);
+  background-size:
+    250% 250%,
+    100% 100%,
+    220px 220px;
+  background-position:
+    var(--pointer-x) var(--pointer-y),
+    center,
+    calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
+  background-blend-mode: color-dodge;
+  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2))
+    saturate(calc(0.5 + var(--pointer-from-center)));
+  mix-blend-mode: luminosity;
+}
+
+.profile-card-shine::after {
+  background-position:
+    0 var(--background-y),
+    calc(var(--background-x) * 0.4) calc(var(--background-y) * 0.5),
+    center;
+  background-size:
+    200% 300%,
+    700% 700%,
+    100% 100%;
+  mix-blend-mode: difference;
+  filter: brightness(0.8) contrast(1.5);
+}
+
+.profile-card-glare {
+  transform: translate3d(0, 0, 1.1px);
+  overflow: hidden;
+  background-image: radial-gradient(
+    farthest-corner circle at var(--pointer-x) var(--pointer-y),
+    hsl(248, 25%, 80%) 12%,
+    hsla(207, 40%, 30%, 0.8) 90%
+  );
+  mix-blend-mode: overlay;
+  filter: brightness(0.8) contrast(1.2);
+  z-index: 4;
+}
+
+.profile-card-avatar-content {
+  mix-blend-mode: luminosity;
+  overflow: visible;
+  backface-visibility: hidden;
+}
+
+.profile-card-avatar-content .profile-card-avatar {
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+  object-position: bottom;
+  position: absolute;
+  left: 50%;
+  transform-origin: 50% 100%;
+  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0)
+    scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
+  bottom: -1px;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 120ms ease-out;
+}
+
+.profile-card-content:not(.profile-card-avatar-content) {
+  max-height: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transform: translate3d(
+    calc(var(--pointer-from-left) * -6px + 3px),
+    calc(var(--pointer-from-top) * -6px + 3px),
+    0.1px
+  );
+  z-index: 5;
+  mix-blend-mode: luminosity;
+}
+
+.profile-card-details {
+  width: 100%;
+  position: absolute;
+  top: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card-details .profile-card-name {
+  font-weight: 600;
+  margin: 0;
+  font-size: min(5svh, 3em);
+  font-family: inherit;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  background-image: linear-gradient(to bottom, #fff, #6f6fbe);
+  background-size: 1em 1.5em;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.profile-card-details .profile-card-title {
+  font-weight: 600;
+  position: relative;
+  top: -12px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  margin: 0 auto;
+  width: fit-content;
+  line-height: 1.5;
+  background-image: linear-gradient(to bottom, #fff, #4a4ac0);
+  background-size: 1em 1.5em;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes holo-bg {
+  0% {
+    background-position:
+      0 var(--background-y),
+      0 0,
+      center;
+  }
+
+  100% {
+    background-position:
+      0 var(--background-y),
+      90% 90%,
+      center;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .profile-card-wrapper:hover {
+    --card-opacity: 1;
+  }
+
+  .profile-card:hover {
+    transition: none;
+    transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+  }
+
+  .profile-card-shell.entering .profile-card {
+    transition: transform 180ms ease-out;
+  }
+
+  .profile-card:hover .profile-card-shine {
+    filter: brightness(0.85) contrast(1.5) saturate(0.5);
+    animation-play-state: paused;
+  }
+
+  .profile-card:hover .profile-card-shine::before,
+  .profile-card:hover .profile-card-shine::after {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .prose .about-profile-intro { grid-template-columns: minmax(0, 1fr); }
+  .profile-card-wrapper { justify-self: center; }
+}
+@media (max-width: 768px) {
+  .profile-card-wrapper { width: min(100%, calc(0.718 * min(70svh, 450px))); }
+  .profile-card-details { top: 2em; }
+  .profile-card-details .profile-card-name { font-size: min(4svh, 2.5em); }
+  .profile-card-details .profile-card-title { font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .profile-card-wrapper { width: min(100%, calc(0.718 * min(60svh, 380px))); }
+  .profile-card-details { top: 1.5em; }
+  .profile-card-details .profile-card-name { font-size: min(3.5svh, 2em); }
+  .profile-card-details .profile-card-title { font-size: 12px; top: -8px; }
+}
+@media (max-width: 320px) {
+  .profile-card-wrapper { width: min(100%, calc(0.718 * min(55svh, 320px))); }
+  .profile-card-details .profile-card-name { font-size: min(3svh, 1.5em); }
+  .profile-card-details .profile-card-title { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-card-wrapper *,
+  .profile-card-shine::before,
+  .profile-card-shine::after { animation: none; transition: none; }
+  .profile-card,
+  .profile-card-content:not(.profile-card-avatar-content) { transform: none; }
+}

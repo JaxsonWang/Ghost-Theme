@@ -1,5 +1,5 @@
 /*!
- * Border Glow and Spotlight Card adapted from https://reactbits.dev
+ * Border Glow, Spotlight Card and Profile Card adapted from https://reactbits.dev
  * MIT + Commons Clause License Condition v1.0
  * Copyright (c) 2026 David Haz
  *

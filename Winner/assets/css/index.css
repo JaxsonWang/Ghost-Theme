@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "./syntax-highlight.css";
 @import "./card-effects.css";
+@import "./profile-card.css";
 
 /* =========================================================================
    淮城一只猫 / iiong.com - static Chinese blog theme
@@ -903,7 +904,8 @@ body.has-ghost-fibers {
 }
 
 .art-hero figcaption,
-.art-fig figcaption {
+.art-fig figcaption,
+.cover-head-caption {
   margin-top: 14px;
   color: var(--text-dim);
   font-size: 13px;
@@ -1498,6 +1500,67 @@ body.has-ghost-fibers {
   transform: translateX(4px);
 }
 
+.cover-head {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(300px, 28vw, 360px);
+  padding-block: clamp(44px, 5vw, 64px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cover-head-image {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: 68%;
+  height: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(to right, transparent 28%, #000 72%);
+  pointer-events: none;
+}
+
+.cover-head-copy { max-width: 42em; }
+.cover-head--with-image .cover-head-copy { max-width: 52%; }
+
+.cover-head-copy::before {
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-bottom: 22px;
+  background: var(--accent);
+  content: "";
+}
+
+.cover-head h1 {
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+  text-shadow:
+    0.02em 0.03em 0 var(--hero-depth),
+    0.04em 0.06em 0 color-mix(in srgb, var(--hero-depth) 65%, var(--bg)),
+    0.06em 0.08em 0.12em color-mix(in srgb, var(--block) 18%, transparent);
+}
+
+.cover-head p {
+  max-width: 30em;
+  margin-top: 22px;
+  color: var(--text-dim);
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .cover-head { min-height: 260px; }
+  .cover-head-image { width: 100%; opacity: 0.18; }
+  .cover-head--with-image .cover-head-copy { max-width: 100%; }
+  .cover-head h1 { font-size: clamp(2.2rem, 10vw, 3.8rem); }
+}
+
 .listing-head {
   padding-block: clamp(56px, 9vw, 120px) clamp(34px, 5vw, 72px);
   border-bottom: 1px solid var(--rule);
@@ -1529,13 +1592,6 @@ body.has-ghost-fibers {
 
 .listing-head > p:not(.listing-kicker) {
   font-family: var(--serif);
-}
-
-.listing-head > img:not(.listing-avatar) {
-  width: 100%;
-  max-height: 520px;
-  margin-top: 40px;
-  object-fit: cover;
 }
 
 .listing-avatar {

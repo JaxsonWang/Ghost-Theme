@@ -3,20 +3,63 @@
 {{#post}}
 <article class="gh-article {{post_class}}">
     {{#match @page.show_title_and_feature_image}}
-        <header class="art-head page-head wrap">
-            <div>
-                <h1 class="art-title">{{title}}</h1>
-                {{#if custom_excerpt}}<p class="art-lede">{{custom_excerpt}}</p>{{/if}}
-            </div>
-        </header>
-        {{#if feature_image}}
-            <figure class="art-hero">
-                {{> "picture" image=feature_image sizes="100vw"}}
-                {{#if feature_image_caption}}<figcaption>{{{feature_image_caption}}}</figcaption>{{/if}}
-            </figure>
-        {{/if}}
+        {{#match slug "about"}}
+            <header class="cover-head{{#if feature_image}} cover-head--with-image{{/if}}">
+                {{#if feature_image}}
+                    <img class="cover-head-image" src="{{img_url feature_image size="l"}}" alt="{{feature_image_alt}}">
+                {{/if}}
+                <div class="wrap">
+                    <div class="cover-head-copy">
+                        <h1>{{title}}</h1>
+                        {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
+                    </div>
+                </div>
+            </header>
+            {{#if feature_image}}
+                {{#if feature_image_caption}}<div class="cover-head-caption wrap">{{{feature_image_caption}}}</div>{{/if}}
+            {{/if}}
+        {{else}}
+            <header class="art-head page-head wrap">
+                <div>
+                    <h1 class="art-title">{{title}}</h1>
+                    {{#if custom_excerpt}}<p class="art-lede">{{custom_excerpt}}</p>{{/if}}
+                </div>
+            </header>
+            {{#if feature_image}}
+                <figure class="art-hero">
+                    {{> "picture" image=feature_image sizes="100vw"}}
+                    {{#if feature_image_caption}}<figcaption>{{{feature_image_caption}}}</figcaption>{{/if}}
+                </figure>
+            {{/if}}
+        {{/match}}
     {{/match}}
     <div class="page-body wrap">
+        {{#match slug "about"}}
+            {{#if @custom.about_profile}}
+                <template data-about-profile="{{@custom.about_profile}}">
+                    <aside class="profile-card-wrapper" aria-labelledby="profile-card-name">
+                        <div class="profile-card-behind" aria-hidden="true"></div>
+                        <div class="profile-card-shell">
+                            <div class="profile-card">
+                                <div class="profile-card-inside">
+                                    <div class="profile-card-shine" aria-hidden="true"></div>
+                                    <div class="profile-card-glare" aria-hidden="true"></div>
+                                    <div class="profile-card-content profile-card-avatar-content">
+                                        <img class="profile-card-avatar" loading="lazy" decoding="async" alt="">
+                                    </div>
+                                    <div class="profile-card-content">
+                                        <div class="profile-card-details">
+                                            <h4 class="profile-card-name" id="profile-card-name"></h4>
+                                            <p class="profile-card-title"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </template>
+            {{/if}}
+        {{/match}}
         <div class="prose gh-content">{{content}}</div>
     </div>
 </article>
