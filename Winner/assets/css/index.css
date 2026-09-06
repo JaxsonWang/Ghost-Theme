@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "./syntax-highlight.css";
+@import "./card-effects.css";
 
 /* =========================================================================
    淮城一只猫 / iiong.com - static Chinese blog theme
@@ -27,6 +28,12 @@
   --block-ink:   #f2f3ff;
   --block-dim:   rgba(242, 243, 255, 0.82);
   --shadow:      0 24px 60px rgba(20, 22, 27, 0.10);
+  --logo-filter: none;
+  --hero-face: #5c6372;
+  --hero-accent: #596bc6;
+  --hero-depth: #bcc2cf;
+  --hero-accent-depth: #b4bde9;
+  --hero-text-shadow: 0 0.04em 0.06em rgba(20, 22, 27, 0.08);
 
   --sans:  var(--gh-font-heading, "PingFang SC", "HarmonyOS Sans SC", "Source Han Sans SC",
            "Noto Sans CJK SC", "Microsoft YaHei", system-ui, sans-serif);
@@ -62,6 +69,12 @@
   --block-ink:   #f2f3ff;
   --block-dim:   rgba(242, 243, 255, 0.82);
   --shadow:      0 24px 60px rgba(0, 0, 0, 0.45);
+  --logo-filter: invert(1);
+  --hero-face: var(--text);
+  --hero-accent: var(--accent);
+  --hero-depth: var(--block);
+  --hero-accent-depth: var(--block);
+  --hero-text-shadow: 0 0.12em 0.18em color-mix(in srgb, var(--block) 22%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,6 +92,12 @@
     --block-ink: #f2f3ff;
     --block-dim: rgba(242, 243, 255, 0.82);
     --shadow:    0 24px 60px rgba(0, 0, 0, 0.45);
+    --logo-filter: invert(1);
+    --hero-face: var(--text);
+    --hero-accent: var(--accent);
+    --hero-depth: var(--block);
+    --hero-accent-depth: var(--block);
+    --hero-text-shadow: 0 0.12em 0.18em color-mix(in srgb, var(--block) 22%, transparent);
   }
 }
 
@@ -198,6 +217,13 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: background-color 0.25s var(--ease);
+}
+
+.has-ghost-fibers .site-head.is-at-top {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .head-in {
@@ -209,28 +235,22 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
   margin-right: auto;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.16em;
+  white-space: nowrap;
 }
 
-.brand::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  transform: translateY(-2px);
-}
-
-.brand span {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  color: var(--text-dim);
+.brand-logo {
+  flex-shrink: 0;
+  width: auto;
+  max-width: 220px;
+  height: 44px;
+  object-fit: contain;
+  object-position: left center;
+  filter: var(--logo-filter);
 }
 
 .site-nav {
@@ -403,6 +423,29 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- 5. Hero ---------- */
 
+body.has-ghost-fibers {
+  position: relative;
+  isolation: isolate;
+}
+
+.ghost-fibers {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  pointer-events: none;
+}
+
+.fibers-top-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
 .hero {
   border-bottom: 1px solid var(--rule);
   overflow: hidden;
@@ -423,6 +466,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .hero-main { padding-block: var(--hero-pt) var(--hero-pb); }
 
 .hero-title {
+  color: var(--hero-face);
+  perspective: 900px;
+  perspective-origin: 50% 48%;
   font-size: clamp(3.1rem, 8.4vw, 7.2rem);
   font-weight: 700;
   line-height: 1.02;
@@ -432,7 +478,38 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .hero-title em {
   font-style: normal;
   white-space: nowrap;
-  color: var(--accent);
+  color: var(--hero-accent);
+}
+
+.hero-title-stage {
+  position: relative;
+  display: block;
+  transform-style: preserve-3d;
+  transform: rotateX(-2.4deg) rotateY(3.15deg);
+}
+
+.hero-title-face,
+.hero-title-layer {
+  display: block;
+  backface-visibility: hidden;
+}
+
+.hero-title-face {
+  position: relative;
+  transform: translateZ(0.006em);
+  text-shadow: var(--hero-text-shadow);
+}
+
+.hero-title-layer {
+  position: absolute;
+  inset: 0;
+  color: color-mix(in srgb, var(--hero-face) var(--depth-face-mix), var(--hero-depth));
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-title-layer em {
+  color: color-mix(in srgb, var(--hero-accent) var(--depth-face-mix), var(--hero-accent-depth));
 }
 
 .hero-cta { margin-top: clamp(28px, 4vw, 48px); }
@@ -589,6 +666,8 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- 9. About band ---------- */
 
+.about { padding-bottom: clamp(32px, 4vw, 64px); }
+
 .about-grid {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -677,7 +756,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 
 .site-foot {
   background: var(--bg);
-  padding-block: clamp(40px, 5vw, 64px);
+  padding-block: clamp(24px, 3vw, 40px);
 }
 
 .foot-in {
@@ -1043,7 +1122,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .pager-card {
   display: flex;
   min-height: 260px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--rule);
   background: var(--surface);
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
@@ -1116,9 +1195,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   body { font-size: 15.5px; }
 
   .head-in { gap: 12px; }
-  .brand { flex-shrink: 0; font-size: 16px; letter-spacing: 0.05em; white-space: nowrap; }
+  .brand { flex-shrink: 0; font-size: 16px; letter-spacing: 0.05em; }
+  .brand .brand-logo { max-width: 180px; height: 36px; }
   .site-nav { gap: 10px; font-size: 13px; }
-  .brand span { display: none; }
 
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1444,9 +1523,12 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   max-width: 42em;
   margin-top: 24px;
   color: var(--text-dim);
-  font-family: var(--serif);
   font-size: clamp(16px, 1.4vw, 19px);
   line-height: 1.95;
+}
+
+.listing-head > p:not(.listing-kicker) {
+  font-family: var(--serif);
 }
 
 .listing-head > img:not(.listing-avatar) {

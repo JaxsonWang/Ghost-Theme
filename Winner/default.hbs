@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#2436e0">
+    {{#if statusCode}}
+        {{#if @site.icon}}<link rel="icon" href="{{@site.icon}}">{{/if}}
+    {{/if}}
     <title>{{#block "title"}}{{meta_title page=" - 第%页"}}{{#is "post"}} - {{@site.title}}{{/is}}{{/block}}</title>
     {{#if @custom.site_meta_keywords}}<meta name="keywords" content="{{@custom.site_meta_keywords}}">{{/if}}
-    <link rel="stylesheet" href="{{asset "built/index.css"}}">
+    {{! Apply the saved theme before stylesheets so initialization does not wait for CSS. }}
     <script>
         document.documentElement.classList.remove('no-js');
         try {
@@ -17,6 +20,7 @@
             }
         } catch (error) {}
     </script>
+    <link rel="stylesheet" href="{{asset "built/index.css"}}">
     <script src="{{asset "built/index.js"}}" defer></script>
     {{ghost_head}}
 </head>
@@ -25,7 +29,13 @@
 
 <header class="site-head">
     <div class="head-in wrap">
-        <a class="brand" href="{{@site.url}}">{{@site.title}}{{#if @custom.brand_suffix}}<span>{{@custom.brand_suffix}}</span>{{/if}}</a>
+        <a class="brand" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img class="brand-logo" src="{{@site.logo}}" alt="{{@site.title}}">
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </a>
         <nav class="site-nav" aria-label="主导航">
             {{navigation}}
         </nav>

@@ -1,0 +1,117 @@
+/* Border Glow and Spotlight Card: license notice in assets/js/card-effects.js. */
+:root {
+  --card-glow: light-dark(#5262d8, #c4ceff);
+  --card-glow-purple: light-dark(#7860d8, #c084fc);
+  --card-glow-pink: light-dark(#cb598d, #f472b6);
+  --card-glow-blue: light-dark(#208ea8, #38bdf8);
+  --card-spotlight: light-dark(rgb(36 54 224 / 12%), rgb(151 174 255 / 22%));
+}
+
+.post-link,
+.pager-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --card-mesh:
+    radial-gradient(at 80% 55%, var(--card-glow-purple), transparent 50%),
+    radial-gradient(at 69% 34%, var(--card-glow-pink), transparent 50%),
+    radial-gradient(at 8% 6%, var(--card-glow-blue), transparent 50%),
+    radial-gradient(at 41% 38%, var(--card-glow-purple), transparent 50%),
+    radial-gradient(at 86% 85%, var(--card-glow-pink), transparent 50%),
+    radial-gradient(at 82% 18%, var(--card-glow-blue), transparent 50%),
+    radial-gradient(at 51% 4%, var(--card-glow-pink), transparent 50%),
+    linear-gradient(var(--card-glow-purple) 0 100%);
+  position: relative;
+  isolation: isolate;
+}
+
+.post-link::before,
+.post-link::after,
+.pager-card::before,
+.pager-card::after,
+.card-edge-light {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.post-link::before,
+.pager-card::before {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--surface) 0 100%) padding-box, var(--card-mesh);
+  mask-image: conic-gradient(from var(--cursor-angle), #000 25%, transparent 40%, transparent 60%, #000 75%);
+}
+
+.post-link::after,
+.pager-card::after {
+  background: var(--card-mesh);
+  mask-image:
+    radial-gradient(ellipse at center, transparent 40%, #000 100%),
+    conic-gradient(from var(--cursor-angle), #000 25%, transparent 40%, transparent 60%, #000 75%);
+  mask-composite: intersect;
+}
+
+.card-edge-light {
+  --card-glow-padding: min(40px, var(--gutter));
+  inset: calc(-1 * var(--card-glow-padding));
+  z-index: 1;
+  mask-image: conic-gradient(from var(--cursor-angle), #000 2.5%, transparent 10%, transparent 90%, #000 97.5%);
+}
+
+.card-edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--card-glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--card-glow),
+    inset 0 0 3px color-mix(in srgb, var(--card-glow) 60%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--card-glow) 30%, transparent),
+    inset 0 0 24px color-mix(in srgb, var(--card-glow) 15%, transparent),
+    0 0 3px color-mix(in srgb, var(--card-glow) 60%, transparent),
+    0 0 12px color-mix(in srgb, var(--card-glow) 30%, transparent),
+    0 0 24px color-mix(in srgb, var(--card-glow) 15%, transparent);
+}
+
+.friend-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.friend-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), var(--card-spotlight), transparent 80%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .post-link:hover::before,
+  .pager-card:hover::before { opacity: calc((var(--edge-proximity) - 50) / 50); }
+
+  .post-link:hover::after,
+  .pager-card:hover::after { opacity: calc(0.14 * (var(--edge-proximity) - 50) / 50); }
+
+  .post-link:hover > .card-edge-light,
+  .pager-card:hover > .card-edge-light { opacity: calc((var(--edge-proximity) - 30) / 70); }
+
+  .friend-card:hover::before { opacity: 1; }
+}
+
+.post-link:focus-visible::before,
+.pager-card:focus-visible::before,
+.friend-card:focus-visible::before { opacity: 1; }
+
+.friend-card:focus-visible::before {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+}

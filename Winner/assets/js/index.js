@@ -1,6 +1,9 @@
 import "../css/index.css";
 import {enhanceLinksPage} from "./links.js";
 import {highlightCodeBlocks} from "./syntax-highlight.js";
+import {enhanceHeroTitle} from "./depth-text.js";
+import {enhanceGhostFibers} from "./ghost-fibers.js";
+import {enhanceCardEffects} from "./card-effects.js";
 
 (function () {
     "use strict";
@@ -27,6 +30,8 @@ import {highlightCodeBlocks} from "./syntax-highlight.js";
         const theme = root.getAttribute("data-theme");
         return theme === "dark" || (!theme && colorScheme.matches);
     }
+
+    const paintFibersTheme = enhanceGhostFibers(usesDarkTheme());
 
     function paintSearchTheme() {
         const frameDocument = document.querySelector("#sodo-search-root iframe")?.contentDocument;
@@ -70,6 +75,7 @@ import {highlightCodeBlocks} from "./syntax-highlight.js";
         } catch (error) {}
         paintThemePicker();
         paintSearchTheme();
+        paintFibersTheme?.(usesDarkTheme());
     }
 
     document.addEventListener("click", (event) => {
@@ -94,7 +100,10 @@ import {highlightCodeBlocks} from "./syntax-highlight.js";
     });
 
     colorScheme.addEventListener("change", () => {
-        if (root.getAttribute("data-theme-mode") === "auto") paintSearchTheme();
+        if (root.getAttribute("data-theme-mode") === "auto") {
+            paintSearchTheme();
+            paintFibersTheme?.(usesDarkTheme());
+        }
     });
 
     const searchFrameObserver = new MutationObserver(bindSearchTheme);
@@ -118,7 +127,9 @@ import {highlightCodeBlocks} from "./syntax-highlight.js";
     paintThemePicker();
 
     enhanceLinksPage();
+    enhanceCardEffects();
     highlightCodeBlocks();
+    enhanceHeroTitle();
 
     const revealables = document.querySelectorAll(".reveal");
     if (reducedMotion || !("IntersectionObserver" in window)) {

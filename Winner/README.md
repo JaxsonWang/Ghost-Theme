@@ -8,6 +8,7 @@ Winner 是为 [iiong.com](https://iiong.com) 制作的 Ghost 主题，视觉样�
 
 - 站点标题：`Settings → General → Title`
 - 站点简介：`Settings → General → Description`
+- 顶部 Logo：`Settings → Design → Brand → Publication logo`（`@site.logo`）；未上传时显示站点标题。当前黑色透明 Logo 在暗色模式下反白显示。
 - 首页主图：`Settings → Design → Brand → Publication cover`
 - 顶部与底部菜单：`Settings → Navigation`
 - 文章卡片、作者、标签、特色图片、阅读时间和前后文章均由 Ghost 模板上下文生成
