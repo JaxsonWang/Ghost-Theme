@@ -9,7 +9,7 @@
    display for CJK headlines, Song serif reserved for long-form reading,
    monospace for all figures and metadata, one accent (electric blue)
    pulled from the photography.
-   Z-index scale: header 50 / progress 55 / grain 60 / skip-link 100
+   Z-index scale: grain 40 / header 50 / progress 55 / skip-link 100
    ========================================================================= */
 
 /* ---------- 1. Tokens ---------- */
@@ -127,12 +127,13 @@ body {
   transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
 }
 
-/* Paper grain. Fixed + pointer-events:none so it never repaints on scroll. */
+/* Keep the grain below the header so Safari samples the header background
+   for its safe-area tint instead of this transparent fixed overlay. */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 60;
+  z-index: 40;
   pointer-events: none;
   opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");

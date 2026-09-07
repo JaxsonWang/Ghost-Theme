@@ -67,6 +67,11 @@ import {enhanceAboutProfile} from "./profile-card.js";
         });
     }
 
+    function paintBrowserTheme() {
+        // Updating the metadata also makes Safari resample its cached edge tint.
+        document.querySelector('meta[name="theme-color"]').content = getComputedStyle(root).getPropertyValue("--bg").trim();
+    }
+
     function setThemeMode(mode) {
         root.setAttribute("data-theme-mode", mode);
         if (mode === "auto") root.removeAttribute("data-theme");
@@ -75,6 +80,7 @@ import {enhanceAboutProfile} from "./profile-card.js";
             localStorage.setItem(storeKey, mode);
         } catch (error) {}
         paintThemePicker();
+        paintBrowserTheme();
         paintSearchTheme();
         paintFibersTheme?.(usesDarkTheme());
     }
@@ -102,6 +108,7 @@ import {enhanceAboutProfile} from "./profile-card.js";
 
     colorScheme.addEventListener("change", () => {
         if (root.getAttribute("data-theme-mode") === "auto") {
+            paintBrowserTheme();
             paintSearchTheme();
             paintFibersTheme?.(usesDarkTheme());
         }
@@ -126,6 +133,7 @@ import {enhanceAboutProfile} from "./profile-card.js";
     }
 
     paintThemePicker();
+    paintBrowserTheme();
 
     enhanceLinksPage();
     enhanceAboutProfile();
