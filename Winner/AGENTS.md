@@ -32,7 +32,8 @@
 
 ## 自定义设置与关于页名片
 
-- `package.json` 的 `config.custom` 当前有 20 项，已达到现有 GScan 校验上限。新增可配置行为前检查现有设置，避免直接增加第 21 项。
+- `package.json` 的 `config.custom` 当前有 7 项，不得超过 GScan 的 20 项上限。`hero`、`homepage_about`、`footer` 各使用一个 JSON 文本设置，由 `assets/js/theme-content.js` 校验并在视觉效果初始化前填充；字段变更同步更新 `README.md` 和 `test/theme-content.test.js`。
+- Twikoo 的环境 ID 和脚本地址通过 Post 分组的两个 custom 选项配置，经模板转义到 data 属性后读取；不要恢复代码注入的全局变量作为第二配置来源。
 - `about_profile` 使用一个 JSON 文本设置承载 `name`、`title`、`avatarUrl`；整项留空关闭名片，其余情况按 `assets/js/profile-card.js` 校验，照片地址只接受 HTTP(S)。解析失败须明确报错。
 - 名片仅用于 slug 为 `about` 的页面：将“简介”二至四级标题及其后连续普通段落放在名片旁，下一个非段落内容块恢复通栏。修改结构、字段或行为时同步更新 `README.md` 和 `test/profile-card.test.js`。
 - 配置中的展示文本通过 `textContent` 写入 DOM，不拼接为 HTML；不要绕过现有字段和 URL 校验。
@@ -46,17 +47,18 @@
 | `pnpm install --frozen-lockfile` | 按锁文件安装依赖 |
 | `pnpm dev` | 监听资源并启用 LiveReload；不会启动 Ghost 服务，页面需通过实际 Ghost 实例查看 |
 | `pnpm build` | 生成生产 CSS 和 JavaScript |
-| `pnpm test:ci` | 运行全部六组回归测试、生产构建和打包，再检查 Ghost 致命兼容性问题 |
+| `pnpm test:ci` | 运行全部八组回归测试、生产构建和打包，再检查 Ghost 致命兼容性问题 |
 | `pnpm exec gscan --verbose .` | 查看完整主题兼容性检查结果 |
 | `pnpm zip` | 重新构建并生成可上传到 Ghost Admin 的 `winner.zip` |
 
-- 局部逻辑验证按需运行 `pnpm test:links`、`pnpm test:syntax`、`pnpm test:depth`、`pnpm test:fibers`、`pnpm test:cards` 或 `pnpm test:profile`。
+- 局部逻辑验证按需运行 `pnpm test:links`、`pnpm test:syntax`、`pnpm test:depth`、`pnpm test:fibers`、`pnpm test:cards`、`pnpm test:profile`、`pnpm test:comments` 或 `pnpm test:settings`。
 - 现有测试使用 Node.js 的 `node:assert/strict`。非平凡逻辑变更补充对应回归断言，覆盖实际行为；被测试导入的模块不要在导入时执行浏览器 DOM 操作。当前没有独立 lint 或类型检查脚本，不虚构检查命令。
 - 模板、样式、脚本或构建配置改动完成后运行 `pnpm test:ci`；它已包含构建与打包，成功后无需机械重复。UI 改动还应通过实际 Ghost 页面检查受影响的布局、断点、主题模式和交互。
 - 仅文档改动核对引用路径、命令及 `git diff --check` 即可。报告实际执行的检查；没有浏览器或 Ghost 实例时明确说明未完成页面验证，不以构建成功代替运行验证。
 
 ## 构建产物与 Git
 
+- 每次主题更新都递增 `package.json` 的版本号；本次从 `1.2.0` 开始，后续修复递增补丁版本，功能更新递增次版本，并重新生成主题包。
 - 修改 `assets/css/`、`assets/js/` 的源文件后重新构建，并随源码提交对应的 `assets/built/index.css`、`assets/built/index.js`；不要直接修改压缩产物。
 - 仓库根 `.gitignore` 已忽略 `*.map`。Source map 可以本地生成和保留，不跟踪、不强制添加到 Git；不要因忽略上传而擅自关闭本地 source map 生成。
 - `winner.zip`、`node_modules/` 等已忽略产物保持本地使用。提交前检查完整差异及 `git status`，只纳入当前任务相关文件。

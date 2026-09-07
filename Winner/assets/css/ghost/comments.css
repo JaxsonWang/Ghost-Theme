@@ -1,3 +1,372 @@
-.gh-post-comments {
-    margin-block: 8vmin 4vmin;
+.comments {
+    padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+.comments-inner {
+    border-top: 2px solid var(--accent);
+}
+
+.comments-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-block: 24px;
+}
+
+.comments-head h2 {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: -0.03em;
+}
+
+.comments-head p,
+.comments-status {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 13px;
+}
+
+/* Scope to the section: Twikoo replaces its mount node during initialization. */
+#comments .twikoo {
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+}
+
+#comments .el-input__inner,
+#comments .el-textarea__inner,
+#comments .el-input-group__prepend,
+#comments .el-input-group__append,
+#comments .tk-admin select,
+#comments .tk-admin select option,
+#comments .tk-preview-container {
+    border-color: var(--rule);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+}
+
+#comments .el-input-group__prepend {
+    padding-inline: 12px;
+    background: var(--surface-2);
+    color: var(--text-dim);
+}
+
+#comments .el-input__inner {
+    height: 42px;
+}
+
+#comments .el-textarea__inner {
+    padding: 16px;
+    min-height: 140px !important;
+    line-height: 1.8;
+    resize: vertical;
+}
+
+#comments .el-input__inner::placeholder,
+#comments .el-textarea__inner::placeholder {
+    color: var(--text-dim);
+    opacity: 0.8;
+}
+
+#comments .el-input__inner:focus,
+#comments .el-textarea__inner:focus {
+    border-color: var(--accent);
+    outline: 1px solid var(--accent);
+    outline-offset: -1px;
+}
+
+#comments .el-input__inner:invalid {
+    border-color: #cf4545;
+}
+
+#comments .el-button {
+    border-radius: 0;
+    font-family: inherit;
+}
+
+#comments .el-button--primary {
+    border-color: var(--block);
+    background: var(--block);
+    color: var(--block-ink);
+}
+
+#comments .el-button:not(.el-button--primary):not(.el-button--text) {
+    border-color: var(--rule);
+    background: var(--surface);
+    color: var(--text);
+}
+
+#comments .el-button:hover:not(.is-disabled) {
+    border-color: var(--accent);
+}
+
+#comments .el-button.is-disabled {
+    opacity: 0.5;
+}
+
+#comments :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+#comments .tk-comments-title {
+    margin-top: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+}
+
+#comments .tk-comment {
+    margin-top: 24px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+#comments .tk-comment + .tk-comment {
+    padding-top: 24px;
+    border-top: 1px solid var(--rule-soft);
+}
+
+#comments .tk-avatar {
+    border-radius: 50%;
+}
+
+#comments .tk-content {
+    font-family: var(--sans);
+    line-height: 1.8;
+}
+
+#comments .tk-content img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+#comments .tk-content pre {
+    overflow-x: auto;
+    padding: 12px 16px;
+    background: var(--surface-2);
+    font-family: var(--mono);
+}
+
+#comments .tk-extras,
+#comments .tk-time,
+#comments .tk-footer,
+#comments .tk-comments-no {
+    color: var(--text-dim);
+}
+
+#comments .tk-action-link,
+#comments .tk-action-icon,
+#comments .tk-icon.__comments,
+#comments .el-button--text,
+#comments .tk-content a,
+#comments .tk-nick-link:hover {
+    color: var(--accent);
+}
+
+#comments .tk-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#comments .OwO .OwO-body {
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--text);
+}
+
+#comments .OwO .OwO-body .OwO-bar,
+#comments .OwO .OwO-body .OwO-items .OwO-item:hover,
+#comments .OwO .OwO-body .OwO-bar .OwO-packages .OwO-package-active,
+#comments .OwO .OwO-body .OwO-bar .OwO-packages li:hover {
+    background: var(--surface-2);
+}
+
+#comments .tk-expand {
+    width: fit-content;
+    min-width: 168px;
+    margin: 36px auto 0;
+    padding: 12px 28px;
+    border: 1px solid var(--accent);
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#comments .tk-expand:hover,
+#comments .tk-expand:active {
+    border-color: var(--block);
+    background: var(--block);
+    color: var(--block-ink);
+}
+
+#comments .tk-footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-soft);
+    text-align: right;
+    font-size: 12px;
+}
+
+#comments .el-loading-mask {
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+}
+
+#comments .el-loading-spinner .path {
+    stroke: var(--accent);
+}
+
+#comments .tk-admin.__show {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overscroll-behavior: contain;
+    background: var(--surface);
+    color: var(--text);
+}
+
+#comments .tk-admin-close {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    padding: 12px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    color: var(--text);
+}
+
+#comments .tk-panel {
+    width: min(100% - var(--gutter) * 2, var(--maxw));
+    margin-inline: auto;
+    padding: 56px 0 40px;
+    color: var(--text);
+}
+
+#comments .tk-panel-title {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 600;
+}
+
+#comments .tk-panel-logout,
+#comments .tk-login-msg a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+}
+
+#comments .tk-login-title,
+#comments .tk-password,
+#comments .tk-login-msg {
+    color: var(--text);
+}
+
+#comments .tk-panel .tk-tabs {
+    gap: clamp(16px, 3vw, 32px);
+    margin-block: 16px 24px;
+    border-color: var(--rule);
+}
+
+#comments .tk-panel .tk-tab {
+    margin-right: 0;
+    padding-block: 8px;
+    color: var(--text-dim);
+}
+
+#comments .tk-panel .tk-tab.__active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+#comments .tk-admin-warn {
+    border-color: #c59b19;
+    background: color-mix(in srgb, #c59b19 12%, var(--surface));
+    color: var(--text);
+}
+
+#comments .tk-admin-comment-filter {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#comments .tk-admin-comment-filter-keyword {
+    min-width: 180px;
+}
+
+#comments .tk-admin-comment-filter-type {
+    height: 42px;
+    margin: 0;
+}
+
+#comments .tk-admin-comment-filter > .el-button {
+    height: 42px;
+}
+
+#comments .tk-admin-actions {
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-color: var(--rule);
+}
+
+#comments .tk-admin-config-desc,
+#comments .tk-admin-config-email-test-desc {
+    color: var(--text-dim);
+}
+
+#comments .tk-pagination {
+    gap: 16px;
+    margin-top: 8px;
+}
+
+#comments .tk-pagination-options {
+    gap: 8px;
+    color: var(--text-dim);
+}
+
+#comments .tk-pagination-pager:hover {
+    background: var(--surface-2);
+}
+
+#comments .tk-pagination-pager.__current {
+    background: var(--block);
+    color: var(--block-ink);
+}
+
+#comments .tk-admin::-webkit-scrollbar-thumb {
+    background: var(--rule);
+}
+
+@media (max-width: 600px) {
+    #comments .tk-admin-comment-filter-keyword {
+        flex-basis: 100%;
+    }
+
+    #comments .tk-admin-config-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    #comments .tk-admin-config-title {
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #comments *,
+    #comments *::before,
+    #comments *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }

@@ -30,9 +30,16 @@
         <div class="prose gh-content">{{content}}</div>
     </div>
 
-    {{#if comments}}
-        <section class="comments wrap">{{comments}}</section>
-    {{/if}}
+    <section class="comments wrap" id="comments" data-comments data-twikoo-env-id="{{@custom.comments_twikoo_env_id}}" data-twikoo-js-url="{{@custom.comments_twikoo_js_url}}" aria-labelledby="comments-title" hidden>
+        <div class="comments-inner">
+            <header class="comments-head">
+                <h2 id="comments-title">评论</h2>
+                <p>想法、问题，都可以留在这里。</p>
+            </header>
+            <p class="comments-status" data-comments-status role="status">评论加载中…</p>
+            <div id="vcomments"></div>
+        </div>
+    </section>
 
     <div class="art-end">
         <div class="wrap">

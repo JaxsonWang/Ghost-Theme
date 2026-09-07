@@ -2,6 +2,7 @@
 @import "./syntax-highlight.css";
 @import "./card-effects.css";
 @import "./profile-card.css";
+@import "./ghost/comments.css";
 
 /* =========================================================================
    淮城一只猫 / iiong.com - static Chinese blog theme
@@ -1754,10 +1755,6 @@ body.has-ghost-fibers {
 .friend-card:hover .friend-arrow {
   color: var(--accent);
   transform: translate(3px, -3px);
-}
-
-.comments {
-  padding-bottom: clamp(64px, 8vw, 112px);
 }
 
 .author-mark { overflow: hidden; }

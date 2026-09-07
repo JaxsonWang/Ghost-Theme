@@ -3,7 +3,7 @@ import {readFileSync} from "node:fs";
 import {advanceProfileTilt, getProfilePointer, parseAboutProfile} from "../assets/js/profile-card.js";
 
 const {config} = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
-assert.equal(Object.keys(config.custom).length, 20);
+assert.ok(Object.keys(config.custom).length <= 20);
 const profile = parseAboutProfile(config.custom.about_profile.default);
 assert.equal(profile.name, "Jaxson Wang");
 assert.equal(profile.avatarUrl, "https://cdn.iiong.com/2026/09/my.webp");

@@ -5,9 +5,13 @@ import {enhanceHeroTitle} from "./depth-text.js";
 import {enhanceGhostFibers} from "./ghost-fibers.js";
 import {enhanceCardEffects} from "./card-effects.js";
 import {enhanceAboutProfile} from "./profile-card.js";
+import {enhanceComments} from "./comments.js";
+import {enhanceThemeContent} from "./theme-content.js";
 
 (function () {
     "use strict";
+
+    enhanceThemeContent();
 
     const root = document.documentElement;
     const storeKey = "winner-theme";
@@ -137,6 +141,7 @@ import {enhanceAboutProfile} from "./profile-card.js";
 
     enhanceLinksPage();
     enhanceAboutProfile();
+    enhanceComments();
     enhanceCardEffects();
     highlightCodeBlocks();
     enhanceHeroTitle();

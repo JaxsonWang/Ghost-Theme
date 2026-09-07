@@ -75,25 +75,23 @@
     {{{body}}}
 </main>
 
-<footer class="site-foot">
+<footer class="site-foot" data-theme-content="footer" data-content-config="{{@custom.footer}}" hidden>
     <div class="foot-in wrap">
         <nav class="foot-nav" aria-label="页脚导航">
             {{navigation type="secondary"}}
         </nav>
         <div class="foot-meta">
             <div class="foot-credit">
-                <p>Powered by <a href="https://ghost.org/" target="_blank" rel="nofollow noopener">Ghost</a>. Copyright © {{#if @custom.copyright_start_year}}{{@custom.copyright_start_year}} ~ {{/if}}{{date format="YYYY"}}.</p>
+                <p>Powered by <a href="https://ghost.org/" target="_blank" rel="nofollow noopener">Ghost</a>. Copyright © <span data-setting-visible="copyrightStartYear"><span data-setting-text="copyrightStartYear"></span> ~ </span>{{date format="YYYY"}}.</p>
                 <p>❤️ Crafted with <a href="https://github.com/JaxsonWang/Ghost-Theme" target="_blank" rel="nofollow noopener">Winner</a> Theme.</p>
             </div>
-            {{#if @custom.footer_one}}<p class="foot-motto">{{@custom.footer_one}}</p>{{/if}}
+            <p class="foot-motto" data-setting-text="motto" data-setting-visible="motto"></p>
         </div>
-        {{#if @custom.icp_name}}
-            <div class="foot-legal">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">{{@custom.icp_name}}</a>
-                {{#if @custom.gongan_beian_name}}<a href="{{@custom.gongan_beian_url}}" target="_blank" rel="nofollow noopener">{{@custom.gongan_beian_name}}</a>{{/if}}
-                {{#if @custom.footer_url_url}}<a href="{{@custom.footer_url_url}}" target="_blank" rel="nofollow noopener">{{@custom.footer_url_name}}</a>{{/if}}
-            </div>
-        {{/if}}
+        <div class="foot-legal" data-setting-visible="icpName">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" data-setting-text="icpName"></a>
+            <a target="_blank" rel="nofollow noopener" data-setting-text="gonganBeianName" data-setting-href="gonganBeianUrl" data-setting-visible="gonganBeianName gonganBeianUrl"></a>
+            <a target="_blank" rel="nofollow noopener" data-setting-text="linkName" data-setting-href="linkUrl" data-setting-visible="linkName linkUrl"></a>
+        </div>
     </div>
 </footer>
 

@@ -2,7 +2,7 @@
     "name": "winner",
     "description": "Winner is a print-inspired Chinese Ghost theme for iiong.com",
     "demo": "https://iiong.com",
-    "version": "1.0.0",
+    "version": "1.2.1",
     "engines": {
         "ghost": ">=6.0.0"
     },
@@ -20,11 +20,13 @@
         "test:fibers": "node test/ghost-fibers.test.js",
         "test:cards": "node test/card-effects.test.js",
         "test:profile": "node test/profile-card.test.js",
+        "test:comments": "node test/comments.test.js",
         "zip": "pnpm build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
         "test": "gscan .",
         "pretest": "pnpm zip",
         "test:ci": "gscan --fatal --verbose .",
-        "pretest:ci": "pnpm test:links && pnpm test:syntax && pnpm test:depth && pnpm test:fibers && pnpm test:cards && pnpm test:profile && pnpm zip"
+        "pretest:ci": "pnpm test:links && pnpm test:syntax && pnpm test:depth && pnpm test:fibers && pnpm test:cards && pnpm test:profile && pnpm test:comments && pnpm test:settings && pnpm zip",
+        "test:settings": "node test/theme-content.test.js"
     },
     "packageManager": "pnpm@11.25.0",
     "author": {
@@ -103,106 +105,34 @@
                 "default": "全栈人生,全栈笔记,全栈工程师,全栈,淮城一只猫,淮城,IT博客,个人博客,王瑾,WEB平台",
                 "description": "站点 SEO 关键词，使用英文逗号分隔"
             },
-            "copyright_start_year": {
+            "footer": {
                 "type": "text",
-                "default": "2021",
-                "description": "页脚版权信息的起始年份"
+                "default": "{\"copyrightStartYear\":\"2021\",\"icpName\":\"苏ICP备15050739号\",\"gonganBeianName\":\"苏公网安备32010402000196号\",\"gonganBeianUrl\":\"https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196\",\"linkName\":\"百度统计\",\"linkUrl\":\"https://tongji.baidu.com/main/overview/10000137113/overview/index?siteId=14346808\",\"motto\":\"只争朝夕，不负韶华。\"}",
+                "description": "页脚 JSON：版权起始年、备案、附加链接和短句；字段示例见 README"
             },
-            "icp_name": {
+            "hero": {
                 "type": "text",
-                "default": "苏ICP备15050739号",
-                "description": "页脚展示的 ICP 备案号"
+                "default": "{\"titleLineOne\":\"永远年轻\",\"titleLineTwo\":\"永远\",\"titleAccent\":\"热泪盈眶\",\"sideText\":\"淮城一只猫，关注于产品体验、生活体验和IT技术经验分享的个人博客。致力成为互联网具有个性化、传播力的个人独立博客。博客座右铭：永远年轻，永远热泪盈眶。\",\"ctaText\":\"阅读最新一篇\"}",
+                "description": "首页 Hero JSON：标题、强调文字、侧边简介和按钮文案；字段示例见 README",
+                "group": "homepage"
             },
-            "gongan_beian_name": {
+            "homepage_about": {
                 "type": "text",
-                "default": "苏公网安备32010402000196号",
-                "description": "页脚展示的公安备案号"
+                "default": "{\"titleLineOne\":\"不追热点，\",\"titleLineTwo\":\"记录真正经历过的事。\",\"sideText\":\"永远年轻，永远热泪盈眶\",\"bodyText\":\"淮城一只猫，关注于产品体验、生活体验和IT技术经验分享的个人博客。致力成为互联网具有个性化、传播力的个人独立博客。博客座右铭：永远年轻，永远热泪盈眶。\",\"ctaText\":\"关于作者\",\"ctaUrl\":\"/about/\"}",
+                "description": "首页关于区 JSON：标题、简介和按钮；字段示例见 README",
+                "group": "homepage"
             },
-            "gongan_beian_url": {
+            "comments_twikoo_env_id": {
                 "type": "text",
-                "default": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402000196",
-                "description": "公安备案信息查询地址"
+                "default": "",
+                "group": "post",
+                "description": "Twikoo 环境 ID 或完整服务地址，填写 Brave 原来的值；留空关闭评论"
             },
-            "footer_url_name": {
+            "comments_twikoo_js_url": {
                 "type": "text",
-                "default": "百度统计",
-                "description": "页脚附加链接名称"
-            },
-            "footer_url_url": {
-                "type": "text",
-                "default": "https://tongji.baidu.com/main/overview/10000137113/overview/index?siteId=14346808",
-                "description": "页脚附加链接地址"
-            },
-            "footer_one": {
-                "type": "text",
-                "default": "只争朝夕，不负韶华。",
-                "description": "页脚右侧短句"
-            },
-            "hero_title_line_one": {
-                "type": "text",
-                "default": "永远年轻",
-                "group": "homepage",
-                "description": "首页主标题第一行"
-            },
-            "hero_title_line_two": {
-                "type": "text",
-                "default": "永远",
-                "group": "homepage",
-                "description": "首页主标题第二行的普通文字"
-            },
-            "hero_title_accent": {
-                "type": "text",
-                "default": "热泪盈眶",
-                "group": "homepage",
-                "description": "首页主标题第二行的蓝色文字"
-            },
-            "hero_side_text": {
-                "type": "text",
-                "default": "淮城一只猫，关注于产品体验、生活体验和IT技术经验分享的个人博客。致力成为互联网具有个性化、传播力的个人独立博客。博客座右铭：永远年轻，永远热泪盈眶。",
-                "group": "homepage",
-                "description": "首页主视觉右侧的竖排简介"
-            },
-            "hero_cta_text": {
-                "type": "text",
-                "default": "阅读最新一篇",
-                "group": "homepage",
-                "description": "首页主标题下方按钮文案"
-            },
-            "about_title_line_one": {
-                "type": "text",
-                "default": "不追热点，",
-                "group": "homepage",
-                "description": "首页关于区标题第一行"
-            },
-            "about_title_line_two": {
-                "type": "text",
-                "default": "记录真正经历过的事。",
-                "group": "homepage",
-                "description": "首页关于区标题第二行"
-            },
-            "about_side_text": {
-                "type": "text",
-                "default": "永远年轻，永远热泪盈眶",
-                "group": "homepage",
-                "description": "首页关于区左侧竖排文字"
-            },
-            "about_body_text": {
-                "type": "text",
-                "default": "淮城一只猫，关注于产品体验、生活体验和IT技术经验分享的个人博客。致力成为互联网具有个性化、传播力的个人独立博客。博客座右铭：永远年轻，永远热泪盈眶。",
-                "group": "homepage",
-                "description": "首页关于区右侧简介"
-            },
-            "about_cta_text": {
-                "type": "text",
-                "default": "关于作者",
-                "group": "homepage",
-                "description": "首页关于区按钮文案"
-            },
-            "about_cta_url": {
-                "type": "text",
-                "default": "/about/",
-                "group": "homepage",
-                "description": "首页关于区按钮跳转地址"
+                "default": "https://cdn.jsdelivr.net/npm/twikoo@1.6.34/dist/twikoo.all.min.js",
+                "group": "post",
+                "description": "Twikoo 客户端脚本地址，请与服务端版本保持一致"
             }
         }
     },
